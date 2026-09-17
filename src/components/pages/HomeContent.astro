@@ -379,7 +379,89 @@ const t = useTranslations(lang);
     </div>
 
     <div class="grid md:grid-cols-2 gap-6">
-      <!-- Notice 1: AI-native Agent Security & Compliance Part 1 (Sep 1, 2026) -->
+      <!-- Notice 1: WA Chapter Established (Sep 17, 2026) -->
+      <div class="bg-slate-900/50 border border-blue-500/40 hover:border-blue-400/60 rounded-3xl p-7 flex flex-col justify-between transition-all group bg-gradient-to-br from-blue-950/20 to-slate-900/50">
+        <div>
+          <div class="flex items-center gap-x-3 text-xs text-slate-400 mb-3">
+            <span class="px-2.5 py-0.5 rounded-full bg-blue-600/20 text-blue-300 border border-blue-500/30 font-semibold">
+              {lang === 'en' ? 'Chapter News' : lang === 'zh-TW' ? '重要公告' : '重要公告'}
+            </span>
+            <time datetime="2026-09-17">{lang === 'en' ? 'September 17, 2026' : '2026年9月17日'}</time>
+          </div>
+          <h3 class="font-bold text-lg text-white group-hover:text-blue-400 transition-colors leading-snug mb-3">
+            <a href={lang === 'en' 
+              ? '/en/posts/2026-09-17-nacuaa-washington-state-chapter-established/' 
+              : lang === 'zh-TW'
+              ? '/zh-TW/posts/2026-09-17-nacuaa-washington-state-chapter-established/'
+              : '/posts/2026-09-17-nacuaa-washington-state-chapter-established/'}>
+              {lang === 'en' 
+                ? '【Announcement】NACUAA Washington State Chapter (Seattle) Officially Established!'
+                : lang === 'zh-TW'
+                ? '【重要公告】北美高校聯盟華盛頓州分會（西雅圖分會）正式成立！'
+                : '【重要公告】北美高校联盟华盛顿州分会（西雅图分会）正式成立！'}
+            </a>
+          </h3>
+          <p class="text-slate-400 text-xs leading-relaxed line-clamp-3 mb-6">
+            {lang === 'en'
+              ? 'NACUAA Washington State Chapter officially established under President Ashley Qi, serving alumni in Greater Seattle and Pacific Northwest.'
+              : lang === 'zh-TW'
+              ? '北美高校聯盟華盛頓州分會（西雅圖分會）正式宣告成立，由戚霄（Ashley Qi）出任首任會長，深耕大西雅圖與美西北地區。'
+              : '北美高校联盟华盛顿州分会（西雅图分会）正式宣告成立，由戚霄（Ashley Qi）出任首任会长，深耕大西雅图与美西北地区。'}
+          </p>
+        </div>
+        <a href={lang === 'en' 
+          ? '/en/posts/2026-09-17-nacuaa-washington-state-chapter-established/' 
+          : lang === 'zh-TW'
+          ? '/zh-TW/posts/2026-09-17-nacuaa-washington-state-chapter-established/'
+          : '/posts/2026-09-17-nacuaa-washington-state-chapter-established/'}
+           class="inline-flex items-center gap-x-2 text-xs font-semibold text-blue-400 hover:text-blue-300">
+          <span>{lang === 'en' ? 'Learn More' : '了解详情'}</span>
+          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        </a>
+      </div>
+
+      <!-- Notice 2: Four Chapters Sisterhood & ZJU Partnership (Sep 12, 2026) -->
+      <div class="bg-slate-900/50 border border-slate-800/80 hover:border-blue-500/40 rounded-3xl p-7 flex flex-col justify-between transition-all group">
+        <div>
+          <div class="flex items-center gap-x-3 text-xs text-slate-400 mb-3">
+            <span class="px-2.5 py-0.5 rounded-full bg-purple-600/10 text-purple-400 border border-purple-500/20 font-semibold">
+              {lang === 'en' ? 'Sister Chapters' : lang === 'zh-TW' ? '聯盟新聞' : '联盟新闻'}
+            </span>
+            <time datetime="2026-09-12">{lang === 'en' ? 'September 12, 2026' : '2026年9月12日'}</time>
+          </div>
+          <h3 class="font-bold text-lg text-white group-hover:text-blue-400 transition-colors leading-snug mb-3">
+            <a href={lang === 'en' 
+              ? '/en/posts/2026-09-12-four-chapters-sisterhood-and-zju-strategic-partnership/' 
+              : lang === 'zh-TW'
+              ? '/zh-TW/posts/2026-09-12-four-chapters-sisterhood-and-zju-strategic-partnership/'
+              : '/posts/2026-09-12-four-chapters-sisterhood-and-zju-strategic-partnership/'}>
+              {lang === 'en' 
+                ? '【News】Four NACUAA Chapters Form Sisterhood & Partner with ZJUAA NC'
+                : lang === 'zh-TW'
+                ? '【新聞】北美高校聯盟四分會結為姊妹分會，並與浙江大學北卡羅來納校友會建立戰略合作'
+                : '【新闻】北美高校联盟四分会结为姊妹分会，并与浙江大学北卡罗来纳校友会建立战略合作'}
+            </a>
+          </h3>
+          <p class="text-slate-400 text-xs leading-relaxed line-clamp-3 mb-6">
+            {lang === 'en'
+              ? 'Northern California, Silicon Valley, North Carolina, and Washington D.C. form sisterhood, establishing strategic partnership with ZJUAA NC.'
+              : lang === 'zh-TW'
+              ? '北加州分會、矽谷分會、北卡分會、華盛頓DC分會結為姊妹分會，並與浙江大學北卡校友會達成戰略合作。'
+              : '北加州分会、硅谷分会、北卡分会、华盛顿DC分会结为姊妹分会，并与浙江大学北卡校友会达成战略合作。'}
+          </p>
+        </div>
+        <a href={lang === 'en' 
+          ? '/en/posts/2026-09-12-four-chapters-sisterhood-and-zju-strategic-partnership/' 
+          : lang === 'zh-TW'
+          ? '/zh-TW/posts/2026-09-12-four-chapters-sisterhood-and-zju-strategic-partnership/'
+          : '/posts/2026-09-12-four-chapters-sisterhood-and-zju-strategic-partnership/'}
+           class="inline-flex items-center gap-x-2 text-xs font-semibold text-blue-400 hover:text-blue-300">
+          <span>{lang === 'en' ? 'Learn More' : '了解详情'}</span>
+          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        </a>
+      </div>
+
+      <!-- Notice 3: AI-native Agent Security & Compliance Part 1 (Sep 1, 2026) -->
       <div class="bg-slate-900/50 border border-slate-800/80 hover:border-blue-500/40 rounded-3xl p-7 flex flex-col justify-between transition-all group">
         <div>
           <div class="flex items-center gap-x-3 text-xs text-slate-400 mb-3">
@@ -395,7 +477,7 @@ const t = useTranslations(lang);
               ? '/zh-TW/posts/2026-09-01-ai-native-agent-security-compliance-lecture-1/'
               : '/posts/2026-09-01-ai-native-agent-security-compliance-lecture-1/'}>
               {lang === 'en' 
-                ? '【Free Webinar】AI-Native Agent Security & Compliance Part 1: From Chatting to Action, Where Do Risks Come From?'
+                ? '【Free Webinar】AI-Native Agent Security & Compliance Part 1: From Chatting to Action'
                 : lang === 'zh-TW'
                 ? '【公益免費｜Zoom】AI原生智能體安全與合規第一講：從聊天到動手，風險從哪來'
                 : '【公益免费｜Zoom】AI原生智能体安全与合规第一讲：从聊天到动手，风险从哪来'}
@@ -403,7 +485,7 @@ const t = useTranslations(lang);
           </h3>
           <p class="text-slate-400 text-xs leading-relaxed line-clamp-3 mb-6">
             {lang === 'en'
-              ? 'Following Physical AI and Agent Media series, we launch AI-Native Agent Security & Compliance Part 1: Risk models, top 6 risk vectors, and pre-launch checklists.'
+              ? 'AI-Native Agent Security & Compliance Part 1: Risk models, top 6 risk vectors, and pre-launch checklists.'
               : '开启新系列讲座：AI原生智能体 · 安全与合规。第一讲探讨从会聊天到能动手，智能体产品的安全红线与六类高发风险。'}
           </p>
         </div>
@@ -418,7 +500,7 @@ const t = useTranslations(lang);
         </a>
       </div>
 
-      <!-- Notice 2: AI Music Competition (July 22, 2026) -->
+      <!-- Notice 4: AI Music Competition (July 22, 2026) -->
       <div class="bg-slate-900/50 border border-slate-800/80 hover:border-blue-500/40 rounded-3xl p-7 flex flex-col justify-between transition-all group">
         <div>
           <div class="flex items-center gap-x-3 text-xs text-slate-400 mb-3">
@@ -443,7 +525,9 @@ const t = useTranslations(lang);
           <p class="text-slate-400 text-xs leading-relaxed line-clamp-3 mb-6">
             {lang === 'en'
               ? 'Co-organized by NACUAA chapters and AI clubs. Use AI to compose Chinese musical stories! Registration is open.'
-              : '由北美高校联盟硅谷分会、北卡分会与AI创业公益俱乐部等机构联合主办的大赛启动报名！'}
+              : lang === 'zh-TW'
+              ? '由北美高校聯盟華盛頓州分會、北卡分會、華盛頓DC分會與AI創業公益俱樂部等機構聯合主辦的大賽啟動報名！'
+              : '由北美高校联盟华盛顿州分会、北卡分会、华盛顿DC分会与AI创业公益俱乐部等机构联合主办的大赛启动报名！'}
           </p>
         </div>
         <a href={lang === 'en' 
@@ -451,84 +535,6 @@ const t = useTranslations(lang);
           : lang === 'zh-TW'
           ? '/zh-TW/posts/2026-07-22-first-north-american-chinese-ai-music-competition/'
           : '/posts/2026-07-22-first-north-american-chinese-ai-music-competition/'}
-           class="inline-flex items-center gap-x-2 text-xs font-semibold text-blue-400 hover:text-blue-300">
-          <span>{lang === 'en' ? 'Learn More' : '了解详情'}</span>
-          <i class="fa-solid fa-arrow-right text-[10px]"></i>
-        </a>
-      </div>
-
-      <!-- Notice 3: Embodied AI Lecture 2 (July 10, 2026) -->
-      <div class="bg-slate-900/50 border border-slate-800/80 hover:border-blue-500/40 rounded-3xl p-7 flex flex-col justify-between transition-all group">
-        <div>
-          <div class="flex items-center gap-x-3 text-xs text-slate-400 mb-3">
-            <span class="px-2.5 py-0.5 rounded-full bg-blue-600/10 text-blue-400 border border-blue-500/20 font-semibold">
-              {lang === 'en' ? 'Lecture' : lang === 'zh-TW' ? '活動講座' : '活动讲座'}
-            </span>
-            <time datetime="2026-07-10">{lang === 'en' ? 'July 10, 2026' : '2026年7月10日'}</time>
-          </div>
-          <h3 class="font-bold text-lg text-white group-hover:text-blue-400 transition-colors leading-snug mb-3">
-            <a href={lang === 'en' 
-              ? '/en/posts/2026-07-10-embodied-intelligence-physical-ai-second-lecture/' 
-              : lang === 'zh-TW'
-              ? '/zh-TW/posts/2026-07-10-embodied-intelligence-physical-ai-second-lecture/'
-              : '/posts/2026-07-10-embodied-intelligence-physical-ai-second-lecture/'}>
-              {lang === 'en' 
-                ? '【Free Public Lecture】Embodied Intelligence & Physical AI Lecture 2: VLA to World Models'
-                : lang === 'zh-TW'
-                ? '【公益免費講座】具身智能與物理AI第二講：從VLA到World Models的範式演進'
-                : '【公益免费讲座】具身智能与物理AI第二讲：从VLA到World Models的范式演进'}
-            </a>
-          </h3>
-          <p class="text-slate-400 text-xs leading-relaxed line-clamp-3 mb-6">
-            {lang === 'en'
-              ? 'Exploring why traditional VLA hits bottlenecks and what World Models change. Slides & video released.'
-              : '系统性探讨传统VLA遇到的瓶颈、World Models带来的根本性改变以及2026年的产业实际落地。'}
-          </p>
-        </div>
-        <a href={lang === 'en' 
-          ? '/en/posts/2026-07-10-embodied-intelligence-physical-ai-second-lecture/' 
-          : lang === 'zh-TW'
-          ? '/zh-TW/posts/2026-07-10-embodied-intelligence-physical-ai-second-lecture/'
-          : '/posts/2026-07-10-embodied-intelligence-physical-ai-second-lecture/'}
-           class="inline-flex items-center gap-x-2 text-xs font-semibold text-blue-400 hover:text-blue-300">
-          <span>{lang === 'en' ? 'Learn More' : '了解详情'}</span>
-          <i class="fa-solid fa-arrow-right text-[10px]"></i>
-        </a>
-      </div>
-
-      <!-- Notice 4: Peter Wu Lecture (July 8, 2026) -->
-      <div class="bg-slate-900/50 border border-slate-800/80 hover:border-blue-500/40 rounded-3xl p-7 flex flex-col justify-between transition-all group">
-        <div>
-          <div class="flex items-center gap-x-3 text-xs text-slate-400 mb-3">
-            <span class="px-2.5 py-0.5 rounded-full bg-blue-600/10 text-blue-400 border border-blue-500/20 font-semibold">
-              {lang === 'en' ? 'Lecture' : lang === 'zh-TW' ? '活動講座' : '活动讲座'}
-            </span>
-            <time datetime="2026-07-08">{lang === 'en' ? 'July 8, 2026' : '2026年7月8日'}</time>
-          </div>
-          <h3 class="font-bold text-lg text-white group-hover:text-blue-400 transition-colors leading-snug mb-3">
-            <a href={lang === 'en' 
-              ? '/en/posts/2026-07-08-ai-agents-entrepreneurship-club-lecture/' 
-              : lang === 'zh-TW'
-              ? '/zh-TW/posts/2026-07-08-ai-agents-entrepreneurship-club-lecture/'
-              : '/posts/2026-07-08-ai-agents-entrepreneurship-club-lecture/'}>
-              {lang === 'en' 
-                ? '【Free Public Lecture】40-Year Tech Veteran\'s Guide: How AI Agents Help Content Creators Make Real Money'
-                : lang === 'zh-TW'
-                ? '【公益免費講座】《40年技術老兵硬核拆解：AI智能體如何幫內容創作者真正賺到錢》'
-                : '【公益免费讲座】《40年技术老兵硬核拆解：AI智能体如何帮内容创作者真正赚到钱》'}
-            </a>
-          </h3>
-          <p class="text-slate-400 text-xs leading-relaxed line-clamp-3 mb-6">
-            {lang === 'en'
-              ? 'Join 40-year tech veteran Peter Wu as he shares practical strategies on turning AI Agents into money-making tools.'
-              : '特别邀请拥有40年技术与商业架构经验的实战派讲者Peter Wu，分享如何用AI智能体构建可持续商业系统。'}
-          </p>
-        </div>
-        <a href={lang === 'en' 
-          ? '/en/posts/2026-07-08-ai-agents-entrepreneurship-club-lecture/' 
-          : lang === 'zh-TW'
-          ? '/zh-TW/posts/2026-07-08-ai-agents-entrepreneurship-club-lecture/'
-          : '/posts/2026-07-08-ai-agents-entrepreneurship-club-lecture/'}
            class="inline-flex items-center gap-x-2 text-xs font-semibold text-blue-400 hover:text-blue-300">
           <span>{lang === 'en' ? 'Learn More' : '了解详情'}</span>
           <i class="fa-solid fa-arrow-right text-[10px]"></i>
