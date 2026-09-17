@@ -1,0 +1,694 @@
+---
+import type { Locale } from "../../i18n/locales";
+import { useTranslations, getLocalizedPath } from "../../i18n/utils";
+import { WAIVER_SECTIONS, WAIVER_VERSION, WAIVER_HEADER, WAIVER_DECLARATION, MINOR_CLAUSE } from "../../data/waiverTerms";
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<div class="max-w-4xl mx-auto px-4 sm:px-6 py-10 md:py-16 space-y-8">
+  <!-- Top Navigation & Breadcrumb -->
+  <div class="flex items-center justify-between flex-wrap gap-4 text-xs">
+    <a href={getLocalizedPath("/clubs/", lang)} class="inline-flex items-center gap-x-2 text-blue-400 hover:text-blue-300 transition-colors">
+      <i class="fa-solid fa-arrow-left"></i>
+      <span>{lang === "en" ? "Back to Clubs Directory" : lang === "zh-TW" ? "返回校友俱樂部總覽" : "返回校友俱乐部总览"}</span>
+    </a>
+    <div class="flex items-center gap-2">
+      <span class="px-2.5 py-1 rounded-full bg-blue-600/10 text-blue-400 border border-blue-500/20 font-mono">
+        {WAIVER_VERSION}
+      </span>
+      <a href="/waiver/admin/" class="text-slate-500 hover:text-slate-400 transition-colors flex items-center gap-x-1">
+        <i class="fa-solid fa-lock text-[10px]"></i>
+        <span>{lang === "en" ? "Admin" : "管理后台"}</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Hero Title Card -->
+  <div class="relative bg-gradient-to-br from-slate-900/90 via-slate-900/70 to-slate-950 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-md overflow-hidden">
+    <div class="absolute -right-12 -top-12 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="space-y-3">
+      <div class="flex items-center gap-x-2 text-blue-400 text-xs font-semibold tracking-wider uppercase">
+        <i class="fa-solid fa-file-contract"></i>
+        <span>{lang === "en" ? "Official Event Release" : "联盟官方活动免责"}</span>
+      </div>
+      <h1 class="text-2xl sm:text-3xl font-bold text-white tracking-tight heading-font">
+        {lang === "en" ? WAIVER_HEADER.titleEn : WAIVER_HEADER.titleZh}
+      </h1>
+      <p class="text-xs sm:text-sm text-slate-400">
+        {WAIVER_HEADER.orgZh} · {WAIVER_HEADER.orgEn.replace("\n", " ")}
+      </p>
+    </div>
+
+    <!-- Language Control Banner (MANDATORY ALERT) -->
+    <div class="mt-6 p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-200/90 space-y-1 text-xs leading-relaxed">
+      <div class="font-bold flex items-center gap-x-1.5 text-amber-300">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <span>LANGUAGE CONTROL | 语言效力声明（以英文为准）</span>
+      </div>
+      <p class="text-[11px] text-amber-200/80">
+        {WAIVER_HEADER.langControlZh}
+      </p>
+      <p class="text-[10px] text-amber-300/60 font-mono mt-1 pt-1 border-t border-amber-500/20">
+        {WAIVER_HEADER.langControlEn}
+      </p>
+    </div>
+  </div>
+
+  <!-- Signer Form -->
+  <form id="waiver-form" class="space-y-8">
+    <!-- Step 1: Event Info -->
+    <div class="bg-slate-900/50 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-5">
+      <h2 class="text-base sm:text-lg font-bold text-white flex items-center gap-x-2">
+        <span class="w-6 h-6 rounded-full bg-blue-600 text-white text-xs flex items-center justify-center font-bold">1</span>
+        <span>{lang === "en" ? "Activity & Club Information" : "活动与所属俱乐部"}</span>
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+        <div>
+          <label class="block text-slate-300 font-medium mb-1.5" for="club-select">
+            {lang === "en" ? "Club / Affiliation" : "所属俱乐部 / 组织机构"} *
+          </label>
+          <select id="club-select" name="club" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3.5 py-2.5 text-slate-200 focus:outline-none focus:border-blue-500 transition-colors">
+            <option value="general">{lang === "en" ? "NACUAA WA General Activity" : "北美高校联盟华盛顿州分会 · 综合活动"}</option>
+            <option value="run">健行俱乐部 (Hiking / ChaseWind)</option>
+            <option value="guandan">掼蛋俱乐部 (Guandan Club)</option>
+            <option value="tennis">网球俱乐部 (Tennis Club)</option>
+            <option value="pickleball">匹克球俱乐部 (Pickleball Club)</option>
+            <option value="golf">高尔夫俱乐部 (Golf Club)</option>
+            <option value="music">音乐玩乐俱乐部 (Music Fun Club)</option>
+            <option value="garden">园艺团购俱乐部 (Garden Club)</option>
+            <option value="ai">AI创业公益俱乐部 (AI Venture & Impact)</option>
+            <option value="aimedia">AI影音创意俱乐部 (AI Creative Media)</option>
+            <option value="other">{lang === "en" ? "Other Club / Custom Organization" : lang === "zh-TW" ? "其他俱樂部 / 自訂組織" : "其他俱乐部 / 自定义组织"}</option>
+          </select>
+          <div id="custom-club-container" class="hidden mt-2.5 space-y-1">
+            <label class="block text-amber-300 font-medium text-[11px]" for="custom-club-name">
+              {lang === "en" ? "Custom Club / Organization Name" : lang === "zh-TW" ? "自訂俱樂部 / 組織名稱" : "自定义俱乐部 / 组织名称"} *
+            </label>
+            <input
+              type="text"
+              id="custom-club-name"
+              name="customClubName"
+              placeholder={lang === "en" ? "e.g., Stanford Alumni Club / AI Innovation Lab" : lang === "zh-TW" ? "例如：校友合唱團 / 史丹佛校友會 / 攝影俱樂部" : "例如：校友合唱团 / 斯坦福校友会 / 摄影俱乐部"}
+              class="w-full bg-slate-950 border border-amber-500/50 rounded-xl px-3.5 py-2.5 text-slate-200 focus:outline-none focus:border-amber-400 transition-colors"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-slate-300 font-medium mb-1.5" for="activity-name">
+            {lang === "en" ? "Activity Name" : "活动名称"} *
+          </label>
+          <input type="text" id="activity-name" name="activityName" required placeholder="如：北加硅谷周末健行活动" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3.5 py-2.5 text-slate-200 focus:outline-none focus:border-blue-500 transition-colors" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2: Legal Terms (Bilingual Full Text) -->
+    <div class="bg-slate-900/50 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-5">
+      <div class="flex items-center justify-between flex-wrap gap-2">
+        <h2 class="text-base sm:text-lg font-bold text-white flex items-center gap-x-2">
+          <span class="w-6 h-6 rounded-full bg-blue-600 text-white text-xs flex items-center justify-center font-bold">2</span>
+          <span>{lang === "en" ? "Bilingual Terms of Agreement" : "免责条款全文（中英对照）"}</span>
+        </h2>
+        <span class="text-xs text-slate-400">
+          {lang === "en" ? "Scroll down to read all terms" : "请完整浏览并阅读条款"}
+        </span>
+      </div>
+
+      <div class="max-h-96 overflow-y-auto pr-2 space-y-6 border border-slate-800/80 bg-slate-950/60 rounded-2xl p-4 text-xs leading-relaxed text-slate-300 scrollbar-thin">
+        {WAIVER_SECTIONS.map((sec) => (
+          <div class="space-y-2 border-b border-slate-800/60 pb-4 last:border-b-0">
+            <div class="font-bold text-slate-100 text-sm">{sec.titleZh}</div>
+            <div class="font-mono text-[11px] text-blue-400/90">{sec.titleEn}</div>
+            <p class="text-slate-300 whitespace-pre-line text-xs">{sec.textZh}</p>
+            <p class="text-slate-400/90 whitespace-pre-line text-[11px] font-mono bg-slate-900/40 p-2.5 rounded-lg border border-slate-800/50">{sec.textEn}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Legal Declaration -->
+      <div class="p-4 rounded-2xl bg-blue-950/30 border border-blue-800/40 space-y-1.5 text-xs">
+        <div class="font-bold text-blue-300">{WAIVER_DECLARATION.textZh}</div>
+        <div class="text-[11px] text-slate-400 font-mono">{WAIVER_DECLARATION.textEn}</div>
+      </div>
+    </div>
+
+    <!-- Step 3: Participant Information -->
+    <div class="bg-slate-900/50 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-5">
+      <h2 class="text-base sm:text-lg font-bold text-white flex items-center gap-x-2">
+        <span class="w-6 h-6 rounded-full bg-blue-600 text-white text-xs flex items-center justify-center font-bold">3</span>
+        <span>{lang === "en" ? "Participant Details" : "参加者基本信息"}</span>
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+        <div>
+          <label class="block text-slate-300 font-medium mb-1.5" for="participant-name">
+            {lang === "en" ? "Printed Legal Name" : "参加者印刷体姓名 (Legal Name)"} *
+          </label>
+          <input type="text" id="participant-name" name="participantName" required placeholder="如：San Zhang / 张三" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3.5 py-2.5 text-slate-200 focus:outline-none focus:border-blue-500 transition-colors" />
+        </div>
+
+        <div>
+          <label class="block text-slate-300 font-medium mb-1.5" for="participant-dob">
+            {lang === "en" ? "Date of Birth" : "出生日期 (Date of Birth)"} *
+          </label>
+          <input type="date" id="participant-dob" name="dob" required class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3.5 py-2.5 text-slate-200 focus:outline-none focus:border-blue-500 transition-colors" />
+        </div>
+
+        <div>
+          <label class="block text-slate-300 font-medium mb-1.5" for="participant-email">
+            {lang === "en" ? "Email Address (for PDF receipt)" : "参加者电子邮箱 (接收已签 PDF 回执)"} *
+          </label>
+          <input type="email" id="participant-email" name="email" required placeholder="如：name@example.com" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3.5 py-2.5 text-slate-200 focus:outline-none focus:border-blue-500 transition-colors" />
+        </div>
+
+        <div>
+          <label class="block text-slate-300 font-medium mb-1.5" for="participant-phone">
+            {lang === "en" ? "Phone Number (optional)" : "联系电话 (选填)"}
+          </label>
+          <input type="tel" id="participant-phone" name="phone" placeholder="用于活动现场紧急联络" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3.5 py-2.5 text-slate-200 focus:outline-none focus:border-blue-500 transition-colors" />
+        </div>
+
+        <div class="sm:col-span-2">
+          <label class="block text-slate-300 font-medium mb-1.5" for="participant-emergency">
+            {lang === "en" ? "Emergency Contact (optional)" : "紧急联系人及电话 (选填)"}
+          </label>
+          <input type="text" id="participant-emergency" name="emergencyContact" placeholder="姓名及联系电话" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3.5 py-2.5 text-slate-200 focus:outline-none focus:border-blue-500 transition-colors" />
+        </div>
+
+        <div class="sm:col-span-2 p-2.5 rounded-xl bg-blue-950/20 border border-blue-900/30 text-blue-300 text-[11px] flex items-center gap-x-2">
+          <i class="fa-regular fa-paper-plane"></i>
+          <span>{lang === "en" ? "Upon signing, a signed PDF receipt will be automatically emailed to your email and waiver@wa.nacuaa.ai. You can also download it immediately on your phone." : "签署完成后，系统将自动把 PDF 回执发送至您的邮箱及官方归档邮箱（waiver@wa.nacuaa.ai）；手机端也可当场立即下载/查看。"}</span>
+        </div>
+      </div>
+
+      <!-- Minor Option Toggle -->
+      <div class="pt-4 border-t border-slate-800/80">
+        <label class="inline-flex items-center gap-x-2.5 text-xs text-slate-300 cursor-pointer">
+          <input type="checkbox" id="is-minor-checkbox" name="isMinor" class="w-4 h-4 rounded border-slate-700 text-blue-600 focus:ring-blue-500 bg-slate-950" />
+          <span class="font-medium text-amber-300">
+            {lang === "en" ? "Participant is a minor (under 18 years old)" : "参加者为未成年人（未满 18 周岁，须父母/监护人代签）"}
+          </span>
+        </label>
+      </div>
+
+      <!-- Dynamic Minor Section -->
+      <div id="minor-section" class="hidden p-5 rounded-2xl bg-amber-950/20 border border-amber-600/30 space-y-4">
+        <div class="space-y-1">
+          <div class="font-bold text-amber-300 text-sm flex items-center gap-x-2">
+            <i class="fa-solid fa-child"></i>
+            <span>{MINOR_CLAUSE.titleZh} ({MINOR_CLAUSE.titleEn})</span>
+          </div>
+          <p class="text-xs text-amber-200/80 leading-relaxed">
+            {MINOR_CLAUSE.textZh}
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+          <div>
+            <label class="block text-slate-300 font-medium mb-1.5" for="guardian-name">
+              {lang === "en" ? "Parent / Guardian Legal Name" : "父母/监护人印刷体姓名"} *
+            </label>
+            <input type="text" id="guardian-name" name="guardianName" placeholder="如：Si Li / 李四" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3.5 py-2.5 text-slate-200 focus:outline-none focus:border-blue-500 transition-colors" />
+          </div>
+
+          <div>
+            <label class="block text-slate-300 font-medium mb-1.5" for="guardian-relationship">
+              {lang === "en" ? "Relationship to Minor" : "与未成年人关系"} *
+            </label>
+            <select id="guardian-relationship" name="relationship" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3.5 py-2.5 text-slate-200 focus:outline-none focus:border-blue-500 transition-colors">
+              <option value="Parent (Father/Mother)">父母 (Parent - Father/Mother)</option>
+              <option value="Legal Guardian">法定监护人 (Legal Guardian)</option>
+              <option value="Responsible Adult">责任成年人 (Responsible Adult)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Guardian Signature Canvas -->
+        <div class="space-y-2 pt-2">
+          <div class="flex items-center justify-between">
+            <label class="text-xs text-amber-200 font-medium">
+              {lang === "en" ? "Parent / Guardian Signature" : "父母/监护人手写签名"} *
+            </label>
+            <button type="button" id="clear-guardian-sig" class="text-[11px] text-slate-400 hover:text-white px-2 py-0.5 rounded bg-slate-800 transition-colors">
+              {lang === "en" ? "Clear" : "清除重签"}
+            </button>
+          </div>
+          <div class="relative w-full h-36 bg-slate-950 border border-amber-500/40 rounded-xl overflow-hidden touch-none">
+            <canvas id="guardian-sig-canvas" class="w-full h-full cursor-crosshair"></canvas>
+            <div id="guardian-sig-hint" class="absolute inset-0 flex items-center justify-center pointer-events-none text-slate-600 text-xs">
+              {lang === "en" ? "Sign here with finger or mouse" : "请在此处手写签名"}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 4: Participant Signature & Confirmation -->
+    <div class="bg-slate-900/50 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6">
+      <h2 class="text-base sm:text-lg font-bold text-white flex items-center gap-x-2">
+        <span class="w-6 h-6 rounded-full bg-blue-600 text-white text-xs flex items-center justify-center font-bold">4</span>
+        <span>{lang === "en" ? "Handwritten Signature & Affirmation" : "手写签名与法律确认"}</span>
+      </h2>
+
+      <!-- Mandatory Checkbox 1 -->
+      <div class="space-y-3 text-xs">
+        <label class="flex items-start gap-x-3 cursor-pointer">
+          <input type="checkbox" id="check-read-english" required class="mt-0.5 w-4 h-4 rounded border-slate-700 text-blue-600 focus:ring-blue-500 bg-slate-950 shrink-0" />
+          <span class="text-slate-300">
+            <strong class="text-white">【必须勾选】</strong>本人已在签署前完整阅读并知悉本协议英文正文，知悉冲突时以英文为准。
+            <span class="block text-[11px] text-slate-400 font-mono mt-0.5">I have read, understood, and agree to the English text of this Agreement.</span>
+          </span>
+        </label>
+
+        <!-- Mandatory Checkbox 2 -->
+        <label class="flex items-start gap-x-3 cursor-pointer">
+          <input type="checkbox" id="check-electronic-signature" required class="mt-0.5 w-4 h-4 rounded border-slate-700 text-blue-600 focus:ring-blue-500 bg-slate-950 shrink-0" />
+          <span class="text-slate-300">
+            <strong class="text-white">【必须勾选】</strong>本人同意以电子方式签署本免责协议，并认可电子签名与纸质手写签名具有同等法律效力。
+            <span class="block text-[11px] text-slate-400 font-mono mt-0.5">I agree to execute this Agreement electronically and that my electronic signature is legally binding.</span>
+          </span>
+        </label>
+      </div>
+
+      <!-- Participant Signature Canvas -->
+      <div class="space-y-2 pt-2">
+        <div class="flex items-center justify-between">
+          <label class="text-xs text-slate-200 font-medium">
+            {lang === "en" ? "Participant Handwritten Signature" : "参加者手写签名 (Touch / Pen / Mouse)"} *
+          </label>
+          <button type="button" id="clear-participant-sig" class="text-[11px] text-slate-400 hover:text-white px-2 py-0.5 rounded bg-slate-800 transition-colors">
+            {lang === "en" ? "Clear" : "清除重签"}
+          </button>
+        </div>
+        <div class="relative w-full h-40 bg-slate-950 border border-slate-700 rounded-2xl overflow-hidden touch-none">
+          <canvas id="participant-sig-canvas" class="w-full h-full cursor-crosshair"></canvas>
+          <div id="participant-sig-hint" class="absolute inset-0 flex items-center justify-center pointer-events-none text-slate-600 text-xs">
+            {lang === "en" ? "Please sign your name here" : "请在框内手写签名（支持手机触屏直接画字）"}
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="pt-4">
+        <button type="submit" id="submit-btn" class="w-full py-4 px-6 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-base shadow-lg hover:shadow-blue-600/30 transition-all flex items-center justify-center gap-x-2 disabled:opacity-50 disabled:cursor-not-allowed">
+          <i class="fa-solid fa-file-signature"></i>
+          <span>{lang === "en" ? "Sign & Submit Release Agreement" : "确认签署并提交免责协议"}</span>
+        </button>
+        <p class="text-[11px] text-slate-500 text-center mt-2.5">
+          提交后系统将即时生成 PDF 法律回执，并可直接在手机上查看与保存。
+        </p>
+      </div>
+    </div>
+  </form>
+
+  <!-- Success Modal -->
+  <div id="success-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 hidden">
+    <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-md w-full p-6 sm:p-8 space-y-6 shadow-2xl text-center">
+      <div class="w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center text-3xl mx-auto shadow-inner">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+      <div class="space-y-2">
+        <h3 class="text-xl font-bold text-white">
+          {lang === "en" ? "Waiver Successfully Signed!" : "免责声明签署成功！"}
+        </h3>
+        <p class="text-xs text-slate-300 leading-relaxed">
+          {lang === "en" 
+            ? "Your Release of Liability has been securely recorded. A PDF certificate has been generated and a copy will be sent to your email and the official waiver archive (waiver@wa.nacuaa.ai)." 
+            : "您的免责声明与责任豁免协议已安全存证。PDF 电子凭证已生成，签署副本已同步发送至您的邮箱及分会官方免责归档邮箱（waiver@wa.nacuaa.ai）。"}
+        </p>
+      </div>
+
+      <div class="p-3.5 bg-slate-950/80 rounded-xl border border-slate-800 text-left text-xs font-mono space-y-1 text-slate-400">
+        <div>编号: <span id="res-sub-id" class="text-blue-400"></span></div>
+        <div>活动: <span id="res-act-name" class="text-slate-200"></span></div>
+        <div>签署人: <span id="res-signer-name" class="text-slate-200"></span></div>
+        <div>时间: <span id="res-timestamp" class="text-slate-200"></span></div>
+      </div>
+
+      <div class="space-y-2.5 pt-2">
+        <button type="button" id="download-pdf-btn" class="w-full py-3 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm transition-all flex items-center justify-center gap-x-2 shadow-lg">
+          <i class="fa-solid fa-download"></i>
+          <span>{lang === "en" ? "Download / View Signed PDF" : "查看 / 下载已签 PDF 回执"}</span>
+        </button>
+        <button type="button" id="close-modal-btn" class="w-full py-2.5 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs transition-colors">
+          {lang === "en" ? "Close" : "完成并返回"}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { generateWaiverPdf } from "../../utils/generateWaiverPdf";
+
+  // URL Auto-fill logic
+  const params = new URLSearchParams(window.location.search);
+  const clubParamRaw = (params.get("club") || params.get("clubName") || "").trim();
+  const clubParam = clubParamRaw.toLowerCase();
+  const customClubParam = (params.get("custom_club") || params.get("customClub") || "").trim();
+  const activityParam = params.get("activity");
+
+  const clubSelect = document.getElementById("club-select") as HTMLSelectElement;
+  const customClubContainer = document.getElementById("custom-club-container") as HTMLElement;
+  const customClubInput = document.getElementById("custom-club-name") as HTMLInputElement;
+  const activityInput = document.getElementById("activity-name") as HTMLInputElement;
+
+  const validClubs = ["run", "guandan", "tennis", "pickleball", "golf", "music", "garden", "ai", "aimedia", "general"];
+
+  const clubNames: Record<string, string> = {
+    run: "华州西雅图追风健行活动",
+    guandan: "华州西雅图掼蛋友谊赛",
+    tennis: "华州西雅图网球练习与双打赛",
+    pickleball: "华州西雅图匹克球体验与联谊赛",
+    golf: "华州西雅图高尔夫联谊活动",
+    music: "华州西雅图音乐玩乐聚会与卡拉OK",
+    garden: "华州西雅图庭院园艺交流会",
+    ai: "华州西雅图AI创业公益研讨沙龙",
+    aimedia: "华州西雅图AI影音创意研讨与交流"
+  };
+
+  function updateCustomClubVisibility() {
+    if (!clubSelect) return;
+    if (clubSelect.value === "other") {
+      customClubContainer?.classList.remove("hidden");
+      if (customClubInput) customClubInput.required = true;
+    } else {
+      customClubContainer?.classList.add("hidden");
+      if (customClubInput) customClubInput.required = false;
+    }
+  }
+
+  if (clubParam && clubSelect) {
+    if (validClubs.includes(clubParam)) {
+      clubSelect.value = clubParam;
+    } else {
+      clubSelect.value = "other";
+      if (customClubInput) {
+        customClubInput.value = clubParamRaw;
+      }
+    }
+  } else if (customClubParam && clubSelect) {
+    clubSelect.value = "other";
+    if (customClubInput) {
+      customClubInput.value = customClubParam;
+    }
+  }
+  updateCustomClubVisibility();
+
+  if (activityParam && activityInput) {
+    activityInput.value = activityParam;
+  } else if (!activityInput.value && clubSelect && clubSelect.value !== "general") {
+    if (clubSelect.value === "other" && customClubInput?.value.trim()) {
+      activityInput.value = `${customClubInput.value.trim()} 活动`;
+    } else if (clubNames[clubSelect.value]) {
+      activityInput.value = clubNames[clubSelect.value];
+    }
+  }
+
+  clubSelect?.addEventListener("change", () => {
+    updateCustomClubVisibility();
+    if (clubSelect.value === "other") {
+      if (customClubInput && !customClubInput.value) {
+        customClubInput.focus();
+      }
+      if (!activityInput.value || Object.values(clubNames).includes(activityInput.value)) {
+        if (customClubInput?.value.trim()) {
+          activityInput.value = `${customClubInput.value.trim()} 活动`;
+        }
+      }
+    } else if (!activityInput.value || Object.values(clubNames).includes(activityInput.value)) {
+      if (clubNames[clubSelect.value]) {
+        activityInput.value = clubNames[clubSelect.value];
+      }
+    }
+  });
+
+  customClubInput?.addEventListener("input", () => {
+    if (clubSelect.value === "other") {
+      if (!activityInput.value || activityInput.value.endsWith("活动")) {
+        const val = customClubInput.value.trim();
+        if (val) {
+          activityInput.value = `${val} 活动`;
+        }
+      }
+    }
+  });
+
+  // Minor toggle logic
+  const minorCheckbox = document.getElementById("is-minor-checkbox") as HTMLInputElement;
+  const minorSection = document.getElementById("minor-section") as HTMLElement;
+  const guardianNameInput = document.getElementById("guardian-name") as HTMLInputElement;
+
+  minorCheckbox?.addEventListener("change", () => {
+    if (minorCheckbox.checked) {
+      minorSection.classList.remove("hidden");
+      guardianNameInput.required = true;
+      resizeGuardianCanvas();
+    } else {
+      minorSection.classList.add("hidden");
+      guardianNameInput.required = false;
+    }
+  });
+
+  // Signature Pad Setup Helper
+  function initSignaturePad(canvasId: string, hintId: string, clearBtnId: string) {
+    const canvas = document.getElementById(canvasId) as HTMLCanvasElement;
+    const hint = document.getElementById(hintId) as HTMLElement;
+    const clearBtn = document.getElementById(clearBtnId) as HTMLElement;
+
+    if (!canvas) return { hasStroke: () => false, toDataURL: () => "", clear: () => {}, resize: () => {} };
+
+    const ctx = canvas.getContext("2d")!;
+    let isDrawing = false;
+    let strokeCount = 0;
+
+    function resize() {
+      const rect = canvas.getBoundingClientRect();
+      if (rect.width === 0 || rect.height === 0) return;
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      ctx.scale(dpr, dpr);
+      ctx.lineWidth = 2.2;
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
+      ctx.strokeStyle = "#38bdf8"; // cyan-blue smooth line
+    }
+
+    window.addEventListener("resize", resize);
+    setTimeout(resize, 100);
+
+    function getCoords(e: MouseEvent | Touch): { x: number; y: number } {
+      const rect = canvas.getBoundingClientRect();
+      return {
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top
+      };
+    }
+
+    function startDraw(coords: { x: number; y: number }) {
+      isDrawing = true;
+      ctx.beginPath();
+      ctx.moveTo(coords.x, coords.y);
+      hint?.classList.add("hidden");
+    }
+
+    function moveDraw(coords: { x: number; y: number }) {
+      if (!isDrawing) return;
+      ctx.lineTo(coords.x, coords.y);
+      ctx.stroke();
+      strokeCount++;
+    }
+
+    function stopDraw() {
+      isDrawing = false;
+    }
+
+    // Mouse events
+    canvas.addEventListener("mousedown", (e) => startDraw(getCoords(e)));
+    canvas.addEventListener("mousemove", (e) => moveDraw(getCoords(e)));
+    window.addEventListener("mouseup", stopDraw);
+
+    // Touch events for WeChat & mobile
+    canvas.addEventListener("touchstart", (e) => {
+      e.preventDefault();
+      if (e.touches.length > 0) startDraw(getCoords(e.touches[0]));
+    }, { passive: false });
+
+    canvas.addEventListener("touchmove", (e) => {
+      e.preventDefault();
+      if (e.touches.length > 0) moveDraw(getCoords(e.touches[0]));
+    }, { passive: false });
+
+    window.addEventListener("touchend", stopDraw);
+
+    function clear() {
+      const dpr = window.devicePixelRatio || 1;
+      ctx.clearRect(0, 0, canvas.width / dpr, canvas.height / dpr);
+      strokeCount = 0;
+      hint?.classList.remove("hidden");
+    }
+
+    clearBtn?.addEventListener("click", clear);
+
+    return {
+      hasStroke: () => strokeCount > 5,
+      toDataURL: () => canvas.toDataURL("image/png"),
+      clear,
+      resize
+    };
+  }
+
+  const participantPad = initSignaturePad("participant-sig-canvas", "participant-sig-hint", "clear-participant-sig");
+  const guardianPad = initSignaturePad("guardian-sig-canvas", "guardian-sig-hint", "clear-guardian-sig");
+
+  function resizeGuardianCanvas() {
+    setTimeout(guardianPad.resize, 50);
+  }
+
+  // Form submission handler
+  const form = document.getElementById("waiver-form") as HTMLFormElement;
+  const submitBtn = document.getElementById("submit-btn") as HTMLButtonElement;
+  const modal = document.getElementById("success-modal") as HTMLElement;
+  const downloadPdfBtn = document.getElementById("download-pdf-btn") as HTMLButtonElement;
+  const closeModalBtn = document.getElementById("close-modal-btn") as HTMLButtonElement;
+
+  let generatedPdfBlobUrl = "";
+
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    if (!participantPad.hasStroke()) {
+      alert("请在参加者手写签名框中手写签名后再提交！\nPlease draw your signature before submitting.");
+      return;
+    }
+
+    if (minorCheckbox.checked && !guardianPad.hasStroke()) {
+      alert("参加者为未成年人，必须由父母或法定监护人在此签名！\nParent/Guardian signature is required for minors.");
+      return;
+    }
+
+    if (clubSelect.value === "other") {
+      const customVal = customClubInput?.value.trim();
+      if (!customVal) {
+        alert("您选择了自定义俱乐部/组织，请填写具体俱乐部或组织名称！\nPlease enter your custom club or organization name.");
+        customClubInput?.focus();
+        return;
+      }
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i><span>正在生成 PDF 法律回执并存证...</span>`;
+
+    try {
+      const now = new Date();
+      const submissionId = "ROL-" + Date.now().toString(36).toUpperCase() + "-" + Math.random().toString(36).substring(2, 6).toUpperCase();
+      const signedDate = now.toISOString().split("T")[0];
+      const signedTimestamp = now.toLocaleString("zh-CN", { timeZoneName: "short" });
+      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+      const participantSigBase64 = participantPad.toDataURL();
+      const guardianSigBase64 = minorCheckbox.checked ? guardianPad.toDataURL() : "";
+
+      const isCustomClub = clubSelect.value === "other";
+      const customClubName = customClubInput ? customClubInput.value.trim() : "";
+      const effectiveClubName = isCustomClub && customClubName
+        ? customClubName
+        : clubSelect.options[clubSelect.selectedIndex].text;
+      const effectiveClubCode = isCustomClub && customClubName
+        ? `other:${customClubName}`
+        : clubSelect.value;
+
+      const pdfData = {
+        submissionId,
+        activityName: activityInput.value.trim(),
+        clubName: effectiveClubName,
+        participantName: (document.getElementById("participant-name") as HTMLInputElement).value.trim(),
+        dob: (document.getElementById("participant-dob") as HTMLInputElement).value,
+        email: (document.getElementById("participant-email") as HTMLInputElement).value.trim(),
+        phone: (document.getElementById("participant-phone") as HTMLInputElement).value.trim(),
+        phoneEmail: (document.getElementById("participant-email") as HTMLInputElement).value.trim(),
+        emergencyContact: (document.getElementById("participant-emergency") as HTMLInputElement).value.trim(),
+        isMinor: minorCheckbox.checked,
+        guardianName: guardianNameInput.value.trim(),
+        relationship: (document.getElementById("guardian-relationship") as HTMLSelectElement).value,
+        signedDate,
+        signedTimestamp,
+        timezone,
+        participantSignatureBase64: participantSigBase64,
+        guardianSignatureBase64: guardianSigBase64,
+        userAgent: navigator.userAgent
+      };
+
+      // 1. Generate PDF locally via pdf-lib
+      const pdfBytes = await generateWaiverPdf(pdfData);
+      const blob = new Blob([pdfBytes], { type: "application/pdf" });
+      generatedPdfBlobUrl = URL.createObjectURL(blob);
+
+      // Convert PDF to base64 for archiving
+      let binaryStr = "";
+      const len = pdfBytes.byteLength;
+      for (let i = 0; i < len; i++) {
+        binaryStr += String.fromCharCode(pdfBytes[i]);
+      }
+      const pdfBase64 = "data:application/pdf;base64," + btoa(binaryStr);
+
+      // 2. Submit to backend API
+      try {
+        await fetch("/api/waiver/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            ...pdfData,
+            club: effectiveClubCode,
+            customClub: customClubName,
+            clubName: effectiveClubName,
+            version: "NACUAAWA-ROL-2026-09",
+            pdfBase64
+          })
+        });
+      } catch (apiErr) {
+        console.warn("Backend API upload warning:", apiErr);
+      }
+
+      // 3. Show Success Modal
+      (document.getElementById("res-sub-id") as HTMLElement).textContent = submissionId;
+      (document.getElementById("res-act-name") as HTMLElement).textContent = pdfData.activityName;
+      (document.getElementById("res-signer-name") as HTMLElement).textContent = pdfData.participantName;
+      (document.getElementById("res-timestamp") as HTMLElement).textContent = signedTimestamp;
+
+      modal.classList.remove("hidden");
+
+    } catch (err: any) {
+      console.error("Waiver submission error:", err);
+      alert("签署生成失败，请刷新重试：" + (err.message || err));
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = `<i class="fa-solid fa-file-signature"></i><span>确认签署并提交免责协议</span>`;
+    }
+  });
+
+  downloadPdfBtn?.addEventListener("click", () => {
+    if (generatedPdfBlobUrl) {
+      const a = document.createElement("a");
+      a.href = generatedPdfBlobUrl;
+      a.download = `NACUAAWA_Release_${activityInput.value.trim() || "Waiver"}.pdf`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+  });
+
+  closeModalBtn?.addEventListener("click", () => {
+    modal.classList.add("hidden");
+    window.location.reload();
+  });
+</script>

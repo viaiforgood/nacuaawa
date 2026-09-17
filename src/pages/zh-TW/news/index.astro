@@ -1,0 +1,150 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const newsItems = [
+  {
+    title: "【重大新聞】北美高校聯盟四分會結為姊妹分會，並與浙江大學北卡羅來納校友會建立戰略合作",
+    date: "2026年9月12日",
+    rawDate: "2026-09-12",
+    category: "重大新聞",
+    badgeType: "primary",
+    summary: "2026年9月12日，北美高校聯盟北加州分會、矽谷分會、北卡羅來納分會、華盛頓DC分會正式結為姊妹分會，互通活動、共享資源、互助校友。同日，浙江大學北卡羅來納校友會與上述四個分會正式建立全面戰略合作關係，攜手服務跨區域廣大校友。",
+    link: "/zh-TW/posts/2026-09-12-four-chapters-sisterhood-and-zju-strategic-partnership/"
+  },
+
+  {
+    title: "【技術前沿】AI 原生智能體安全與合規系列講座開啟，首講錄像與課件上線",
+    date: "2026年9月1日",
+    rawDate: "2026-09-01",
+    category: "重要公告",
+    badgeType: "primary",
+    summary: "北卡浙大校友會與北美高校聯盟·AI創業公益俱樂部開啟新系列講座：AI原生智能體 · 安全與合規。第一講探討從會聊天到能動手，智能體產品的安全紅線與六類高發風險。錄像回放與 6 份核心資料已全面上線。",
+    link: "/zh-TW/posts/2026-09-01-ai-native-agent-security-compliance-lecture-1/"
+  },
+  {
+    title: "【重磅】北美高校聯盟北加矽谷高爾夫俱樂部成立，歡迎感興趣的校友前來共建",
+    date: "2026年8月27日",
+    rawDate: "2026-08-27",
+    category: "俱樂部資訊",
+    badgeType: "amber",
+    summary: "北美高校聯盟北加矽谷高爾夫俱樂部正式成立！歡迎舊金山灣區與矽谷廣大熱愛高爾夫運動的高校校友、親友及愛好者前來共建，掃碼加入微信群交流。",
+    link: "/zh-TW/posts/2026-08-27-golf-club-announcement/"
+  },
+  {
+    title: "【重磅】北加州和華盛頓DC分會聯合成立四大主題俱樂部（全面升級獨立 URI 路徑）",
+    date: "2026年8月19日",
+    rawDate: "2026-08-19",
+    category: "重大公告",
+    badgeType: "primary",
+    summary: "北美高校聯盟華盛頓DC分會與華盛頓DC分會聯合成立四大俱樂部：北加矽谷掼蛋俱樂部 (/zh-TW/guandan)、北加矽谷追風健行群 (/zh-TW/run)、北加矽谷匹克球俱樂部 (/zh-TW/pickleball)、北加矽谷音樂玩樂群 (/zh-TW/music)。",
+    link: "/zh-TW/posts/2026-08-19-four-clubs-announcement/"
+  },
+  {
+    title: "【賽事公告】首屆北美華人AI音樂創作創意大賽 2026–2027 正式啟動！",
+    date: "2026年7月22日",
+    rawDate: "2026-07-22",
+    category: "賽事動態",
+    badgeType: "emerald",
+    summary: "慶祝浙江大學130周年華誕暨北卡浙大校友會成立15周年，由北美高校聯盟北卡分會、南卡分會、華盛頓DC分會、華盛頓DC分會、南加州分會和AI創業公益俱樂部等機構聯合主辦的大賽啟動報名！以AI為筆，譜寫華人故事！",
+    link: "/zh-TW/posts/2026-07-22-first-north-american-chinese-ai-music-competition/"
+  }
+];
+---
+
+<BaseLayout lang="zh-TW" title="聯盟新聞與官方公告" description="北美高校聯盟華盛頓DC分會新聞中心、俱樂部成立資訊、賽事公告與重大發佈。" path="/news/">
+  <div class="max-w-5xl mx-auto px-6 py-12 md:py-20">
+    <!-- Header Banner -->
+    <div class="text-center mb-12 space-y-4">
+      <div class="inline-flex items-center gap-x-2 px-3.5 py-1.5 rounded-full bg-blue-950/60 border border-blue-800/40 text-blue-400 text-xs font-semibold uppercase tracking-wider">
+        <i class="fa-solid fa-bullhorn text-xs"></i>
+        <span>新聞中心 · 官方動態</span>
+      </div>
+      <h1 class="text-3xl md:text-5xl font-bold text-white tracking-tight heading-font">
+        聯盟新聞與重要發佈
+      </h1>
+      <p class="text-slate-400 text-base max-w-2xl mx-auto">
+        及時發佈北美高校聯盟華盛頓DC分會重大決策、俱樂部共建進展、社區賽事與前沿合作資訊
+      </p>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <div class="flex flex-wrap items-center justify-center gap-2 mb-10 border-b border-slate-800 pb-4">
+      <button class="news-tab-btn active px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-blue-600 text-white" data-category="all">
+        全部新聞 (All)
+      </button>
+      <button class="news-tab-btn px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-slate-900 text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800" data-category="announcement">
+        重大公告
+      </button>
+      <button class="news-tab-btn px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-slate-900 text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800" data-category="club">
+        俱樂部與賽事
+      </button>
+      <a href="/zh-TW/posts/" class="px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-slate-900/40 text-slate-400 hover:text-blue-400 hover:bg-slate-800 border border-slate-800/60 flex items-center gap-1.5">
+        <span>切換至活動講座</span>
+        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+      </a>
+    </div>
+
+    <!-- News List -->
+    <div class="space-y-6" id="news-container">
+      {newsItems.map(item => {
+        const catKey = item.category.includes('俱樂部') || item.category.includes('賽事') ? 'club' : 'announcement';
+        return (
+          <article class="news-card bg-slate-900/60 border border-slate-800/80 hover:border-blue-500/40 rounded-3xl p-6 md:p-8 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-950/50 group" data-category={catKey}>
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div class="space-y-3 flex-1">
+                <div class="flex items-center gap-x-3 text-xs">
+                  <span class:list={[
+                    "px-3 py-1 rounded-full font-semibold border",
+                    item.badgeType === "amber" ? "bg-amber-500/10 text-amber-400 border-amber-500/20" :
+                    item.badgeType === "emerald" ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20" :
+                    "bg-blue-600/10 text-blue-400 border-blue-500/20"
+                  ]}>
+                    {item.category}
+                  </span>
+                  <span class="text-slate-400 flex items-center gap-x-1">
+                    <i class="fa-regular fa-calendar text-[11px]"></i>
+                    <time datetime={item.rawDate}>{item.date}</time>
+                  </span>
+                </div>
+                <h2 class="text-xl md:text-2xl font-bold text-white group-hover:text-blue-400 transition-colors leading-snug">
+                  <a href={item.link}>{item.title}</a>
+                </h2>
+                <p class="text-slate-300 text-sm leading-relaxed">{item.summary}</p>
+              </div>
+              <a href={item.link} class="shrink-0 px-6 py-3 bg-slate-800 hover:bg-blue-600 text-slate-100 hover:text-white text-xs font-semibold rounded-2xl transition-all duration-200 text-center flex items-center justify-center gap-x-2 group-hover:bg-blue-600">
+                <span>查看詳情</span>
+                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  </div>
+
+  <script>
+    const tabs = document.querySelectorAll('.news-tab-btn');
+    const cards = document.querySelectorAll('.news-card');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const cat = tab.getAttribute('data-category');
+        tabs.forEach(t => {
+          t.classList.remove('bg-blue-600', 'text-white', 'active');
+          t.classList.add('bg-slate-900', 'text-slate-400');
+        });
+        tab.classList.remove('bg-slate-900', 'text-slate-400');
+        tab.classList.add('bg-blue-600', 'text-white', 'active');
+
+        cards.forEach(card => {
+          const cardCat = card.getAttribute('data-category');
+          if (cat === 'all' || cardCat === cat) {
+            (card as HTMLElement).style.display = 'block';
+          } else {
+            (card as HTMLElement).style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</BaseLayout>

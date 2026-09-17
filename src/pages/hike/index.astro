@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout lang="zh-CN" title="追风健行俱乐部 | 北美高校联盟华盛顿州分会（西雅图分会） (NACUAA WA)" description="北美高校联盟华州西雅图追风健行俱乐部（/hike），追风健行、周末爬山与户外生活。" path="/hike/">
+  <div class="max-w-4xl mx-auto px-6 py-12 md:py-20 space-y-10">
+    <!-- Breadcrumb & Director -->
+    <div class="flex items-center justify-between flex-wrap gap-4">
+      <a href="/clubs/" class="inline-flex items-center gap-x-2 text-xs text-blue-400 hover:text-blue-300 transition-colors">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>返回九大俱乐部总览</span>
+      </a>
+      <span class="px-3 py-1 rounded-full text-xs font-medium bg-blue-600/10 text-blue-400 border border-blue-500/20 flex items-center gap-x-1.5">
+        <i class="fa-regular fa-user text-xs"></i>
+        <span>分会会长：Ashley Qi (戚霄)</span>
+      </span>
+    </div>
+
+    <!-- Hero Card -->
+    <div class="relative bg-gradient-to-br from-emerald-950/40 via-slate-900/80 to-slate-950 border border-emerald-800/40 rounded-3xl p-8 md:p-10 shadow-2xl backdrop-blur-md overflow-hidden">
+      <div class="absolute -right-10 -top-10 w-64 h-64 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="flex items-start gap-x-5">
+        <div class="w-16 h-16 rounded-2xl bg-emerald-600/20 text-emerald-300 border border-emerald-500/30 flex items-center justify-center text-3xl shrink-0 shadow-lg">
+          🥾
+        </div>
+        <div class="space-y-2">
+          <div class="text-xs text-emerald-400 font-mono tracking-wider uppercase font-semibold">ALUMNI THEME CLUB #2</div>
+          <h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight heading-font">
+            追风健行俱乐部 <span class="text-emerald-300 text-2xl font-light block sm:inline font-sans">Windchaser Hiking Club</span>
+          </h1>
+          <div class="flex flex-wrap items-center gap-3 pt-2 text-xs">
+            <span class="px-2.5 py-1 rounded-lg bg-slate-950/60 border border-slate-800 text-slate-300 font-mono">
+              URI: wa.nacuaa.ai/hike
+            </span>
+            <span class="px-2.5 py-1 rounded-lg bg-emerald-950/60 border border-emerald-800/60 text-emerald-300 font-mono">
+              <i class="fa-brands fa-weixin mr-1"></i> 进群群名：华州西雅图追风健行群
+            </span>
+          </div>
+        </div>
+      </div>
+      <p class="text-slate-300 text-sm md:text-base leading-relaxed mt-6 border-t border-emerald-900/30 pt-6">
+        健行俱乐部汇聚了湾区最活跃的户外运动与大自然爱好者。每周精选旧金山湾区、硅谷及北加州自然公园与国家公园路线，组织周末爬山、晨跑约跑与长途徒步旅游。
+      </p>
+    </div>
+
+    <!-- Highlights -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-slate-900/50 border border-slate-800/80 rounded-3xl p-6 hover:border-emerald-500/40 transition-all">
+        <div class="w-10 h-10 rounded-xl bg-emerald-600/10 text-emerald-400 flex items-center justify-center text-lg mb-4 border border-emerald-500/20">
+          <i class="fa-solid fa-map-location-dot"></i>
+        </div>
+        <h3 class="text-base font-bold text-white mb-2">智能轨迹与路线库</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">精选Bay Area分级步道、高程剖析、难度分层，适合不同体能校友。</p>
+      </div>
+
+      <div class="bg-slate-900/50 border border-slate-800/80 rounded-3xl p-6 hover:border-emerald-500/40 transition-all">
+        <div class="w-10 h-10 rounded-xl bg-emerald-600/10 text-emerald-400 flex items-center justify-center text-lg mb-4 border border-emerald-500/20">
+          <i class="fa-solid fa-calendar-check"></i>
+        </div>
+        <h3 class="text-base font-bold text-white mb-2">每周周末户外约行</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">定期组织红木国家森林、海岸线步道、Mission Peak及优胜美地活动。</p>
+      </div>
+
+      <div class="bg-slate-900/50 border border-slate-800/80 rounded-3xl p-6 hover:border-emerald-500/40 transition-all">
+        <div class="w-10 h-10 rounded-xl bg-emerald-600/10 text-emerald-400 flex items-center justify-center text-lg mb-4 border border-emerald-500/20">
+          <i class="fa-solid fa-heart-pulse"></i>
+        </div>
+        <h3 class="text-base font-bold text-white mb-2">健康活力校友圈</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">在山野清风中锻炼体魄、释放压力，结识并肩前行的校友挚友。</p>
+      </div>
+    </div>
+
+    <!-- Activity Liability Waiver Box -->
+    <div class="p-6 rounded-3xl bg-gradient-to-r from-emerald-950/30 via-slate-900 to-slate-900 border border-emerald-800/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div class="space-y-1">
+        <div class="flex items-center gap-x-2 text-white font-bold text-sm">
+          <i class="fa-solid fa-file-signature text-emerald-400"></i>
+          <span>追风健行俱乐部活动免责签署</span>
+        </div>
+        <p class="text-xs text-slate-300 leading-relaxed max-w-xl">
+          参加健行、登山、晨跑及长途徒步活动之校友，请在活动出发前完成签署《活动免责声明与责任豁免协议》。
+        </p>
+      </div>
+      <a href="/waiver/?club=hike&activity=华州西雅图追风健行" 
+         class="inline-flex items-center gap-x-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs transition-colors shrink-0 shadow-lg">
+        <i class="fa-solid fa-pen-nib text-[11px]"></i>
+        <span>签署健行免责协议</span>
+      </a>
+    </div>
+
+    <!-- Leadership / Contact Box -->
+    <div class="bg-slate-900/80 border border-slate-800 rounded-3xl p-8 space-y-6">
+      <h3 class="text-lg font-bold text-white border-l-4 border-emerald-500 pl-3">📞 俱乐部负责人与入群联系</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-slate-200">
+        
+        <div class="bg-slate-950/50 border border-slate-800 rounded-2xl p-4 space-y-1">
+          <div class="font-bold text-white text-sm">Ashley Qi (戚霄)</div>
+          <div class="text-slate-400">华盛顿州分会会长</div>
+          <div class="flex flex-col gap-y-0.5">            <a href="mailto:ashley@nacuaa.ai" class="text-blue-400 hover:underline">ashley@nacuaa.ai</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

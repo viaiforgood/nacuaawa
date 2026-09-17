@@ -1,0 +1,7 @@
+# Specific path redirects on sv.nacuaa.ai: /run -> /hike
+/run /hike 301
+/run/* /hike/:splat 301
+/en/run /en/hike 301
+/en/run/* /en/hike/:splat 301
+/zh-TW/run /zh-TW/hike 301
+/zh-TW/run/* /zh-TW/hike/:splat 301

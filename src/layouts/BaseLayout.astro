@@ -1,0 +1,148 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import type { Locale } from '../i18n/locales';
+import { localeHtmlLang } from '../i18n/locales';
+import { useTranslations, getAlternateLinks } from '../i18n/utils';
+
+interface Props {
+  lang: Locale;
+  title?: string;
+  description?: string;
+  path?: string;
+}
+
+const { lang, title, description, path = '/' } = Astro.props;
+const t = useTranslations(lang);
+const pageTitle = title ? `${title} · ${t('site.title')}` : `${t('site.title')} · wa.nacuaa.ai`;
+const pageDescription = description ?? t('site.tagline');
+const alternates = getAlternateLinks(path);
+const isWaiverPage = path.includes('/waiver');
+---
+
+<!doctype html>
+<html lang={localeHtmlLang[lang]} class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={pageDescription} />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#0f172a" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={t('site.title')} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={new URL(path, Astro.site ?? 'https://wa.nacuaa.ai').href} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="author" content="Ashley Qi (戚霄)" />
+    
+    <!-- SEO & GEO (Generative Engine Optimization) Tags -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="bingbot" content="index, follow" />
+    <meta name="geo.region" content="US-WA" />
+    <meta name="geo.placename" content="Seattle, Washington" />
+    <meta name="geo.position" content="47.6062;-122.3321" />
+    <meta name="ICBM" content="47.6062, -122.3321" />
+
+    <!-- Structured Data (JSON-LD) for Search Engines & AI Citations -->
+    <script type="application/ld+json" is:inline set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "NGO",
+          "@id": "https://wa.nacuaa.ai/#organization",
+          "name": "北美高校联盟华盛顿州分会",
+          "alternateName": ["NACUAA WA", "NACUAA Washington State Chapter", "北美高校联盟西雅图分会", "NACUAA Seattle Chapter"],
+          "url": "https://wa.nacuaa.ai",
+          "logo": "https://wa.nacuaa.ai/images/logo.png",
+          "description": "北美高校联盟华盛顿州分会（西雅图分会，NACUAA WA）服务身处华盛顿州与大西雅图地区的中美高校校友，汇聚各界专家、科技翘楚与创业领袖，开展科技创新、创业赋能、职业发展与多元文体俱乐部联谊。",
+          "areaServed": {
+            "@type": "AdministrativeArea",
+            "name": "Greater Seattle, Bellevue, Redmond, Kirkland, Washington State"
+          },
+          "founder": {
+            "@type": "Person",
+            "name": "戚霄",
+            "alternateName": "Ashley Qi",
+            "jobTitle": "President"
+          },
+          "parentOrganization": {
+            "@type": "Organization",
+            "name": "北美高校联盟 (NACUAA)",
+            "url": "https://nacuaa.org"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://wa.nacuaa.ai/#website",
+          "url": "https://wa.nacuaa.ai",
+          "name": "北美高校联盟华盛顿州分会",
+          "publisher": {
+            "@id": "https://wa.nacuaa.ai/#organization"
+          }
+        }
+      ]
+    })} />
+    
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    
+    <!-- Route helper -->
+    <script is:inline>
+      (function() {
+        const pathname = window.location.pathname;
+        if (pathname === '/run' || pathname === '/run/') {
+          window.location.replace('/hike/' + window.location.search);
+        } else if (pathname.startsWith('/run/')) {
+          window.location.replace(pathname.replace(/^\/run\//, '/hike/') + window.location.search);
+        }
+      })();
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    
+    <link rel="alternate" hreflang="zh-Hans" href={new URL(alternates['zh-CN'], Astro.site ?? 'https://wa.nacuaa.ai')} />
+    <link rel="alternate" hreflang="en" href={new URL(alternates.en, Astro.site ?? 'https://wa.nacuaa.ai')} />
+    <link rel="alternate" hreflang="zh-Hant" href={new URL(alternates['zh-TW'], Astro.site ?? 'https://wa.nacuaa.ai')} />
+    <link rel="alternate" hreflang="x-default" href={new URL(alternates['zh-CN'], Astro.site ?? 'https://wa.nacuaa.ai')} />
+    
+    <title>{pageTitle}</title>
+  </head>
+  <body class="min-h-screen flex flex-col bg-slate-950 text-slate-200 antialiased selection:bg-blue-600/30">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-lg focus:bg-blue-600 focus:px-4 focus:py-2 focus:text-white"
+    >
+      Skip to main content
+    </a>
+    <Header lang={lang} currentPath={path} />
+    <main id="main-content" class="flex-1">
+      <slot />
+    </main>
+    <Footer lang={lang} />
+
+    {!isWaiverPage && (
+      <aside class="fixed bottom-6 right-6 z-40 print:hidden" aria-label="Activity Waiver Quick Access">
+        <a 
+          href={lang === 'en' ? '/en/waiver/' : lang === 'zh-TW' ? '/zh-TW/waiver/' : '/waiver/'}
+          class="flex items-center gap-x-2.5 px-4 py-2.5 rounded-full bg-slate-900/90 hover:bg-blue-600 text-slate-200 hover:text-white text-xs font-semibold shadow-2xl border border-slate-700/80 hover:border-blue-400/50 backdrop-blur-md transition-all duration-300 hover:scale-105 active:scale-95 group ring-1 ring-white/10"
+        >
+          <span class="w-5 h-5 rounded-full bg-blue-500/20 text-blue-400 group-hover:bg-white/20 group-hover:text-white flex items-center justify-center text-[11px] transition-colors">
+            <i class="fa-solid fa-file-signature"></i>
+          </span>
+          <span>{lang === 'en' ? 'Activity Waiver' : lang === 'zh-TW' ? '活動免責簽署' : '活动免责签署'}</span>
+        </a>
+      </aside>
+    )}
+  </body>
+</html>

@@ -1,0 +1,150 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const newsItems = [
+  {
+    title: "【Major News】Four NACUAA Chapters Form Sister Chapter Alliance & Establish Strategic Partnership with ZJUAANC",
+    date: "Sep 12, 2026",
+    rawDate: "2026-09-12",
+    category: "Major News",
+    badgeType: "primary",
+    summary: "On September 12, 2026, NACUAA Northern California, Silicon Valley, North Carolina, and Greater Washington DC chapters officially forged a Sister Chapter Alliance under the principles of 'Connecting Activities, Sharing Resources, Supporting Alumni'. Concurrently, ZJUAANC established a comprehensive strategic partnership with all four chapters.",
+    link: "/en/posts/2026-09-12-four-chapters-sisterhood-and-zju-strategic-partnership/"
+  },
+
+  {
+    title: "【Tech Insights】AI-Native Agent Security & Compliance Series Officially Launches",
+    date: "Sep 1, 2026",
+    rawDate: "2026-09-01",
+    category: "Announcements",
+    badgeType: "primary",
+    summary: "Jointly hosted by ZJUAANC and NACUAA AI Club: Exploring the transition from conversational AI to autonomous execution, red-lines, and the top 6 risk vectors. Full replay and 6 whitepapers now available.",
+    link: "/en/posts/2026-09-01-ai-native-agent-security-compliance-lecture-1/"
+  },
+  {
+    title: "NACUAA WA Golf Club Founded: Calling Golfers across Greater Seattle",
+    date: "August 27, 2026",
+    rawDate: "2026-08-27",
+    category: "Club Launch",
+    badgeType: "club",
+    summary: "NACUAA WA Golf Club is officially founded! Welcoming alumni, families, and friends across Greater Seattle and Washington State.",
+    link: "/en/posts/2026-08-27-golf-club-announcement/"
+  },
+  {
+    title: "Four Thematic Alumni Clubs Launched with Dedicated URI Paths",
+    date: "August 19, 2026",
+    rawDate: "2026-08-19",
+    category: "Club Launch",
+    badgeType: "club",
+    summary: "NACUAA WA launches four thematic clubs: Guandan Club (/en/guandan), Run & Hike Club (/en/hike), Pickleball Club (/en/pickleball), and Music Club (/en/music).",
+    link: "/en/posts/2026-08-19-four-clubs-announcement/"
+  },
+  {
+    title: "【Competition】1st North American Chinese AI Music Creative Competition 2026–2027 Opens!",
+    date: "Jul 22, 2026",
+    rawDate: "2026-07-22",
+    category: "Competitions",
+    badgeType: "emerald",
+    summary: "Celebrating Zhejiang University's 130th Anniversary and ZJUAANC's 15th Anniversary, co-organized by NACUAA chapters and AI clubs. Compose Chinese musical stories with AI!",
+    link: "/en/posts/2026-07-22-first-north-american-chinese-ai-music-competition/"
+  }
+];
+---
+
+<BaseLayout lang="en" title="News & Official Announcements" description="NACUAA WA News Center: official press releases, club developments, competition launches, and community milestones." path="/news/">
+  <div class="max-w-5xl mx-auto px-6 py-12 md:py-20">
+    <!-- Header Banner -->
+    <div class="text-center mb-12 space-y-4">
+      <div class="inline-flex items-center gap-x-2 px-3.5 py-1.5 rounded-full bg-blue-950/60 border border-blue-800/40 text-blue-400 text-xs font-semibold uppercase tracking-wider">
+        <i class="fa-solid fa-bullhorn text-xs"></i>
+        <span>News Center · Official Releases</span>
+      </div>
+      <h1 class="text-3xl md:text-5xl font-bold text-white tracking-tight heading-font">
+        Alliance News & Announcements
+      </h1>
+      <p class="text-slate-400 text-base max-w-2xl mx-auto">
+        Stay updated with NACUAA WA's official releases, club developments, community initiatives, and tech collaborations
+      </p>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <div class="flex flex-wrap items-center justify-center gap-2 mb-10 border-b border-slate-800 pb-4">
+      <button class="news-tab-btn active px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-blue-600 text-white" data-category="all">
+        All News
+      </button>
+      <button class="news-tab-btn px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-slate-900 text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800" data-category="announcement">
+        Announcements
+      </button>
+      <button class="news-tab-btn px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-slate-900 text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800" data-category="club">
+        Clubs & Competitions
+      </button>
+      <a href="/en/posts/" class="px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-slate-900/40 text-slate-400 hover:text-blue-400 hover:bg-slate-800 border border-slate-800/60 flex items-center gap-1.5">
+        <span>Switch to Events & Lectures</span>
+        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+      </a>
+    </div>
+
+    <!-- News List -->
+    <div class="space-y-6" id="news-container">
+      {newsItems.map(item => {
+        const catKey = item.category.includes('Club') || item.category.includes('Competition') ? 'club' : 'announcement';
+        return (
+          <article class="news-card bg-slate-900/60 border border-slate-800/80 hover:border-blue-500/40 rounded-3xl p-6 md:p-8 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-950/50 group" data-category={catKey}>
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div class="space-y-3 flex-1">
+                <div class="flex items-center gap-x-3 text-xs">
+                  <span class:list={[
+                    "px-3 py-1 rounded-full font-semibold border",
+                    item.badgeType === "amber" ? "bg-amber-500/10 text-amber-400 border-amber-500/20" :
+                    item.badgeType === "emerald" ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20" :
+                    "bg-blue-600/10 text-blue-400 border-blue-500/20"
+                  ]}>
+                    {item.category}
+                  </span>
+                  <span class="text-slate-400 flex items-center gap-x-1">
+                    <i class="fa-regular fa-calendar text-[11px]"></i>
+                    <time datetime={item.rawDate}>{item.date}</time>
+                  </span>
+                </div>
+                <h2 class="text-xl md:text-2xl font-bold text-white group-hover:text-blue-400 transition-colors leading-snug">
+                  <a href={item.link}>{item.title}</a>
+                </h2>
+                <p class="text-slate-300 text-sm leading-relaxed">{item.summary}</p>
+              </div>
+              <a href={item.link} class="shrink-0 px-6 py-3 bg-slate-800 hover:bg-blue-600 text-slate-100 hover:text-white text-xs font-semibold rounded-2xl transition-all duration-200 text-center flex items-center justify-center gap-x-2 group-hover:bg-blue-600">
+                <span>Read Details</span>
+                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  </div>
+
+  <script>
+    const tabs = document.querySelectorAll('.news-tab-btn');
+    const cards = document.querySelectorAll('.news-card');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const cat = tab.getAttribute('data-category');
+        tabs.forEach(t => {
+          t.classList.remove('bg-blue-600', 'text-white', 'active');
+          t.classList.add('bg-slate-900', 'text-slate-400');
+        });
+        tab.classList.remove('bg-slate-900', 'text-slate-400');
+        tab.classList.add('bg-blue-600', 'text-white', 'active');
+
+        cards.forEach(card => {
+          const cardCat = card.getAttribute('data-category');
+          if (cat === 'all' || cardCat === cat) {
+            (card as HTMLElement).style.display = 'block';
+          } else {
+            (card as HTMLElement).style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</BaseLayout>

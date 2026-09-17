@@ -1,0 +1,403 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  lang="zh-CN"
+  title="免责协议管理后台 (Admin Console)"
+  description="北美高校联盟华盛顿州分会（NACUAA WA）活动免责协议管理与归档调阅后台"
+  path="/waiver/admin/"
+>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 md:py-16 space-y-8">
+    <!-- Header -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-6">
+      <div>
+        <div class="text-xs text-blue-400 font-mono tracking-wider uppercase font-semibold">
+          NACUAA WA WAIVER ADMIN
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold text-white tracking-tight heading-font mt-1">
+          活动免责签署管理后台
+        </h1>
+        <p class="text-xs sm:text-sm text-slate-400 mt-1">
+          调阅、核验并归档各俱乐部活动免责协议（版本 NACUAAWA-ROL-2026-09）
+        </p>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="/waiver/" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium transition-colors flex items-center gap-x-1.5">
+          <i class="fa-solid fa-pen-nib"></i>
+          <span>前往签署页</span>
+        </a>
+        <button id="logout-btn" class="hidden px-4 py-2 rounded-xl bg-red-600/20 hover:bg-red-600/30 text-red-400 border border-red-500/30 text-xs font-medium transition-colors">
+          退出凭证
+        </button>
+      </div>
+    </div>
+
+    <!-- Auth Gateway Modal / Gate -->
+    <div id="auth-gate" class="max-w-md mx-auto bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-5 shadow-2xl">
+      <div class="w-12 h-12 rounded-2xl bg-blue-600/10 text-blue-400 border border-blue-500/20 flex items-center justify-center text-xl mx-auto">
+        <i class="fa-solid fa-key"></i>
+      </div>
+      <div class="text-center space-y-1">
+        <h2 class="text-lg font-bold text-white">管理员身份验证</h2>
+        <p class="text-xs text-slate-400">请输入分会理事会管理密钥以调阅签署名单及 PDF 存证。</p>
+      </div>
+
+      <form id="auth-form" class="space-y-4">
+        <div>
+          <label class="block text-slate-300 text-xs font-medium mb-1.5" for="secret-key-input">
+            管理密钥 (Admin Secret Key)
+          </label>
+          <input type="password" id="secret-key-input" required placeholder="请输入密钥" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3.5 py-2.5 text-slate-200 text-xs focus:outline-none focus:border-blue-500 transition-colors" />
+        </div>
+        <button type="submit" id="auth-submit-btn" class="w-full py-3 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs transition-colors shadow-lg">
+          验证并登入
+        </button>
+        <p id="auth-error" class="text-xs text-red-400 text-center hidden"></p>
+      </form>
+    </div>
+
+    <!-- Admin Dashboard Content (Hidden by default) -->
+    <div id="admin-dashboard" class="hidden space-y-8">
+      <!-- Organizer QR & Link Generator Tool -->
+      <div class="bg-gradient-to-r from-blue-950/40 via-slate-900 to-slate-900 border border-blue-800/40 rounded-3xl p-6 space-y-4">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div class="flex items-center gap-x-2 text-white font-bold text-sm sm:text-base">
+            <i class="fa-solid fa-qrcode text-blue-400"></i>
+            <span>活动专属签署链接与二维码生成器</span>
+          </div>
+          <span class="text-xs text-slate-400">供俱乐部理事组织活动时一键发微信群</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+          <div>
+            <label class="block text-slate-400 mb-1">选择俱乐部</label>
+            <select id="gen-club" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-slate-200">
+              <option value="run">健行俱乐部 (run)</option>
+              <option value="guandan">掼蛋俱乐部 (guandan)</option>
+              <option value="tennis">网球俱乐部 (tennis)</option>
+              <option value="pickleball">匹克球俱乐部 (pickleball)</option>
+              <option value="golf">高尔夫俱乐部 (golf)</option>
+              <option value="music">音乐玩乐俱乐部 (music)</option>
+              <option value="garden">园艺团购俱乐部 (garden)</option>
+              <option value="ai">AI创业公益俱乐部 (ai)</option>
+              <option value="aimedia">AI影音创意俱乐部 (aimedia)</option>
+              <option value="general">综合活动 (general)</option>
+              <option value="other">自定义俱乐部 / 组织 (other)</option>
+            </select>
+            <div id="gen-custom-club-box" class="hidden mt-2">
+              <input type="text" id="gen-custom-club" placeholder="输入自定义组织名称，如：校友摄影俱乐部" class="w-full bg-slate-950 border border-amber-500/40 rounded-xl px-3 py-2 text-slate-200 text-xs" />
+            </div>
+          </div>
+          <div class="sm:col-span-2">
+            <label class="block text-slate-400 mb-1">活动具体名称</label>
+            <div class="flex gap-2">
+              <input type="text" id="gen-activity" placeholder="如：第十二期旧金山天使岛徒步" class="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-slate-200" />
+              <button type="button" id="copy-link-btn" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-medium shrink-0 transition-colors">
+                复制链接
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-3 bg-slate-950/80 rounded-xl border border-slate-800/80 flex items-center justify-between text-xs font-mono text-slate-300 break-all">
+          <span id="preview-url">https://wa.nacuaa.ai/waiver/?club=run&activity=西雅图追风健行</span>
+        </div>
+      </div>
+
+      <!-- Stats Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-5">
+          <div class="text-xs text-slate-400 font-medium">已归档总签署人数</div>
+          <div id="stat-total" class="text-3xl font-bold text-white mt-1 font-mono">0</div>
+        </div>
+        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-5">
+          <div class="text-xs text-slate-400 font-medium">未成年人保护签署数</div>
+          <div id="stat-minor" class="text-3xl font-bold text-amber-400 mt-1 font-mono">0</div>
+        </div>
+        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-5">
+          <div class="text-xs text-slate-400 font-medium">当前锁定规范版本</div>
+          <div class="text-xl font-bold text-blue-400 mt-1 font-mono">NACUAAWA-ROL-2026-09</div>
+        </div>
+      </div>
+
+      <!-- Filter and Actions -->
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+        <div class="flex-1 flex gap-2">
+          <input type="text" id="search-input" placeholder="按活动名称、参加者姓名或监护人搜索..." class="w-full max-w-md bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-slate-200 focus:outline-none focus:border-blue-500 transition-colors" />
+          <button type="button" id="refresh-btn" class="px-3.5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-xl text-xs transition-colors">
+            <i class="fa-solid fa-arrows-rotate"></i>
+          </button>
+        </div>
+
+        <button type="button" id="export-csv-btn" class="px-4 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-xl text-xs font-medium transition-colors flex items-center justify-center gap-x-2">
+          <i class="fa-solid fa-file-csv text-emerald-400"></i>
+          <span>导出为 CSV 签到花名册</span>
+        </button>
+      </div>
+
+      <!-- Table of Waivers -->
+      <div class="bg-slate-900/60 border border-slate-800 rounded-3xl overflow-hidden shadow-xl">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs text-slate-300">
+            <thead class="bg-slate-950/80 border-b border-slate-800 text-slate-400 uppercase tracking-wider text-[11px]">
+              <tr>
+                <th class="py-3.5 px-4 font-semibold">签署时间 (Local TZ)</th>
+                <th class="py-3.5 px-4 font-semibold">活动名称 / 俱乐部</th>
+                <th class="py-3.5 px-4 font-semibold">参加者姓名</th>
+                <th class="py-3.5 px-4 font-semibold">身份 / 监护人</th>
+                <th class="py-3.5 px-4 font-semibold">签署 IP 与环境</th>
+                <th class="py-3.5 px-4 font-semibold">操作</th>
+              </tr>
+            </thead>
+            <tbody id="waivers-tbody" class="divide-y divide-slate-800/60">
+              <tr>
+                <td colspan="6" class="py-8 text-center text-slate-500">
+                  <i class="fa-solid fa-spinner fa-spin mr-2"></i> 正在加载数据...
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  let currentKey = sessionStorage.getItem("nacuaanc_waiver_key") || "";
+  const authGate = document.getElementById("auth-gate") as HTMLElement;
+  const authForm = document.getElementById("auth-form") as HTMLFormElement;
+  const authError = document.getElementById("auth-error") as HTMLElement;
+  const adminDashboard = document.getElementById("admin-dashboard") as HTMLElement;
+  const logoutBtn = document.getElementById("logout-btn") as HTMLElement;
+
+  const searchInput = document.getElementById("search-input") as HTMLInputElement;
+  const refreshBtn = document.getElementById("refresh-btn") as HTMLButtonElement;
+  const exportCsvBtn = document.getElementById("export-csv-btn") as HTMLButtonElement;
+  const tbody = document.getElementById("waivers-tbody") as HTMLElement;
+
+  let loadedWaivers: any[] = [];
+
+  // Check URL param ?key=
+  const urlKey = new URLSearchParams(window.location.search).get("key");
+  if (urlKey) {
+    currentKey = urlKey;
+    sessionStorage.setItem("nacuaanc_waiver_key", urlKey);
+  }
+
+  if (currentKey) {
+    loadDashboard();
+  }
+
+  authForm?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const key = (document.getElementById("secret-key-input") as HTMLInputElement).value.trim();
+    if (!key) return;
+
+    currentKey = key;
+    sessionStorage.setItem("nacuaanc_waiver_key", key);
+    await loadDashboard();
+  });
+
+  logoutBtn?.addEventListener("click", () => {
+    sessionStorage.removeItem("nacuaanc_waiver_key");
+    currentKey = "";
+    adminDashboard.classList.add("hidden");
+    logoutBtn.classList.add("hidden");
+    authGate.classList.remove("hidden");
+  });
+
+  async function loadDashboard() {
+    authError.classList.add("hidden");
+    try {
+      const res = await fetch(`/api/waiver/list?key=${encodeURIComponent(currentKey)}`, {
+        headers: { "X-Admin-Secret": currentKey }
+      });
+
+      if (res.status === 401) {
+        authError.textContent = "401 Unauthorized: 密钥错误，无权调阅后台！";
+        authError.classList.remove("hidden");
+        adminDashboard.classList.add("hidden");
+        authGate.classList.remove("hidden");
+        logoutBtn.classList.add("hidden");
+        return;
+      }
+
+      const data = await res.json();
+      if (!data.success) {
+        throw new Error(data.message || "Failed to load waivers");
+      }
+
+      authGate.classList.add("hidden");
+      adminDashboard.classList.remove("hidden");
+      logoutBtn.classList.remove("hidden");
+
+      loadedWaivers = data.waivers || [];
+      renderTable(loadedWaivers);
+
+    } catch (err: any) {
+      authError.textContent = "加载失败：" + (err.message || err);
+      authError.classList.remove("hidden");
+    }
+  }
+
+  function renderTable(list: any[]) {
+    (document.getElementById("stat-total") as HTMLElement).textContent = list.length.toString();
+    const minors = list.filter(w => w.is_minor || w.isMinor).length;
+    (document.getElementById("stat-minor") as HTMLElement).textContent = minors.toString();
+
+    if (list.length === 0) {
+      tbody.innerHTML = `
+        <tr>
+          <td colspan="6" class="py-8 text-center text-slate-500">
+            暂无签署记录
+          </td>
+        </tr>
+      `;
+      return;
+    }
+
+    tbody.innerHTML = list.map(w => {
+      const isMin = w.is_minor || w.isMinor;
+      const signedAt = w.signed_at || w.signedAt || w.created_at || "N/A";
+      const activity = w.activity_name || w.activityName || "未命名活动";
+      const club = w.club || "general";
+      const participant = w.participant_name || w.participantName || "N/A";
+      const guardian = w.guardian_name || w.guardianName || "";
+      const rel = w.relationship || "";
+      const ip = w.signer_ip || w.signerIp || "N/A";
+      const id = w.id;
+
+      return `
+        <tr class="hover:bg-slate-800/30 transition-colors">
+          <td class="py-3 px-4 font-mono text-[11px] text-slate-300 whitespace-nowrap">
+            ${signedAt}
+          </td>
+          <td class="py-3 px-4">
+            <div class="font-medium text-white">${activity}</div>
+            <div class="text-[10px] ${club.startsWith("other:") ? "text-amber-400 font-semibold" : "text-blue-400"} font-mono">
+              ${club.startsWith("other:") ? `自定义: ${club.substring(6)}` : club}
+            </div>
+          </td>
+          <td class="py-3 px-4">
+            <div class="font-bold text-slate-200">${participant}</div>
+            <div class="text-[10px] text-slate-400">DOB: ${w.dob || "N/A"}</div>
+          </td>
+          <td class="py-3 px-4">
+            ${isMin ? `
+              <span class="px-2 py-0.5 rounded-full text-[10px] bg-amber-500/10 text-amber-300 border border-amber-500/20 font-medium">未成年人</span>
+              <div class="text-[11px] text-slate-300 mt-1">监护人: ${guardian} (${rel})</div>
+            ` : `
+              <span class="px-2 py-0.5 rounded-full text-[10px] bg-slate-800 text-slate-400">成年参加者</span>
+            `}
+          </td>
+          <td class="py-3 px-4 font-mono text-[11px] text-slate-400">
+            <div>${ip}</div>
+            <div class="text-[10px] text-slate-500 truncate max-w-[150px]" title="${w.user_agent || w.userAgent || ""}">${w.user_agent || w.userAgent || "Unknown"}</div>
+          </td>
+          <td class="py-3 px-4">
+            <a href="/api/waiver/download?id=${encodeURIComponent(id)}&key=${encodeURIComponent(currentKey)}" target="_blank" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-blue-600/10 text-blue-400 hover:bg-blue-600/20 border border-blue-500/20 text-[11px] transition-colors">
+              <i class="fa-solid fa-download"></i>
+              <span>PDF</span>
+            </a>
+          </td>
+        </tr>
+      `;
+    }).join("");
+  }
+
+  // Search filter
+  searchInput?.addEventListener("input", () => {
+    const q = searchInput.value.trim().toLowerCase();
+    if (!q) {
+      renderTable(loadedWaivers);
+      return;
+    }
+    const filtered = loadedWaivers.filter(w => {
+      const act = (w.activity_name || w.activityName || "").toLowerCase();
+      const p = (w.participant_name || w.participantName || "").toLowerCase();
+      const g = (w.guardian_name || w.guardianName || "").toLowerCase();
+      const c = (w.club || "").toLowerCase();
+      return act.includes(q) || p.includes(q) || g.includes(q) || c.includes(q);
+    });
+    renderTable(filtered);
+  });
+
+  refreshBtn?.addEventListener("click", loadDashboard);
+
+  // CSV Export
+  exportCsvBtn?.addEventListener("click", () => {
+    if (!loadedWaivers.length) {
+      alert("当前没有可导出的签署记录！");
+      return;
+    }
+
+    const headers = ["ID", "签署时间", "活动名称", "俱乐部", "参加者姓名", "出生日期", "是否未成年", "监护人姓名", "与未成年人关系", "联系方式", "紧急联络人", "签署IP", "规范版本"];
+    const rows = loadedWaivers.map(w => [
+      w.id,
+      `"${w.signed_at || w.signedAt || ""}"`,
+      `"${w.activity_name || w.activityName || ""}"`,
+      w.club || "",
+      `"${w.participant_name || w.participantName || ""}"`,
+      w.dob || "",
+      (w.is_minor || w.isMinor) ? "是" : "否",
+      `"${w.guardian_name || w.guardianName || ""}"`,
+      `"${w.relationship || ""}"`,
+      `"${w.phone_email || w.phoneEmail || ""}"`,
+      `"${w.emergency_contact || w.emergencyContact || ""}"`,
+      w.signer_ip || w.signerIp || "",
+      w.version || "NACUAAWA-ROL-2026-09"
+    ]);
+
+    const csvContent = "\uFEFF" + [headers.join(","), ...rows.map(r => r.join(","))].join("\n");
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `NACUAAWA_Waivers_List_${new Date().toISOString().slice(0, 10)}.csv`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
+
+  // Link generator
+  const genClub = document.getElementById("gen-club") as HTMLSelectElement;
+  const genCustomClubBox = document.getElementById("gen-custom-club-box") as HTMLElement;
+  const genCustomClub = document.getElementById("gen-custom-club") as HTMLInputElement;
+  const genActivity = document.getElementById("gen-activity") as HTMLInputElement;
+  const previewUrl = document.getElementById("preview-url") as HTMLElement;
+  const copyLinkBtn = document.getElementById("copy-link-btn") as HTMLButtonElement;
+
+  function updateGenUrl() {
+    const club = genClub.value;
+    const isOther = club === "other";
+    if (isOther) {
+      genCustomClubBox?.classList.remove("hidden");
+    } else {
+      genCustomClubBox?.classList.add("hidden");
+    }
+
+    const customName = genCustomClub?.value.trim() || "";
+    const clubParam = isOther ? (customName || "other") : club;
+    const act = genActivity.value.trim();
+    let url = `https://wa.nacuaa.ai/waiver/?club=${encodeURIComponent(clubParam)}`;
+    if (act) {
+      url += `&activity=${encodeURIComponent(act)}`;
+    }
+    previewUrl.textContent = url;
+  }
+
+  genClub?.addEventListener("change", updateGenUrl);
+  genCustomClub?.addEventListener("input", updateGenUrl);
+  genActivity?.addEventListener("input", updateGenUrl);
+
+  copyLinkBtn?.addEventListener("click", () => {
+    const url = previewUrl.textContent || "";
+    navigator.clipboard.writeText(url).then(() => {
+      copyLinkBtn.textContent = "已复制！";
+      setTimeout(() => { copyLinkBtn.textContent = "复制链接"; }, 2000);
+    });
+  });
+</script>

@@ -1,0 +1,797 @@
+---
+import type { Locale } from '../../i18n/locales';
+import { useTranslations, getLocalizedPath } from '../../i18n/utils';
+import { CLUBS_DATA } from '../../data/clubs';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<!-- Hero Section -->
+<section class="hero-bg pt-28 pb-16 md:pt-36 md:pb-24">
+  <div class="max-w-5xl mx-auto px-6">
+    <!-- Announcement Banner -->
+    <div class="mb-8 p-4 bg-blue-950/40 border border-blue-900/30 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-left">
+      <div class="flex items-start gap-x-3">
+        <div class="w-8 h-8 rounded-lg bg-blue-600/10 text-blue-400 flex items-center justify-center shrink-0 border border-blue-500/10">
+          <i class="fa-solid fa-bullhorn text-sm animate-pulse"></i>
+        </div>
+        <div>
+          <span class="text-xs text-blue-400 font-semibold uppercase tracking-wider block">
+            {lang === 'en' ? 'Announcement' : lang === 'zh-TW' ? '重磅公告' : '重磅公告'}
+          </span>
+          <span class="text-sm text-slate-200 font-medium block mt-0.5">
+            {lang === 'en' 
+              ? 'Four NACUAA Chapters (NorCal, SV, NC, DC) Form Sister Chapter Alliance & Partner with ZJUAANC'
+              : lang === 'zh-TW'
+              ? '【重大新聞】北美高校聯盟四分會結為姊妹分會，並與浙江大學北卡羅來納校友會建立戰略合作'
+              : '【重大新闻】北美高校联盟四分会结为姊妹分会，并与浙江大学北卡罗来纳校友会建立战略合作'}
+          </span>
+        </div>
+      </div>
+      <a href={lang === 'en' 
+        ? '/en/posts/2026-09-12-four-chapters-sisterhood-and-zju-strategic-partnership/' 
+        : lang === 'zh-TW'
+        ? '/zh-TW/posts/2026-09-12-four-chapters-sisterhood-and-zju-strategic-partnership/'
+        : '/posts/2026-09-12-four-chapters-sisterhood-and-zju-strategic-partnership/'} 
+         class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold rounded-xl shrink-0 transition-colors text-center">
+        {lang === 'en' ? 'Learn More' : '了解详情'}
+      </a>
+    </div>
+
+    <div class="grid md:grid-cols-12 gap-12 items-center">
+      <!-- Left content -->
+      <div class="md:col-span-7 text-center md:text-left">
+        <div class="inline-flex items-center gap-x-2 bg-slate-900 border border-slate-800 rounded-full px-4 py-1.5 mb-6">
+          <div class="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+          <span class="text-blue-400 text-sm font-medium">{t('hero.badge')}</span>
+        </div>
+        
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-none mb-4 text-white">
+          {t('hero.title_part1')}<br>
+          <span class="ai-gradient">{t('hero.title_part2')}</span>
+        </h1>
+        
+        <p class="max-w-md mx-auto md:mx-0 text-xl text-slate-400 mb-8">
+          {t('hero.subtitle')}
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
+          <a href="#join" 
+             class="w-full sm:w-auto px-8 py-4 bg-white hover:bg-slate-100 transition-all text-slate-900 font-semibold rounded-3xl flex items-center justify-center gap-x-2 text-lg">
+            <span>{t('hero.cta.join')}</span>
+          </a>
+          <a href="#activities" 
+             class="w-full sm:w-auto px-8 py-4 border border-slate-800 hover:bg-slate-900 hover:text-white text-slate-300 transition-all font-medium rounded-3xl flex items-center justify-center gap-x-2 text-lg">
+            <span>{t('hero.cta.activities')}</span>
+          </a>
+        </div>
+        
+        <div class="mt-12 flex justify-center md:justify-start gap-x-8 text-sm text-slate-500">
+          <div class="flex items-center gap-x-2">
+            <i class="fa-solid fa-users"></i>
+            <span>{t('hero.stat.members')}</span>
+          </div>
+          <div class="flex items-center gap-x-2">
+            <i class="fa-solid fa-globe"></i>
+            <span>{t('hero.stat.universities')}</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Right image (Hero) -->
+      <div class="md:col-span-5 flex justify-center w-full">
+        <div class="relative group w-full max-w-lg md:max-w-none">
+          <!-- Ambient glowing background effect -->
+          <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 via-purple-600 to-pink-500 rounded-3xl blur opacity-35 group-hover:opacity-55 transition duration-1000"></div>
+          <img src="/images/hero-banner.jpg" 
+               alt="NACUAA WA Seattle Alumni Community Banner" 
+               class="relative w-full aspect-[16/9] rounded-3xl object-cover shadow-2xl border border-slate-900 transition-transform duration-500 group-hover:scale-[1.01]" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="max-w-5xl mx-auto px-6 py-16 md:py-24">
+  <div class="grid md:grid-cols-12 gap-y-12 gap-x-8">
+    <div class="md:col-span-5">
+      <div class="sticky top-24">
+        <span class="text-blue-500 font-semibold tracking-widest text-sm uppercase">{t('about.header')}</span>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mt-3 heading-font leading-tight">
+          {t('about.title')}
+        </h2>
+      </div>
+    </div>
+    
+    <div class="md:col-span-7 text-lg text-slate-300 space-y-8">
+      <div class="space-y-6">
+        <p>
+          {t('about.body1')}
+        </p>
+        <p>
+          {t('about.body2')}
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="bg-slate-900/60 border border-slate-900 rounded-2xl p-5 hover:border-slate-800 transition-colors">
+          <div class="text-blue-500 mb-2"><i class="fa-solid fa-users-rectangle fa-lg"></i></div>
+          <div class="font-semibold text-white">{t('about.pillar1.title')}</div>
+          <div class="text-sm text-slate-400 mt-1">{t('about.pillar1.desc')}</div>
+        </div>
+        <div class="bg-slate-900/60 border border-slate-900 rounded-2xl p-5 hover:border-slate-800 transition-colors">
+          <div class="text-blue-500 mb-2"><i class="fa-solid fa-graduation-cap fa-lg"></i></div>
+          <div class="font-semibold text-white">{t('about.pillar2.title')}</div>
+          <div class="text-sm text-slate-400 mt-1">{t('about.pillar2.desc')}</div>
+        </div>
+        <div class="bg-slate-900/60 border border-slate-900 rounded-2xl p-5 hover:border-slate-800 transition-colors">
+          <div class="text-blue-500 mb-2"><i class="fa-solid fa-heart fa-lg"></i></div>
+          <div class="font-semibold text-white">{t('about.pillar3.title')}</div>
+          <div class="text-sm text-slate-400 mt-1">{t('about.pillar3.desc')}</div>
+        </div>
+      </div>
+
+      <!-- Leadership Team -->
+      <div class="pt-8 border-t border-slate-900/80">
+        <h3 class="text-xl font-semibold text-white mb-6 heading-font">{t('about.leadership.title')}</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="bg-slate-900/40 border border-slate-900 rounded-2xl p-5 flex items-center gap-x-4">
+            <img src="/images/ashley.jpg" alt="Ashley Qi (戚霄)" class="w-14 h-14 rounded-full object-cover border-2 border-blue-500/30 shadow-md shrink-0" />
+            <div>
+              <div class="font-semibold text-white text-base">
+                {lang === 'en' ? 'Ashley Qi (戚霄)' : lang === 'zh-TW' ? '戚霄 (Ashley Qi)' : '戚霄 (Ashley Qi)'}
+              </div>
+              <div class="text-xs text-slate-400 mt-0.5">{t('about.leadership.president.label')}</div>
+              <div class="flex flex-col gap-y-1 mt-1 text-xs">
+                <a href="mailto:ashley@nacuaa.ai" class="text-blue-500 hover:text-blue-400 hover:underline flex items-center gap-x-1">
+                  <i class="fa-regular fa-envelope"></i>
+                  ashley@nacuaa.ai
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <!-- Department Structure (部门设置) -->
+        <div class="pt-10 mt-10 border-t border-slate-900/80">
+          <div class="mb-6">
+            <h3 class="text-xl font-semibold text-white heading-font">
+              {lang === 'en' ? 'Department Structure' : lang === 'zh-TW' ? '部門設置' : '部门设置'}
+            </h3>
+            <p class="text-xs text-slate-400 mt-1">
+              {lang === 'en' ? 'Current committees and department structure of NACUAA WA' : lang === 'zh-TW' ? '北美高校聯盟華盛頓州分會當前部門架構' : '北美高校联盟华盛顿州分会当前部门架构'}
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
+            <!-- Dept 1: Media & Communications -->
+            <div class="bg-slate-900/40 border border-slate-900 rounded-2xl p-5 hover:border-blue-500/30 transition-colors">
+              <div class="flex items-center gap-x-3 mb-2">
+                <div class="w-9 h-9 rounded-xl bg-blue-600/10 text-blue-400 flex items-center justify-center shrink-0 border border-blue-500/10 text-sm">
+                  <i class="fa-solid fa-bullhorn"></i>
+                </div>
+                <div class="font-semibold text-white text-sm">
+                  {lang === 'en' ? 'Media & Communications Committee (宣传部)' : lang === 'zh-TW' ? '媒體與傳播委員會（宣傳部）' : '媒体与传播委员会（宣传部）'}
+                </div>
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                {lang === 'en' ? 'Responsible for content creation, graphic design, social media, and event publicity.' : lang === 'zh-TW' ? '負責內容創作、設計、社交媒體及活動宣傳。' : '负责内容创作、设计、社交媒体及活动宣传。'}
+              </p>
+            </div>
+
+            <!-- Dept 2: IT -->
+            <div class="bg-slate-900/40 border border-slate-900 rounded-2xl p-5 hover:border-blue-500/30 transition-colors">
+              <div class="flex items-center gap-x-3 mb-2">
+                <div class="w-9 h-9 rounded-xl bg-blue-600/10 text-blue-400 flex items-center justify-center shrink-0 border border-blue-500/10 text-sm">
+                  <i class="fa-solid fa-laptop-code"></i>
+                </div>
+                <div class="font-semibold text-white text-sm">
+                  {lang === 'en' ? 'IT & Systems Committee (信息部)' : lang === 'zh-TW' ? '資訊技術委員會（資訊部）' : '信息技术委员会（信息部）'}
+                </div>
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                {lang === 'en' ? 'Responsible for information systems, website building/maintenance, tech tools, and digital support.' : lang === 'zh-TW' ? '負責資訊管理、網站建設與維護、技術工具及數位化支持。' : '负责信息管理、网站建设与维护、技术工具及数字化支持。'}
+              </p>
+            </div>
+
+            <!-- Dept 3: AI Venture -->
+            <div class="bg-slate-900/40 border border-slate-900 rounded-2xl p-5 hover:border-blue-500/30 transition-colors">
+              <div class="flex items-center gap-x-3 mb-2">
+                <div class="w-9 h-9 rounded-xl bg-purple-600/10 text-purple-400 flex items-center justify-center shrink-0 border border-purple-500/10 text-sm">
+                  <i class="fa-solid fa-brain"></i>
+                </div>
+                <div class="font-semibold text-white text-sm">
+                  {lang === 'en' ? 'AI Venture & Innovation Committee (AI部)' : lang === 'zh-TW' ? 'AI創業與創新委員會（AI部）' : 'AI创业与创新委员会（AI部）'}
+                </div>
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                {lang === 'en' ? 'Responsible for AI lectures, startup workshops, technical exchanges, and resource matchmaking.' : lang === 'zh-TW' ? '負責AI相關講座、創業分享、技術交流與資源對接。' : '负责AI相关讲座、创业分享、技术交流与资源对接。'}
+              </p>
+            </div>
+
+            <!-- Dept 4: Culture & Sports -->
+            <div class="bg-slate-900/40 border border-slate-900 rounded-2xl p-5 hover:border-blue-500/30 transition-colors">
+              <div class="flex items-center gap-x-3 mb-2">
+                <div class="w-9 h-9 rounded-xl bg-emerald-600/10 text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-500/10 text-sm">
+                  <i class="fa-solid fa-icons"></i>
+                </div>
+                <div class="font-semibold text-white text-sm">
+                  {lang === 'en' ? 'Culture, Sports & Outdoors Committee (活动部)' : lang === 'zh-TW' ? '文體與戶外活動委員會（活動部）' : '文体与户外活动委员会（活动部）'}
+                </div>
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                {lang === 'en' ? 'Responsible for planning and executing arts, music, outdoor sports, and social activities.' : lang === 'zh-TW' ? '負責文藝、音樂、戶外及各類活動的策劃與執行。' : '负责文艺、音乐、户外及各类活动的策划与执行。'}
+              </p>
+            </div>
+
+            <!-- Dept 5: Membership & Relations -->
+            <div class="bg-slate-900/40 border border-slate-900 rounded-2xl p-5 hover:border-blue-500/30 transition-colors">
+              <div class="flex items-center gap-x-3 mb-2">
+                <div class="w-9 h-9 rounded-xl bg-amber-600/10 text-amber-400 flex items-center justify-center shrink-0 border border-amber-500/10 text-sm">
+                  <i class="fa-solid fa-users-viewfinder"></i>
+                </div>
+                <div class="font-semibold text-white text-sm">
+                  {lang === 'en' ? 'Membership & Alumni Relations Committee (会员部)' : lang === 'zh-TW' ? '會員發展與校友聯絡委員會（會員部）' : '会员发展与校友联络委员会（会员部）'}
+                </div>
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                {lang === 'en' ? 'Responsible for member onboarding, alumni networking, and outreach to enterprises, governments, and nonprofits.' : lang === 'zh-TW' ? '負責新會員發展、校友聯絡，以及與企業、政府、其他非營利機構的對接。' : '负责新会员发展、校友联络，以及与企业、政府、其他非营利机构的对接。'}
+              </p>
+            </div>
+
+            <!-- Dept 6: Honorary Advisory -->
+            <div class="bg-slate-900/40 border border-slate-900 rounded-2xl p-5 hover:border-blue-500/30 transition-colors">
+              <div class="flex items-center gap-x-3 mb-2">
+                <div class="w-9 h-9 rounded-xl bg-rose-600/10 text-rose-400 flex items-center justify-center shrink-0 border border-rose-500/10 text-sm">
+                  <i class="fa-solid fa-award"></i>
+                </div>
+                <div class="font-semibold text-white text-sm">
+                  {lang === 'en' ? 'Honorary Advisory Committee (荣誉顾问)' : lang === 'zh-TW' ? '榮譽顧問委員會（榮譽顧問）' : '荣誉顾问委员会（荣誉顾问）'}
+                </div>
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                {lang === 'en' ? 'Honorary positions for former presidents and council members, purely advisory with no operational duties.' : lang === 'zh-TW' ? '安置歷任掛名會長、理事，純榮譽性質，不承擔實際工作。' : '安置历任挂名会长、理事，纯荣誉性质，不承担实际工作。'}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Clubs Section -->
+<section id="clubs" class="bg-slate-900/10 border-t border-slate-900/80">
+  <div class="max-w-5xl mx-auto px-6 py-16 md:py-24">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+      <div>
+        <span class="text-blue-500 font-semibold tracking-widest text-sm uppercase">{t('clubs.header')}</span>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mt-2 heading-font">
+          {lang === 'en' ? 'Alumni Theme Clubs' : lang === 'zh-TW' ? '校友主題俱樂部' : '校友主题俱乐部'}
+        </h2>
+        <p class="text-slate-400 text-sm md:text-base mt-2 max-w-2xl leading-relaxed">
+          {lang === 'en' 
+            ? 'Official club names are used externally, while WeChat group names are used for joining groups. Warmly welcome all alumni in Washington State and the Greater Seattle area!' 
+            : lang === 'zh-TW' 
+            ? '對外使用正式俱樂部名，進群使用現成微信群名。歡迎華盛頓州與大西雅圖廣大校友與朋友積極加入！' 
+            : '对外使用正式俱乐部名，进群使用现成微信群名。欢迎华盛顿州与大西雅图广大校友与朋友积极加入！'}
+        </p>
+      </div>
+      <a href={getLocalizedPath('/clubs/', lang)} 
+         class="inline-flex items-center gap-x-2 text-sm text-blue-400 hover:text-blue-300 font-semibold transition-colors shrink-0">
+        <span>{lang === 'en' ? 'View All Clubs' : lang === 'zh-TW' ? '瀏覽全部俱樂部' : '浏览全部俱乐部'}</span>
+        <i class="fa-solid fa-arrow-right text-xs"></i>
+      </a>
+    </div>
+
+    <!-- Waiver Notice Bar -->
+    <div class="mb-8 p-4 rounded-2xl bg-blue-950/20 border border-blue-900/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
+      <div class="flex items-center gap-x-2.5 text-slate-300">
+        <i class="fa-solid fa-file-signature text-blue-400 text-sm"></i>
+        <span>
+          {lang === 'en' 
+            ? 'Participating in offline club activities? Please complete the Activity Liability Waiver before attendance.' 
+            : lang === 'zh-TW'
+            ? '參加各俱樂部線下體育與社交活動？請於行前在線簽署《活動免責聲明與責任豁免協議》。'
+            : '参加各俱乐部线下体育与社交活动？请于行前在线签署《活动免责声明与责任豁免协议》。'}
+        </span>
+      </div>
+      <a href={getLocalizedPath('/waiver/', lang)} class="text-blue-400 hover:text-blue-300 font-semibold inline-flex items-center gap-x-1 shrink-0">
+        <span>{lang === 'en' ? 'Sign Waiver Online →' : '前往签署免责协议 →'}</span>
+      </a>
+    </div>
+
+    <!-- 9 Clubs Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {CLUBS_DATA.map((club) => (
+        <div class="bg-slate-900/40 border border-slate-900 hover:border-slate-800 rounded-3xl p-6 flex flex-col justify-between hover:bg-slate-900/60 transition-all duration-300 group shadow-xl">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-2xl bg-slate-800 text-2xl flex items-center justify-center border border-slate-700 shadow-inner group-hover:scale-105 transition-transform">
+                <span>{club.emoji}</span>
+              </div>
+              <a href={`mailto:${club.directorEmail}`} class="px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-blue-600/10 text-blue-400 border border-blue-500/20 hover:border-blue-400 transition-colors flex items-center gap-x-1">
+                <i class="fa-regular fa-user text-[10px]"></i>
+                <span>{lang === 'en' ? club.directorEn : lang === 'zh-TW' ? club.directorTw : club.directorZh}</span>
+              </a>
+            </div>
+
+            <div class="mb-2">
+              <h3 class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors leading-snug">
+                {lang === 'en' ? club.nameEn : lang === 'zh-TW' ? club.nameTw : club.nameZh}
+              </h3>
+              <div class="text-xs text-slate-400">
+                {lang === 'en' ? club.nameZh : club.nameEn}
+              </div>
+            </div>
+
+            <div class="bg-slate-950/60 border border-slate-800/80 rounded-xl p-2.5 mb-3 text-xs">
+              <div class="text-[10px] text-slate-400 flex items-center gap-x-1 mb-0.5">
+                <i class="fa-brands fa-weixin text-emerald-400"></i>
+                <span>{lang === 'en' ? 'Group Name:' : '进群群名：'}</span>
+              </div>
+              <div class="font-mono text-slate-200 text-xs truncate">
+                {lang === 'zh-TW' ? club.groupNameTw : club.groupNameZh}
+              </div>
+            </div>
+
+            <p class="text-xs text-slate-400 leading-relaxed line-clamp-2 mb-4">
+              {lang === 'en' ? club.descEn : lang === 'zh-TW' ? club.descTw : club.descZh}
+            </p>
+          </div>
+
+          <div class="pt-3 border-t border-slate-800/60">
+            <a href={club.route} class="inline-flex items-center gap-x-2 text-xs text-blue-400 hover:text-blue-300 font-semibold group-hover:underline">
+              <span>{lang === 'en' ? 'Explore Club' : '查看俱乐部'}</span>
+              <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Recent News & Events Section -->
+<section id="posts" class="border-t border-slate-900/80 bg-slate-950/60">
+  <div class="max-w-5xl mx-auto px-6 py-16 md:py-20">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+      <div>
+        <span class="text-blue-500 font-semibold tracking-widest text-sm uppercase">
+          {lang === 'en' ? 'News & Events' : lang === 'zh-TW' ? '新聞與活動' : '新闻与活动'}
+        </span>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mt-2 heading-font">
+          {lang === 'en' ? 'Recent Updates & Activities' : lang === 'zh-TW' ? '最新動態與活動' : '最新动态与活动'}
+        </h2>
+      </div>
+      <a href={lang === 'en' ? '/en/posts/' : lang === 'zh-TW' ? '/zh-TW/posts/' : '/posts/'} 
+         class="inline-flex items-center gap-x-2 text-sm text-blue-400 hover:text-blue-300 font-semibold transition-colors">
+        <span>{lang === 'en' ? 'Browse All News & Events' : lang === 'zh-TW' ? '瀏覽全部新聞與活動' : '浏览全部新闻与活动'}</span>
+        <i class="fa-solid fa-arrow-right text-xs"></i>
+      </a>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <!-- Notice 1: AI-native Agent Security & Compliance Part 1 (Sep 1, 2026) -->
+      <div class="bg-slate-900/50 border border-slate-800/80 hover:border-blue-500/40 rounded-3xl p-7 flex flex-col justify-between transition-all group">
+        <div>
+          <div class="flex items-center gap-x-3 text-xs text-slate-400 mb-3">
+            <span class="px-2.5 py-0.5 rounded-full bg-blue-600/10 text-blue-400 border border-blue-500/20 font-semibold">
+              {lang === 'en' ? 'Webinar' : lang === 'zh-TW' ? '活動講座' : '活动讲座'}
+            </span>
+            <time datetime="2026-09-01">{lang === 'en' ? 'September 1, 2026' : '2026年9月1日'}</time>
+          </div>
+          <h3 class="font-bold text-lg text-white group-hover:text-blue-400 transition-colors leading-snug mb-3">
+            <a href={lang === 'en' 
+              ? '/en/posts/2026-09-01-ai-native-agent-security-compliance-lecture-1/' 
+              : lang === 'zh-TW'
+              ? '/zh-TW/posts/2026-09-01-ai-native-agent-security-compliance-lecture-1/'
+              : '/posts/2026-09-01-ai-native-agent-security-compliance-lecture-1/'}>
+              {lang === 'en' 
+                ? '【Free Webinar】AI-Native Agent Security & Compliance Part 1: From Chatting to Action, Where Do Risks Come From?'
+                : lang === 'zh-TW'
+                ? '【公益免費｜Zoom】AI原生智能體安全與合規第一講：從聊天到動手，風險從哪來'
+                : '【公益免费｜Zoom】AI原生智能体安全与合规第一讲：从聊天到动手，风险从哪来'}
+            </a>
+          </h3>
+          <p class="text-slate-400 text-xs leading-relaxed line-clamp-3 mb-6">
+            {lang === 'en'
+              ? 'Following Physical AI and Agent Media series, we launch AI-Native Agent Security & Compliance Part 1: Risk models, top 6 risk vectors, and pre-launch checklists.'
+              : '开启新系列讲座：AI原生智能体 · 安全与合规。第一讲探讨从会聊天到能动手，智能体产品的安全红线与六类高发风险。'}
+          </p>
+        </div>
+        <a href={lang === 'en' 
+          ? '/en/posts/2026-09-01-ai-native-agent-security-compliance-lecture-1/' 
+          : lang === 'zh-TW'
+          ? '/zh-TW/posts/2026-09-01-ai-native-agent-security-compliance-lecture-1/'
+          : '/posts/2026-09-01-ai-native-agent-security-compliance-lecture-1/'}
+           class="inline-flex items-center gap-x-2 text-xs font-semibold text-blue-400 hover:text-blue-300">
+          <span>{lang === 'en' ? 'Learn More' : '了解详情'}</span>
+          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        </a>
+      </div>
+
+      <!-- Notice 2: AI Music Competition (July 22, 2026) -->
+      <div class="bg-slate-900/50 border border-slate-800/80 hover:border-blue-500/40 rounded-3xl p-7 flex flex-col justify-between transition-all group">
+        <div>
+          <div class="flex items-center gap-x-3 text-xs text-slate-400 mb-3">
+            <span class="px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20 font-semibold">
+              {lang === 'en' ? 'Competition' : lang === 'zh-TW' ? '賽事公告' : '赛事公告'}
+            </span>
+            <time datetime="2026-07-22">{lang === 'en' ? 'July 22, 2026' : '2026年7月22日'}</time>
+          </div>
+          <h3 class="font-bold text-lg text-white group-hover:text-blue-400 transition-colors leading-snug mb-3">
+            <a href={lang === 'en' 
+              ? '/en/posts/2026-07-22-first-north-american-chinese-ai-music-competition/' 
+              : lang === 'zh-TW'
+              ? '/zh-TW/posts/2026-07-22-first-north-american-chinese-ai-music-competition/'
+              : '/posts/2026-07-22-first-north-american-chinese-ai-music-competition/'}>
+              {lang === 'en' 
+                ? '【Notice】1st North American Chinese AI Music Creative Competition 2026–2027 Officially Launches!'
+                : lang === 'zh-TW'
+                ? '【賽事公告】首屆北美華人AI音樂創作創意大賽 2026–2027 正式啟動！'
+                : '【赛事公告】首届北美华人AI音乐创作创意大赛 2026–2027 正式启动！'}
+            </a>
+          </h3>
+          <p class="text-slate-400 text-xs leading-relaxed line-clamp-3 mb-6">
+            {lang === 'en'
+              ? 'Co-organized by NACUAA chapters and AI clubs. Use AI to compose Chinese musical stories! Registration is open.'
+              : '由北美高校联盟硅谷分会、北卡分会与AI创业公益俱乐部等机构联合主办的大赛启动报名！'}
+          </p>
+        </div>
+        <a href={lang === 'en' 
+          ? '/en/posts/2026-07-22-first-north-american-chinese-ai-music-competition/' 
+          : lang === 'zh-TW'
+          ? '/zh-TW/posts/2026-07-22-first-north-american-chinese-ai-music-competition/'
+          : '/posts/2026-07-22-first-north-american-chinese-ai-music-competition/'}
+           class="inline-flex items-center gap-x-2 text-xs font-semibold text-blue-400 hover:text-blue-300">
+          <span>{lang === 'en' ? 'Learn More' : '了解详情'}</span>
+          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        </a>
+      </div>
+
+      <!-- Notice 3: Embodied AI Lecture 2 (July 10, 2026) -->
+      <div class="bg-slate-900/50 border border-slate-800/80 hover:border-blue-500/40 rounded-3xl p-7 flex flex-col justify-between transition-all group">
+        <div>
+          <div class="flex items-center gap-x-3 text-xs text-slate-400 mb-3">
+            <span class="px-2.5 py-0.5 rounded-full bg-blue-600/10 text-blue-400 border border-blue-500/20 font-semibold">
+              {lang === 'en' ? 'Lecture' : lang === 'zh-TW' ? '活動講座' : '活动讲座'}
+            </span>
+            <time datetime="2026-07-10">{lang === 'en' ? 'July 10, 2026' : '2026年7月10日'}</time>
+          </div>
+          <h3 class="font-bold text-lg text-white group-hover:text-blue-400 transition-colors leading-snug mb-3">
+            <a href={lang === 'en' 
+              ? '/en/posts/2026-07-10-embodied-intelligence-physical-ai-second-lecture/' 
+              : lang === 'zh-TW'
+              ? '/zh-TW/posts/2026-07-10-embodied-intelligence-physical-ai-second-lecture/'
+              : '/posts/2026-07-10-embodied-intelligence-physical-ai-second-lecture/'}>
+              {lang === 'en' 
+                ? '【Free Public Lecture】Embodied Intelligence & Physical AI Lecture 2: VLA to World Models'
+                : lang === 'zh-TW'
+                ? '【公益免費講座】具身智能與物理AI第二講：從VLA到World Models的範式演進'
+                : '【公益免费讲座】具身智能与物理AI第二讲：从VLA到World Models的范式演进'}
+            </a>
+          </h3>
+          <p class="text-slate-400 text-xs leading-relaxed line-clamp-3 mb-6">
+            {lang === 'en'
+              ? 'Exploring why traditional VLA hits bottlenecks and what World Models change. Slides & video released.'
+              : '系统性探讨传统VLA遇到的瓶颈、World Models带来的根本性改变以及2026年的产业实际落地。'}
+          </p>
+        </div>
+        <a href={lang === 'en' 
+          ? '/en/posts/2026-07-10-embodied-intelligence-physical-ai-second-lecture/' 
+          : lang === 'zh-TW'
+          ? '/zh-TW/posts/2026-07-10-embodied-intelligence-physical-ai-second-lecture/'
+          : '/posts/2026-07-10-embodied-intelligence-physical-ai-second-lecture/'}
+           class="inline-flex items-center gap-x-2 text-xs font-semibold text-blue-400 hover:text-blue-300">
+          <span>{lang === 'en' ? 'Learn More' : '了解详情'}</span>
+          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        </a>
+      </div>
+
+      <!-- Notice 4: Peter Wu Lecture (July 8, 2026) -->
+      <div class="bg-slate-900/50 border border-slate-800/80 hover:border-blue-500/40 rounded-3xl p-7 flex flex-col justify-between transition-all group">
+        <div>
+          <div class="flex items-center gap-x-3 text-xs text-slate-400 mb-3">
+            <span class="px-2.5 py-0.5 rounded-full bg-blue-600/10 text-blue-400 border border-blue-500/20 font-semibold">
+              {lang === 'en' ? 'Lecture' : lang === 'zh-TW' ? '活動講座' : '活动讲座'}
+            </span>
+            <time datetime="2026-07-08">{lang === 'en' ? 'July 8, 2026' : '2026年7月8日'}</time>
+          </div>
+          <h3 class="font-bold text-lg text-white group-hover:text-blue-400 transition-colors leading-snug mb-3">
+            <a href={lang === 'en' 
+              ? '/en/posts/2026-07-08-ai-agents-entrepreneurship-club-lecture/' 
+              : lang === 'zh-TW'
+              ? '/zh-TW/posts/2026-07-08-ai-agents-entrepreneurship-club-lecture/'
+              : '/posts/2026-07-08-ai-agents-entrepreneurship-club-lecture/'}>
+              {lang === 'en' 
+                ? '【Free Public Lecture】40-Year Tech Veteran\'s Guide: How AI Agents Help Content Creators Make Real Money'
+                : lang === 'zh-TW'
+                ? '【公益免費講座】《40年技術老兵硬核拆解：AI智能體如何幫內容創作者真正賺到錢》'
+                : '【公益免费讲座】《40年技术老兵硬核拆解：AI智能体如何帮内容创作者真正赚到钱》'}
+            </a>
+          </h3>
+          <p class="text-slate-400 text-xs leading-relaxed line-clamp-3 mb-6">
+            {lang === 'en'
+              ? 'Join 40-year tech veteran Peter Wu as he shares practical strategies on turning AI Agents into money-making tools.'
+              : '特别邀请拥有40年技术与商业架构经验的实战派讲者Peter Wu，分享如何用AI智能体构建可持续商业系统。'}
+          </p>
+        </div>
+        <a href={lang === 'en' 
+          ? '/en/posts/2026-07-08-ai-agents-entrepreneurship-club-lecture/' 
+          : lang === 'zh-TW'
+          ? '/zh-TW/posts/2026-07-08-ai-agents-entrepreneurship-club-lecture/'
+          : '/posts/2026-07-08-ai-agents-entrepreneurship-club-lecture/'}
+           class="inline-flex items-center gap-x-2 text-xs font-semibold text-blue-400 hover:text-blue-300">
+          <span>{lang === 'en' ? 'Learn More' : '了解详情'}</span>
+          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Activities Section -->
+<section id="activities" class="bg-slate-900/30 border-y border-slate-900/80">
+  <div class="max-w-5xl mx-auto px-6 py-16 md:py-24">
+    <div class="text-center mb-16">
+      <span class="text-blue-500 font-semibold tracking-widest text-sm uppercase">{t('activities.header')}</span>
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mt-3 heading-font">{t('activities.title')}</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- Activity Card 1 -->
+      <div class="bg-slate-900/40 border border-slate-900 rounded-3xl p-7 card-hover">
+        <div class="w-11 h-11 bg-blue-600/10 text-blue-500 rounded-2xl flex items-center justify-center mb-6 border border-blue-500/10">
+          <i class="fa-solid fa-briefcase fa-xl"></i>
+        </div>
+        <h3 class="font-semibold text-xl mb-3 text-white">{t('activities.card1.title')}</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">{t('activities.card1.desc')}</p>
+      </div>
+
+      <!-- Activity Card 2 -->
+      <div class="bg-slate-900/40 border border-slate-900 rounded-3xl p-7 card-hover">
+        <div class="w-11 h-11 bg-blue-600/10 text-blue-500 rounded-2xl flex items-center justify-center mb-6 border border-blue-500/10">
+          <i class="fa-solid fa-circle-nodes fa-xl"></i>
+        </div>
+        <h3 class="font-semibold text-xl mb-3 text-white">{t('activities.card2.title')}</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">{t('activities.card2.desc')}</p>
+      </div>
+
+      <!-- Activity Card 3 -->
+      <div class="bg-slate-900/40 border border-slate-900 rounded-3xl p-7 card-hover">
+        <div class="w-11 h-11 bg-blue-600/10 text-blue-500 rounded-2xl flex items-center justify-center mb-6 border border-blue-500/10">
+          <i class="fa-solid fa-rocket fa-xl"></i>
+        </div>
+        <h3 class="font-semibold text-xl mb-3 text-white">{t('activities.card3.title')}</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">{t('activities.card3.desc')}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Join Section -->
+<section id="join" class="max-w-4xl mx-auto px-6 py-16 md:py-24 text-center">
+  <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4 heading-font">{t('join.title')}</h2>
+  <p class="text-xl text-slate-400 mb-10 max-w-md mx-auto">
+    {t('join.subtitle')}
+  </p>
+
+  <!-- Council Recruitment Card (理事会诚征英贤) -->
+  <div class="max-w-3xl mx-auto mb-10 text-left bg-gradient-to-br from-blue-950/40 via-slate-900/60 to-purple-950/40 border border-blue-800/40 rounded-3xl p-8 shadow-2xl backdrop-blur-md">
+    <div class="flex items-center gap-x-3 mb-4">
+      <div class="w-10 h-10 rounded-2xl bg-blue-600/20 text-blue-400 border border-blue-500/20 flex items-center justify-center text-lg shrink-0">
+        <i class="fa-solid fa-hand-holding-heart"></i>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold text-white heading-font">
+          {lang === 'en' ? 'NACUAA WA Council Recruitment: Call for Talents' : lang === 'zh-TW' ? '北美高校聯盟華盛頓州分會理事會誠徵英賢' : '北美高校联盟华盛顿州分会理事会诚征英贤'}
+        </h3>
+        <span class="text-xs text-blue-400 font-medium">
+          {lang === 'en' ? 'Volunteer Leadership & Non-profit Community Service' : lang === 'zh-TW' ? '公益非營利志工理事召募' : '公益非营利志愿者理事招募'}
+        </span>
+      </div>
+    </div>
+
+    <div class="text-sm text-slate-300 space-y-4 leading-relaxed font-light border-t border-slate-800/80 pt-4">
+      {lang === 'en' ? (
+        <>
+          <p class="font-medium text-slate-200">
+            We warmly invite alumni residing in Washington State and the Greater Seattle area who graduated from any college or university to join us!
+          </p>
+          <p>
+            As long as you feel a calling and mission, possess passion, have available time and energy, bring talents and skills, and are eager to give back to our local community through volunteer non-profit service in your spare time, we deeply welcome your joining.
+          </p>
+          <p class="text-blue-300 font-medium">
+            At this very moment, you are right here, carrying your own unique purpose, vision, value, and meaning. Join us, and let's strive together for our shared dreams!
+          </p>
+        </>
+      ) : lang === 'zh-TW' ? (
+        <>
+          <p class="font-medium text-slate-200">
+            誠邀居住在華盛頓州與大西雅圖地區、畢業於大學或學院的校友加入我們！
+          </p>
+          <p>
+            只要您心懷呼召與使命，滿懷熱忱與激情，擁有時間與精力，具備恩賜與才能，並願意利用業餘時間略盡薄力，服務本地社區、參與公益非營利活動，我們都熱烈歡迎您的加入。
+          </p>
+          <p class="text-blue-300 font-medium">
+            此時此刻的您，正身在此地，肩負著屬於自己的使命、目標、價值與意義。加入我們，一起為夢想而奮鬥！
+          </p>
+        </>
+      ) : (
+        <>
+          <p class="font-medium text-slate-200">
+            诚邀居住在华盛顿州与大西雅图地区、毕业于大学或学院的校友加入我们！
+          </p>
+          <p>
+            只要您心怀呼召与使命，满怀热忱与激情，拥有时间与精力，具备恩赐与才能，并愿意利用业余时间略尽薄力，服务本地社区、参与公益非营利活动，我们都热烈欢迎您的加入。
+          </p>
+          <p class="text-blue-300 font-medium">
+            此时此刻的您，正身在此地，肩负着属于自己的使命、目标、价值与意义。加入我们，一起为梦想而奋斗！
+          </p>
+        </>
+      )}
+
+      <!-- Contact Persons Box -->
+      <div class="mt-6 pt-4 border-t border-slate-800/80 bg-slate-950/40 p-4 rounded-2xl border border-slate-900/80 space-y-2 text-xs">
+        <div class="font-semibold text-white flex items-center gap-x-2 text-sm">
+          <i class="fa-solid fa-user-tie text-blue-400"></i>
+          <span>
+            {lang === 'en' ? 'Contact: Ashley Qi (President of NACUAA WA)' : lang === 'zh-TW' ? '聯繫人：戚霄（聯盟華盛頓州分會會長）' : '联系人：戚霄（联盟华盛顿州分会会长）'}
+          </span>
+        </div>
+        <div class="text-slate-300 flex flex-wrap items-center gap-x-4 gap-y-1 pl-6">
+          <span class="flex items-center gap-x-1">
+            <i class="fa-regular fa-envelope text-blue-400"></i>
+            <strong>{lang === 'en' ? 'Email' : '邮箱'}:</strong>
+            <a href="mailto:ashley@nacuaa.ai" class="text-blue-400 hover:underline">ashley@nacuaa.ai</a> | 
+            <a href="mailto:contact@wa.nacuaa.ai" class="text-blue-400 hover:underline">contact@wa.nacuaa.ai</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-xl mx-auto bg-slate-900/50 border border-slate-900 rounded-3xl p-8 backdrop-blur-sm">
+    <!-- Welcome Message -->
+    <div class="text-left text-sm text-slate-300 mb-8 space-y-4 border-b border-slate-800/60 pb-6 leading-relaxed">
+      {lang === 'en' ? (
+        <>
+          <p>
+            The Washington State Chapter (Seattle Chapter) of the North America Colleges and Universities Alumni Alliance (NACUAA WA) has always upheld the spirit of service, serving alumni, teachers, students, relatives, neighbors, brothers, and sisters in Washington State and across the Pacific Northwest.
+          </p>
+          <p>
+            Whether you have been to, are currently in, or plan to visit the Greater Seattle area for study, tech employment, startup ventures, or leisure, NACUAA WA warmly welcomes your joining to contribute to our alliance together. Everyone for me, me for everyone, mutual support, and mutual benefit for all.
+          </p>
+          <p>
+            NACUAA WA will continue to partner with the AI Venture and Impact Club, sister chapters, and the AI Agent Alliance to continue providing you with exciting lectures and activities.
+          </p>
+        </>
+      ) : lang === 'zh-TW' ? (
+        <>
+          <p>
+            北美高校聯盟華盛頓州分會（西雅圖分會）始終秉持服務精神，服務於北美尤其是華盛頓州及大西雅圖地區的各位校友、老師、同學、親友、芳鄰及兄弟姊妹。
+          </p>
+          <p>
+            無論您過去、現在或計劃前來華盛頓州及西雅圖地區求學、就業、創業或遊玩，北美高校聯盟華盛頓州分會都熱忱歡迎您的加盟，共同為聯盟添磚加瓦。人人為我，我為人人，互助互利，惠及大家。
+          </p>
+          <p>
+            北美高校聯盟華盛頓州分會將繼續聯合各兄弟分會與AI智能體聯盟，為大家持續提供精彩紛呈的講座等活動。
+          </p>
+        </>
+      ) : (
+        <>
+          <p>
+            北美高校联盟华盛顿州分会（西雅图分会）始终秉持服务精神，服务于北美尤其是华盛顿州及大西雅图地区的各位校友、老师、同学、亲友、芳邻及弟兄姊妹。
+          </p>
+          <p>
+            无论您过去、现在或计划前来华盛顿州及西雅图地区求学、就业、创业或游玩，北美高校联盟华盛顿州分会都热忱欢迎您的加盟，共同为联盟添砖加瓦。人人为我，我为人人，互助互利，惠及大家。
+          </p>
+          <p>
+            北美高校联盟华盛顿州分会将继续联合各兄弟分会与AI智能体联盟，为大家持续提供精彩纷呈的讲座等活动。
+          </p>
+        </>
+      )}
+      <div class="text-xs text-slate-400 pt-2 space-y-1">
+        <p><strong>{lang === 'en' ? 'Website' : '分会网址'}</strong>: wa.nacuaa.ai</p>
+        <p><strong>{lang === 'en' ? 'WeChat ID' : '微信号'}</strong>: nacuaanc</p>
+        <p><strong>{lang === 'en' ? 'Email' : '电邮'}</strong>: contact@wa.nacuaa.ai | ashley@nacuaa.ai</p>
+      </div>
+    </div>
+
+    <div class="space-y-4">
+      <a href="mailto:contact@wa.nacuaa.ai" 
+         class="w-full flex items-center justify-center gap-x-3 bg-white hover:bg-slate-100 transition-all text-slate-900 font-semibold py-4 rounded-2xl text-lg shadow-lg">
+        <i class="fa-solid fa-envelope"></i>
+        <span>{t('join.cta.email')}</span>
+      </a>
+
+      <a href="mailto:nacuaa.wa@gmail.com" 
+         class="w-full flex items-center justify-center gap-x-3 border border-slate-800 hover:bg-slate-900 hover:text-white text-slate-300 transition-all font-semibold py-4 rounded-2xl text-lg">
+        <i class="fa-solid fa-square-envelope"></i>
+        <span>{t('join.cta.gmail')}</span>
+      </a>
+      
+      <a href="mailto:ashley@nacuaa.ai" 
+         class="w-full flex items-center justify-center gap-x-3 border border-slate-800 hover:bg-slate-900 hover:text-white text-slate-300 transition-all font-semibold py-4 rounded-2xl text-lg">
+        <i class="fa-solid fa-envelope-open-text"></i>
+        <span>{t('join.cta.president')}</span>
+      </a>
+      
+      <div class="w-full flex flex-col items-center justify-center gap-y-3 border border-slate-800 hover:bg-slate-900/80 transition-all p-4 rounded-2xl group cursor-pointer" id="wechat-trigger">
+        <div class="flex items-center gap-x-3 text-slate-300 group-hover:text-white">
+          <i class="fa-brands fa-weixin text-lg"></i>
+          <span class="font-medium">{t('join.cta.wechat')}</span>
+        </div>
+        <div class="hidden flex flex-col items-center justify-center mt-3 text-xs text-slate-400 border-t border-slate-800/60 pt-4 w-full" id="wechat-details">
+          <p class="mb-5 leading-relaxed text-center">
+            {lang === 'en' ? 'WeChat Contact ID: ' : '微信号：'}<strong class="text-white text-sm select-all">nacuaanc</strong>
+            <br />
+            {lang === 'en' ? 'Scan the QR codes below to connect or join our discussion groups:' : '或扫描下方二维码添加联系人或加入微信交流群：'}
+          </p>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full mt-2">
+            <div class="flex flex-col items-center text-center space-y-1 bg-slate-950/40 p-3 rounded-xl border border-slate-900">
+              <img src="/images/wechat-qr.jpg" alt="WeChat Contact" class="w-32 h-32 rounded-xl border border-slate-800 shadow-sm object-contain bg-white p-0.5" />
+              <span class="text-[10px] text-slate-400 font-medium mt-1.5">{lang === 'en' ? 'WeChat Contact' : '微信号联系人'}</span>
+            </div>
+            <div class="flex flex-col items-center text-center space-y-1 bg-slate-950/40 p-3 rounded-xl border border-slate-900">
+              <img src="/images/wechat_group_qr_wa.jpg" alt="NACUAA WA Seattle Group" class="w-32 h-32 rounded-xl border border-slate-800 shadow-sm object-contain bg-white p-0.5" />
+              <span class="text-[10px] text-slate-400 font-medium mt-1.5">{lang === 'en' ? 'WA Alumni Group' : '华州高校校友群'}</span>
+            </div>
+            <div class="flex flex-col items-center text-center space-y-1 bg-slate-950/40 p-3 rounded-xl border border-slate-900">
+              <img src="/images/wechat_group_qr_1.jpg" alt="AI Agent Alliance" class="w-32 h-32 rounded-xl border border-slate-800 shadow-sm object-contain bg-white p-0.5" />
+              <span class="text-[10px] text-slate-400 font-medium mt-1.5">{lang === 'en' ? 'AI Agent Alliance' : '北美AI智能体联盟'}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Social links in Join card -->
+    <div class="mt-8 pt-6 border-t border-slate-800">
+      <div class="flex items-center justify-center gap-x-5">
+        <a href="https://x.com/nacuaanc" target="_blank" rel="noopener noreferrer" title="X (Twitter)" class="w-10 h-10 rounded-xl bg-slate-950 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all text-slate-400">
+          <i class="fa-brands fa-x-twitter text-lg"></i>
+        </a>
+        <a href="https://www.linkedin.com/company/nacuaanc" target="_blank" rel="noopener noreferrer" title="LinkedIn Page" class="w-10 h-10 rounded-xl bg-slate-950 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all text-slate-400">
+          <i class="fa-brands fa-linkedin-in text-lg"></i>
+        </a>
+        <a href="https://www.youtube.com/@nacuaanc" target="_blank" rel="noopener noreferrer" title="YouTube" class="w-10 h-10 rounded-xl bg-slate-950 flex items-center justify-center hover:bg-red-600 hover:text-white transition-all text-slate-400">
+          <i class="fa-brands fa-youtube text-lg"></i>
+        </a>
+        <a href="https://www.tiktok.com/@nacuaanc" target="_blank" rel="noopener noreferrer" title="TikTok" class="w-10 h-10 rounded-xl bg-slate-950 flex items-center justify-center hover:bg-pink-600 hover:text-white transition-all text-slate-400">
+          <i class="fa-brands fa-tiktok text-lg"></i>
+        </a>
+        <a href="https://www.instagram.com/nacuaanc" target="_blank" rel="noopener noreferrer" title="Instagram" class="w-10 h-10 rounded-xl bg-slate-950 flex items-center justify-center hover:bg-pink-500 hover:text-white transition-all text-slate-400">
+          <i class="fa-brands fa-instagram text-lg"></i>
+        </a>
+      </div>
+    </div>
+    
+    <p class="text-xs text-slate-500 mt-6 leading-relaxed">
+      {t('join.note')}
+    </p>
+  </div>
+</section>
+
+<script>
+  // Simple toggle for WeChat details
+  const trigger = document.getElementById('wechat-trigger');
+  const details = document.getElementById('wechat-details');
+  
+  trigger?.addEventListener('click', () => {
+    details?.classList.toggle('hidden');
+  });
+  
+  details?.addEventListener('click', (e) => {
+    e.stopPropagation();
+  });
+</script>

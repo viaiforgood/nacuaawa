@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { CLUBS_DATA } from '../../data/clubs';
+
+const title = '校友俱乐部总览 | 北美高校联盟华盛顿州分会（西雅图分会）(NACUAA WA)';
+const description = '北美高校联盟华盛顿州分会（西雅图分会）九大校友俱乐部总览：掼蛋、健行、匹克球、高尔夫、网球、音乐玩乐、园艺团购、AI创业公益及AI影音创意俱乐部。';
+---
+
+<BaseLayout lang="zh-CN" title={title} description={description} path="/clubs/">
+  <div class="max-w-5xl mx-auto px-6 py-12 md:py-20">
+    <!-- Header -->
+    <header class="border-b border-slate-900 pb-8 mb-10 text-center md:text-left">
+      <div class="inline-flex items-center gap-x-2 px-3 py-1 rounded-full bg-blue-600/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider mb-4">
+        <span>CLUBS DIRECTORY</span>
+      </div>
+      <h1 class="text-3xl md:text-5xl font-bold tracking-tight text-white leading-tight mb-4 heading-font">
+        🏆 华盛顿州分会（西雅图分会）九大校友俱乐部
+      </h1>
+      <p class="text-slate-300 text-base md:text-lg leading-relaxed max-w-3xl">
+        为丰富华盛顿州及大西雅图地区广大高校校友及亲友的业余生活，北美高校联盟华盛顿州分会统筹建立九大主题俱乐部。<strong>对外使用正式俱乐部名，进群使用现成微信群名</strong>。
+      </p>
+    </header>
+
+    <!-- Waiver Notice Banner -->
+    <div class="mb-10 p-5 rounded-3xl bg-gradient-to-r from-blue-950/40 via-slate-900/60 to-slate-900 border border-blue-800/40 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div class="space-y-1">
+        <div class="flex items-center gap-x-2 text-white font-bold text-sm">
+          <i class="fa-solid fa-shield-halved text-blue-400"></i>
+          <span>俱乐部活动安全与免责协议签署</span>
+        </div>
+        <p class="text-xs text-slate-300 leading-relaxed max-w-2xl">
+          凡参加联盟各大俱乐部线下活动之校友与亲友，均须在行前完成签署《活动免责声明与责任豁免协议》（微信触控签名并即时生成 PDF 回执）。
+        </p>
+      </div>
+      <a href="/waiver/" class="px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs transition-colors shrink-0 flex items-center gap-x-2 shadow-lg">
+        <i class="fa-solid fa-file-signature text-[11px]"></i>
+        <span>在线签署免责协议</span>
+      </a>
+    </div>
+
+    <!-- Clubs Grid (9 Clubs) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+      {CLUBS_DATA.map((club, idx) => (
+        <div class="bg-slate-900/50 border border-slate-800/80 rounded-3xl p-6 flex flex-col justify-between hover:border-blue-500/40 hover:bg-slate-900/70 transition-all duration-300 group shadow-xl">
+          <div>
+            <!-- Top Bar: Icon + Director Tag -->
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-2xl bg-slate-800 text-2xl flex items-center justify-center border border-slate-700 shadow-inner group-hover:scale-105 transition-transform">
+                <span>{club.emoji}</span>
+              </div>
+              <a href={`mailto:${club.directorEmail}`} class="px-2.5 py-1 rounded-full text-[11px] font-medium bg-blue-600/10 text-blue-400 border border-blue-500/20 hover:border-blue-400 transition-colors flex items-center gap-x-1">
+                <i class="fa-regular fa-user text-[10px]"></i>
+                <span>{club.directorZh}</span>
+              </a>
+            </div>
+
+            <!-- Club Names -->
+            <div class="mb-3">
+              <div class="text-xs text-slate-400 font-mono">#{idx + 1} 官方俱乐部名</div>
+              <h2 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors leading-snug">
+                {club.nameZh}
+              </h2>
+              <div class="text-xs text-slate-400 font-medium">{club.nameEn}</div>
+            </div>
+
+            <!-- WeChat Group Name Box -->
+            <div class="bg-slate-950/60 border border-slate-800/80 rounded-xl p-3 mb-4">
+              <div class="text-[11px] text-slate-400 mb-0.5 flex items-center gap-x-1">
+                <i class="fa-brands fa-weixin text-emerald-400"></i>
+                <span>进群微信群名：</span>
+              </div>
+              <div class="text-xs font-semibold text-slate-200 font-mono">
+                {club.groupNameZh}
+              </div>
+            </div>
+
+            <!-- Description -->
+            <p class="text-xs text-slate-300 leading-relaxed mb-4">
+              {club.descZh}
+            </p>
+
+            {club.notesZh && (
+              <div class="text-[11px] text-amber-300/90 bg-amber-500/10 border border-amber-500/20 rounded-lg px-2.5 py-1.5 mb-4">
+                <i class="fa-solid fa-circle-info mr-1 text-[10px]"></i>
+                <span>{club.notesZh}</span>
+              </div>
+            )}
+          </div>
+
+          <!-- CTA Button -->
+          <div class="pt-4 border-t border-slate-800/80 flex items-center gap-2">
+            <a href={club.route} class="flex-1 inline-flex items-center justify-center gap-x-1.5 text-center px-3 py-2.5 bg-blue-600/20 hover:bg-blue-600 text-blue-400 hover:text-white font-semibold text-xs rounded-xl border border-blue-500/20 hover:border-blue-500 transition-all duration-300">
+              <span>进入俱乐部主页</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+            <a href={`/waiver/?club=${club.id}`} class="inline-flex items-center justify-center gap-x-1 text-center px-3 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-medium text-xs rounded-xl border border-slate-700 transition-colors" title="签署本俱乐部活动免责协议">
+              <i class="fa-solid fa-file-signature text-[11px] text-blue-400"></i>
+              <span>免责</span>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Leadership / Contact / Join info -->
+    <div class="bg-gradient-to-br from-slate-900/90 via-slate-900 to-blue-950/30 border border-slate-800 rounded-3xl p-8 space-y-6">
+      <div class="flex items-center gap-x-3 mb-2">
+        <div class="w-10 h-10 rounded-2xl bg-blue-600/10 text-blue-400 flex items-center justify-center border border-blue-500/20">
+          <i class="fa-solid fa-users"></i>
+        </div>
+        <div>
+          <h2 class="text-xl font-bold text-white">📞 俱乐部负责人与联系方式</h2>
+          <p class="text-xs text-slate-400">欢迎华盛顿州及大西雅图地区高校校友及亲友入群，详情请联系负责人：</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-xs text-slate-200 pt-2">
+        <div class="bg-slate-950/50 border border-slate-800/80 rounded-2xl p-4 space-y-1.5">
+          <div class="font-bold text-white text-sm">Ashley Qi (戚霄)</div>
+          <div class="text-slate-400 text-[11px]">华盛顿州分会会长</div>
+          <div class="flex flex-col gap-y-0.5">
+            <a href="mailto:ashley@nacuaa.ai" class="text-blue-400 hover:underline">ashley@nacuaa.ai</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

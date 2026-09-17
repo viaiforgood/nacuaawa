@@ -1,0 +1,217 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout lang="zh-CN" title="具身智能与物理AI第三讲：零基础上手 —— 以StackChan为例实操" description="具身智能与物理AI第三讲正式开启！第一讲建立了整体认知，第二讲深入分析了从VLA到World Models of 范式转变。本讲将聚焦实操落地，以开源桌面AI机器人 StackChan 为载体，帮助零基础听众也能快速上手具身智能。" path="/posts/2026-07-23-embodied-intelligence-physical-ai-third-lecture/">
+  <div class="max-w-3xl mx-auto px-6 py-12 md:py-20">
+    <a href="/" class="inline-flex items-center gap-x-2 text-sm text-blue-500 hover:text-blue-400 mb-8 transition-colors">
+      <i class="fa-solid fa-arrow-left"></i>
+      <span>返回首页</span>
+    </a>
+
+    <article class="space-y-8">
+      <header class="border-b border-slate-900 pb-8">
+        <div class="flex items-center gap-x-3 text-xs text-slate-500 mb-4">
+          <time datetime="2026-07-23">2026年7月23日</time>
+          <span>·</span>
+          <span>活动公告</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-white leading-tight">
+          【公益免费讲座｜Zoom】具身智能与物理AI第三讲：零基础上手 —— 以StackChan为例实操 + 从Loop Engineering到Graph Engineering
+        </h1>
+        <p class="text-xs text-slate-400 mt-4 flex items-center gap-x-2">
+          <span>主讲：刘斌 (Bin Liu)</span>
+        </p>
+      </header>
+
+      <div class="text-slate-300 space-y-6 leading-relaxed text-base">
+        <h3 class="text-xl font-semibold text-white pt-2">硅谷量子AI实验室公益讲座</h3>
+        <h4 class="text-lg font-medium text-blue-400">具身智能与物理AI第三讲：零基础上手 —— 以StackChan桌面机器人为例实操 + 从Loop Engineering到Graph Engineering</h4>
+
+        <div class="my-6 text-center">
+          <img src="/images/poster_physicalai_3.png" alt="具身智能与物理AI第三讲 海报" class="max-w-md mx-auto rounded-2xl border border-slate-800 shadow-2xl" />
+        </div>
+
+        <div class="my-8 p-6 bg-slate-900/60 border border-blue-500/30 rounded-2xl space-y-4 shadow-xl">
+          <h3 class="text-xl font-bold text-blue-400 flex items-center gap-x-2">
+            <span>📺 Lecture Recordings & Materials</span>
+          </h3>
+          <ul class="space-y-3 text-sm text-slate-200">
+            <li class="flex items-start gap-x-2">
+              <span class="font-bold text-white min-w-[140px]">🎥 Single Video:</span>
+              <a href="https://youtu.be/DqjnS-SwHdQ" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline break-all">https://youtu.be/DqjnS-SwHdQ</a>
+            </li>
+            <li class="flex items-start gap-x-2">
+              <span class="font-bold text-white min-w-[140px]">🎬 Full Playlist:</span>
+              <a href="https://www.youtube.com/playlist?list=PLZJN5F2dFMPg" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline break-all">https://www.youtube.com/playlist?list=PLZJN5F2dFMPg</a>
+            </li>
+            <li class="flex items-start gap-x-2">
+              <span class="font-bold text-white min-w-[140px]">📄 Slides & PDFs:</span>
+              <div class="flex flex-wrap gap-x-3">
+                <a href="https://zju.fyi/materials" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">https://zju.fyi/materials</a>
+                <span>·</span>
+                <a href="https://nacuaa.ai/materials" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">https://nacuaa.ai/materials</a>
+                <span class="text-slate-400">(or <a href="https://dc.nacuaa.ai/ai/materials" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">dc.nacuaa.ai/ai/materials</a>)</span>
+              </div>
+            </li>
+            <li class="flex items-start gap-x-2">
+              <span class="font-bold text-white min-w-[140px]">📢 Official Notices:</span>
+              <div class="flex flex-col gap-y-1">
+                <a href="https://dc.nacuaa.ai/en/posts/2026-07-23-embodied-intelligence-physical-ai-third-lecture/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline break-all">https://dc.nacuaa.ai/en/posts/2026-07-23-embodied-intelligence-physical-ai-third-lecture/</a>
+                <a href="https://zjuaanc.org/en/posts/2026-07-23-embodied-intelligence-physical-ai-third-lecture/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline break-all">https://zjuaanc.org/en/posts/2026-07-23-embodied-intelligence-physical-ai-third-lecture/</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+
+        <p>
+          具身智能与物理AI第三讲来了！
+        </p>
+        <p>
+          前两讲我们分别介绍了具身智能与物理AI的基本概念，以及从VLA到World Models的技术范式演进。本讲正式转向真正的动手实操，以开源桌面AI机器人 <strong>StackChan</strong> 为例，帮助零基础的朋友也能快速上手，并介绍2026年8月最新工程进展：从 Loop Engineering 到 Graph Engineering。
+        </p>
+
+        <h3 class="text-lg font-bold text-white border-l-4 border-blue-500 pl-3">📅 日期时间</h3>
+        <ul class="list-disc pl-5 space-y-2">
+          <li><strong>太平洋时间</strong>：8月1日（周六）下午5:30 – 6:30</li>
+          <li><strong>东部时间</strong>：8月1日（周六）晚上8:30 – 9:30</li>
+          <li><strong>北京时间</strong>：8月2日（周日）上午8:30 – 9:30</li>
+        </ul>
+        <p>
+          免费公益Zoom讲座，名额有限。扫码加入微信群即可获取参会链接。本讲特别适合想真正动手实践的校友和朋友，欢迎转发～
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 my-8">
+          <img src="/images/physicalai3_qr_1.jpg" alt="" class="w-full h-auto rounded-2xl border border-slate-800 shadow-xl object-contain" />
+          <img src="/images/physicalai3_qr_2.jpg" alt="" class="w-full h-auto rounded-2xl border border-slate-800 shadow-xl object-contain" />
+          <img src="/images/physicalai3_qr_3.jpg" alt="" class="w-full h-auto rounded-2xl border border-slate-800 shadow-xl object-contain" />
+          <img src="/images/physicalai3_qr_4.jpg" alt="" class="w-full h-auto rounded-2xl border border-slate-800 shadow-xl object-contain" />
+          <img src="/images/physicalai3_qr_5.jpg" alt="" class="w-full h-auto rounded-2xl border border-slate-800 shadow-xl object-contain" />
+          <img src="/images/physicalai3_qr_6.jpg" alt="" class="w-full h-auto rounded-2xl border border-slate-800 shadow-xl object-contain" />
+          <img src="/images/physicalai3_qr_7.jpg" alt="" class="w-full h-auto rounded-2xl border border-slate-800 shadow-xl object-contain" />
+          <img src="/images/physicalai3_qr_8.jpg" alt="" class="w-full h-auto rounded-2xl border border-slate-800 shadow-xl object-contain" />
+        </div>
+
+        <h3 class="text-lg font-bold text-white border-l-4 border-blue-500 pl-3">🎯 本讲重点内容包括</h3>
+        <ol class="list-decimal pl-5 space-y-2">
+          <li><strong>为什么现在是“人人都可以上手具身智能”的最佳时机</strong></li>
+          <li><strong>StackChan 零基础快速认识与实操演示</strong>（语音对话、表情互动、简单Agent任务）</li>
+          <li><strong>如何让桌面机器人真正“有记忆”和“有个性”</strong></li>
+          <li><strong>2026年8月最新进展</strong>：从 Loop Engineering 到 Graph Engineering 的工程范式演进</li>
+          <li><strong>给零基础用户的下一步行动建议与避坑经验</strong></li>
+        </ol>
+
+        <h3 class="text-lg font-bold text-white border-l-4 border-blue-500 pl-3">🎓 具身智能与物理AI 系列讲座对比</h3>
+        <p>
+          为了帮助大家更好地理解技术脉络并选择适合自己的学习路径，我们对本系列的三场讲座进行了系统梳理：
+        </p>
+        <div class="overflow-x-auto my-6 border border-slate-800 rounded-2xl">
+          <table class="w-full text-sm text-left text-slate-300">
+            <thead class="text-xs uppercase bg-slate-900/50 text-slate-400 border-b border-slate-800">
+              <tr>
+                <th class="px-4 py-3 text-center">讲次</th>
+                <th class="px-4 py-3">日期</th>
+                <th class="px-4 py-3">主题</th>
+                <th class="px-4 py-3">核心问题</th>
+                <th class="px-4 py-3">侧重点</th>
+                <th class="px-4 py-3">适合人群</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800">
+              <tr class="hover:bg-slate-900/20">
+                <td class="px-4 py-3 text-center font-bold text-blue-400">第一讲</td>
+                <td class="px-4 py-3 whitespace-nowrap">6月20日</td>
+                <td class="px-4 py-3">具身智能与物理AI：2026最新发展与应用</td>
+                <td class="px-4 py-3">是什么？现在发展到哪一步了？</td>
+                <td class="px-4 py-3">概念建立 + 现状梳理</td>
+                <td class="px-4 py-3">想建立整体认知的人</td>
+              </tr>
+              <tr class="hover:bg-slate-900/20">
+                <td class="px-4 py-3 text-center font-bold text-blue-400">第二讲</td>
+                <td class="px-4 py-3 whitespace-nowrap">7月18日</td>
+                <td class="px-4 py-3">从VLA到World Models的范式演进</td>
+                <td class="px-4 py-3">为什么会演进？如何演进？</td>
+                <td class="px-4 py-3">技术范式转变的深度分析</td>
+                <td class="px-4 py-3">想理解底层逻辑与趋势的人</td>
+              </tr>
+              <tr class="hover:bg-slate-900/20">
+                <td class="px-4 py-3 text-center font-bold text-blue-400">第三讲</td>
+                <td class="px-4 py-3 whitespace-nowrap">8月1日</td>
+                <td class="px-4 py-3">零基础上手：以StackChan为例实操 + 从Loop Engineering到Graph Engineering</td>
+                <td class="px-4 py-3">怎么动手做？</td>
+                <td class="px-4 py-3">零基础实操 + 最新工程范式</td>
+                <td class="px-4 py-3">想真正上手实践的人</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-lg font-bold text-white border-l-4 border-blue-500 pl-3">📖 各讲详细大纲与侧重点</h3>
+        <div class="space-y-4">
+          <div class="bg-slate-900/30 border border-slate-950 p-5 rounded-2xl space-y-2">
+            <h4 class="font-bold text-white text-base">第一讲（6月20日）：具身智能与物理AI：2026最新发展与应用</h4>
+            <p class="text-xs text-blue-400">定位：概论课，快速建立整体认知</p>
+            <ul class="list-decimal pl-5 text-xs text-slate-400 space-y-1 mt-2">
+              <li>具身智能与物理AI的基本概念</li>
+              <li>感知—决策—行动闭环系统</li>
+              <li>VLA模型与World Models简介</li>
+              <li>NVIDIA生态与数字孪生</li>
+              <li>人形机器人平台现状（Figure、Tesla Optimus、Boston Dynamics等）</li>
+              <li>应用场景与当前挑战</li>
+            </ul>
+            <p class="text-xs text-slate-500">一句话总结：回答“是什么”，覆盖面广，建立认知框架。</p>
+          </div>
+
+          <div class="bg-slate-900/30 border border-slate-950 p-5 rounded-2xl space-y-2">
+            <h4 class="font-bold text-white text-base">第二讲（7月18日）：从VLA到World Models的范式演进</h4>
+            <p class="text-xs text-blue-400">定位：深度分析课，聚焦技术范式的转变逻辑</p>
+            <ul class="list-decimal pl-5 text-xs text-slate-400 space-y-1 mt-2">
+              <li>LLM与多模态模型的发展脉络</li>
+              <li>传统VLA模型的优势与局限性</li>
+              <li>World Models的核心理念与诞生背景</li>
+              <li>World Action Models（WAMs）的突破</li>
+              <li>2026年WAIC与AGI会议相关最新进展</li>
+              <li>NVIDIA Cosmos 3等关键技术突破</li>
+              <li>人形机器人实际部署案例</li>
+              <li>VLA与World Models的互补关系与未来趋势</li>
+            </ul>
+            <p class="text-xs text-slate-500">一句话总结：深入分析VLA的瓶颈与World Models的优势，回答“为什么演进 + 如何演进”。</p>
+          </div>
+
+          <div class="bg-slate-900/30 border border-slate-950 p-5 rounded-2xl space-y-2">
+            <h4 class="font-bold text-white text-base">第三讲（8月1日）：零基础上手 —— 以StackChan为例实操 + 从Loop Engineering到Graph Engineering</h4>
+            <p class="text-xs text-blue-400">定位：实操落地课，强调“人人都可以上手”</p>
+            <ul class="list-decimal pl-5 text-xs text-slate-400 space-y-1 mt-2">
+              <li>为什么现在是零基础上手具身智能的最佳时机</li>
+              <li>StackChan桌面AI机器人介绍与零基础快速认识</li>
+              <li><strong>实操演示</strong>：语音对话与表情互动、简单Agent任务执行、机器人记忆与个性定制</li>
+              <li>零基础最容易踩的坑与解决方法</li>
+              <li><strong>2026年8月最新进展</strong>：Loop Engineering核心思想 ➜ Graph Engineering范式升级及解决的工程痛点</li>
+              <li>如何把新范式落地到个人项目 / StackChan 机器人</li>
+              <li>给零基础用户的下一步行动建议</li>
+            </ul>
+            <p class="text-xs text-slate-500">一句话总结：以真实硬件（StackChan）为载体进行零基础实操，回答“怎么上手”并介绍最新工程范式。</p>
+          </div>
+        </div>
+
+        <h3 class="text-lg font-bold text-white border-l-4 border-blue-500 pl-3">💡 学习建议与收听顺序</h3>
+        <ul class="list-disc pl-5 space-y-2 text-sm text-slate-300">
+          <li><strong>完全零基础</strong>：建议按 <strong>第一讲 ➜ 第二讲 ➜ 第三讲</strong> 顺序收听，层层递进。</li>
+          <li><strong>注重实操落地</strong>：想直接做项目的开发者或爱好者，可以直接收听 <strong>第三讲</strong>。</li>
+          <li><strong>理解底层原理</strong>：想深入探究大模型到物理AI技术演进逻辑的，建议重点重温 <strong>第二讲</strong>。</li>
+        </ul>
+
+        <h3 class="text-lg font-bold text-white border-l-4 border-blue-500 pl-3">🤝 组织架构</h3>
+        <ul class="list-disc pl-5 space-y-2">
+          <li><strong>主办单位</strong>：硅谷量子AI实验室、北卡浙大校友会、北美高校联盟华盛顿DC分会</li>
+          <li><strong>承办单位</strong>：AI智能体联盟、唯爱AI基金会、唯爱AI公益基金会、北美高校联盟AI创业公益俱乐部</li>
+          <li><strong>协办单位</strong>：北美高校联盟北卡分会、南卡分会、华盛顿DC分会、南加州分会、田纳西浙大校友会、费城浙大校友会、罗德岛浙大校友会、佛罗里达浙大校友会</li>
+          <li><strong>媒体支持</strong>：北美发布 North Alpha Post</li>
+        </ul>
+
+
+      </div>
+    </article>
+  </div>
+</BaseLayout>

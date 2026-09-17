@@ -1,0 +1,190 @@
+---
+import type { Locale } from '../i18n/locales';
+import { useTranslations, getLocalizedPath } from '../i18n/utils';
+
+interface Props {
+  lang: Locale;
+  currentPath: string;
+}
+
+const { lang, currentPath } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-slate-950/80 backdrop-blur-lg border-b border-slate-900">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href={getLocalizedPath('/', lang)} class="flex items-center gap-x-3">
+        <img src="/images/logo.png" alt="NACUAA Logo" class="w-9 h-9 object-contain" />
+        <div class="flex flex-col">
+          <span class="font-semibold text-base md:text-lg tracking-tight text-white leading-tight">
+            {lang === 'en' ? 'NACUAA' : lang === 'zh-TW' ? '北美高校聯盟（北高聯）' : '北美高校联盟（北高联）'}
+          </span>
+          <span class="text-slate-400 text-[10px] md:text-xs font-medium leading-none mt-0.5">
+            {lang === 'en' ? 'Silicon Valley Chapter' : lang === 'zh-TW' ? '矽谷分會' : '硅谷分会'}
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center gap-x-8 text-sm">
+        <a href={getLocalizedPath('/#about', lang)} class="text-slate-300 hover:text-white transition-colors">{t('nav.about')}</a>
+        <a href={getLocalizedPath('/news/', lang)} class="text-slate-300 hover:text-white transition-colors">{t('nav.news')}</a>
+        <a href={getLocalizedPath('/posts/', lang)} class="text-slate-300 hover:text-white transition-colors">{t('nav.notices')}</a>
+        <a href={getLocalizedPath('/clubs/', lang)} class="text-slate-300 hover:text-white transition-colors">{t('nav.club')}</a>
+        <a href={getLocalizedPath('/#join', lang)} class="text-slate-300 hover:text-white transition-colors">{t('nav.join')}</a>
+        <a href={getLocalizedPath('/waiver/', lang)} 
+           class:list={[
+             "inline-flex items-center gap-x-1.5 px-3 py-1 rounded-full text-xs font-semibold transition-all shadow-sm",
+             currentPath.includes('/waiver') 
+               ? "bg-blue-600 text-white shadow-blue-500/20" 
+               : "bg-blue-600/15 hover:bg-blue-600 text-blue-300 hover:text-white border border-blue-500/30"
+           ]}>
+          <i class="fa-solid fa-file-signature text-[11px]"></i>
+          <span>{t('nav.waiver')}</span>
+        </a>
+        <a href="http://nacuaa.org" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-x-1 font-medium">
+          <span>{t('nav.parent')}</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+        </a>
+      </div>
+
+      <div class="flex items-center gap-x-4">
+        <!-- Language Switcher -->
+        <div class="hidden md:flex items-center bg-slate-900 rounded-full p-1 text-xs">
+          <a href={getLocalizedPath(currentPath, 'en')} 
+             class:list={[
+               "px-3 py-1 rounded-full transition-colors",
+               lang === 'en' ? "bg-slate-800 text-white font-medium" : "text-slate-400 hover:text-white"
+             ]}>
+            EN
+          </a>
+          <a href={getLocalizedPath(currentPath, 'zh-CN')} 
+             class:list={[
+               "px-3 py-1 rounded-full transition-colors",
+               lang === 'zh-CN' ? "bg-slate-800 text-white font-medium" : "text-slate-400 hover:text-white"
+             ]}>
+            简
+          </a>
+          <a href={getLocalizedPath(currentPath, 'zh-TW')} 
+             class:list={[
+               "px-3 py-1 rounded-full transition-colors",
+               lang === 'zh-TW' ? "bg-slate-800 text-white font-medium" : "text-slate-400 hover:text-white"
+             ]}>
+            繁
+          </a>
+        </div>
+
+        <a href={getLocalizedPath('/#join', lang)} 
+           class="px-5 py-2 bg-white text-slate-900 hover:bg-slate-100 transition-all text-sm font-semibold rounded-2xl flex items-center gap-x-2">
+          <span>{lang === 'en' ? 'Join' : '加入'}</span>
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button class="md:hidden w-10 h-10 flex items-center justify-center text-slate-400 hover:text-white" id="mobile-menu-btn" aria-label="Toggle Mobile Menu">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu Drawer (hidden by default) -->
+<div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 z-[60] flex flex-col p-6 hidden">
+  <div class="flex justify-between items-center mb-8">
+    <div class="flex items-center gap-x-3">
+      <img src="/images/logo.png" alt="NACUAA Logo" class="w-9 h-9 object-contain" />
+      <div class="flex flex-col">
+        <span class="font-semibold text-white text-base leading-tight">
+          {lang === 'en' ? 'NACUAA' : lang === 'zh-TW' ? '北美高校聯盟（北高聯）' : '北美高校联盟（北高联）'}
+        </span>
+        <span class="text-slate-400 text-xs font-medium leading-none mt-0.5">
+          {lang === 'en' ? 'Silicon Valley Chapter' : lang === 'zh-TW' ? '矽谷分會' : '硅谷分会'}
+        </span>
+      </div>
+    </div>
+    <button class="text-3xl text-slate-400 hover:text-white" id="mobile-menu-close">×</button>
+  </div>
+  
+  <div class="flex flex-col text-lg gap-y-5">
+    <a href={getLocalizedPath('/#about', lang)} class="py-1 text-slate-300 hover:text-white">{t('nav.about')}</a>
+    <a href={getLocalizedPath('/news/', lang)} class="py-1 text-slate-300 hover:text-white">{t('nav.news')}</a>
+    <a href={getLocalizedPath('/posts/', lang)} class="py-1 text-slate-300 hover:text-white">{t('nav.notices')}</a>
+    <a href={getLocalizedPath('/clubs/', lang)} class="py-1 text-slate-300 hover:text-white">{t('nav.club')}</a>
+    <a href={getLocalizedPath('/#join', lang)} class="py-1 text-slate-300 hover:text-white">{t('nav.join')}</a>
+
+    <!-- Highlighted Mobile Waiver Item -->
+    <a href={getLocalizedPath('/waiver/', lang)} class="p-3 rounded-2xl bg-blue-600/15 border border-blue-500/30 text-blue-300 hover:bg-blue-600 hover:text-white flex items-center justify-between transition-all">
+      <div class="flex items-center gap-x-2.5">
+        <i class="fa-solid fa-file-signature text-blue-400"></i>
+        <span class="font-medium">{t('nav.waiver')}</span>
+      </div>
+      <span class="text-xs bg-blue-500/20 text-blue-300 px-2.5 py-0.5 rounded-full font-sans">
+        {lang === 'en' ? 'Sign' : '行前必签'}
+      </span>
+    </a>
+
+    <a href="http://nacuaa.org" target="_blank" rel="noopener noreferrer" class="py-1 text-blue-400 hover:text-blue-300 flex items-center gap-x-2">
+      <span>{t('nav.parent')}</span>
+      <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
+    </a>
+  </div>
+  
+  <div class="mt-8 pt-6 border-t border-slate-900 flex items-center justify-between">
+    <span class="text-sm text-slate-400">{lang === 'en' ? 'Language' : '切换语言'}</span>
+    <div class="flex items-center bg-slate-900 rounded-full p-1 text-xs">
+      <a href={getLocalizedPath(currentPath, 'en')} 
+         class:list={[
+           "px-3 py-1 rounded-full transition-colors",
+           lang === 'en' ? "bg-slate-800 text-white font-medium" : "text-slate-400 hover:text-white"
+         ]}>
+        EN
+      </a>
+      <a href={getLocalizedPath(currentPath, 'zh-CN')} 
+         class:list={[
+           "px-3 py-1 rounded-full transition-colors",
+           lang === 'zh-CN' ? "bg-slate-800 text-white font-medium" : "text-slate-400 hover:text-white"
+         ]}>
+        简
+      </a>
+      <a href={getLocalizedPath(currentPath, 'zh-TW')} 
+         class:list={[
+           "px-3 py-1 rounded-full transition-colors",
+           lang === 'zh-TW' ? "bg-slate-800 text-white font-medium" : "text-slate-400 hover:text-white"
+         ]}>
+        繁
+      </a>
+    </div>
+  </div>
+  
+  <div class="mt-auto pt-8">
+    <a href="#join" class="block w-full text-center py-4 bg-white text-slate-900 font-semibold rounded-2xl hover:bg-slate-100 transition-all">
+      {lang === 'en' ? 'Join the Alliance' : '加入联盟'}
+    </a>
+  </div>
+</div>
+
+<script>
+  // Mobile menu open/close handlers
+  const openBtn = document.getElementById('mobile-menu-btn');
+  const closeBtn = document.getElementById('mobile-menu-close');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  openBtn?.addEventListener('click', () => {
+    mobileMenu?.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  });
+
+  const closeMenu = () => {
+    mobileMenu?.classList.add('hidden');
+    document.body.style.overflow = '';
+  };
+
+  closeBtn?.addEventListener('click', closeMenu);
+
+  // Close menu when clicking links
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+</script>

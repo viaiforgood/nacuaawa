@@ -1,0 +1,209 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const posts = [
+  {
+    title: "[Major News] Four NACUAA Chapters Form Sister Chapter Alliance & Establish Strategic Partnership with ZJUAANC",
+    date: "Sep 12, 2026",
+    rawDate: "2026-09-12",
+    category: "Major News",
+    summary: "On September 12, 2026, NACUAA Northern California, Silicon Valley, North Carolina, and Greater Washington DC chapters officially forged a Sister Chapter Alliance. Concurrently, ZJUAANC established a comprehensive strategic partnership with all four chapters.",
+    link: "/en/posts/2026-09-12-four-chapters-sisterhood-and-zju-strategic-partnership/"
+  },
+
+  {
+    title: "[Free Community Webinar | Zoom] VI AI Music Academy #1: From Idea to a Song You Can Improve + RSI Now",
+    date: "Sep 12, 2026",
+    rawDate: "2026-09-12",
+    category: "Events",
+    summary: "Free Community Event. Zoom. 60 min. VI AI Music Academy Lecture #1. First half aligns with contest submission requirements. Second half covers the state of Recursive Self-Improvement (RSI) in LLMs and Agents.",
+    link: "/en/posts/2026-09-12-vi-ai-music-academy-lecture-1-rsi/"
+  },
+  {
+    title: "[Free Community Workshop | In-Person + Zoom] AI Music Workshop: Make Your First Song On the Spot",
+    date: "Sep 12, 2026",
+    rawDate: "2026-09-12",
+    category: "Events",
+    summary: "Free Community Event. Onsite + Zoom. 60 min. Zero-to-one hands-on demo: create a complete song on the spot. No music theory lectures, no contest rule briefings.",
+    link: "/en/posts/2026-09-12-ai-music-creation-workshop/"
+  },
+  {
+    title: "[Free Community Webinar | Zoom] AI-Native Agent Security & Compliance Part 1: From Chatting to Action, Where Do the Risks Come From?",
+    date: "September 1, 2026",
+    rawDate: "2026-09-01",
+    category: "Webinar",
+    summary: "Following Physical AI and Agent Media series, we launch AI-Native Agent Security & Compliance Part 1: Risk models, top 6 risk vectors, and pre-launch compliance checklists.",
+    link: "/en/posts/2026-09-01-ai-native-agent-security-compliance-lecture-1/"
+  },
+  {
+    title: "NACUAA NorCal & Silicon Valley Golf Club Officially Established",
+    date: "August 27, 2026",
+    rawDate: "2026-08-27",
+    category: "Announcement",
+    summary: "NACUAA NorCal & Silicon Valley Golf Club has been officially established! Welcome alumni and friends to scan the WeChat QR code to join.",
+    link: "/en/posts/2026-08-27-golf-club-announcement/"
+  },
+  {
+    title: "[Free Event | Zoom] Agentic Guandan (掼蛋) · Opening Workshop",
+    date: "August 21, 2026",
+    rawDate: "2026-08-21",
+    category: "Lecture",
+    summary: "Join us this Saturday noon for an 1-hour workshop on AI Agents & Guandan strategies, warming up for the 3rd NCCAF Guandan Tournament on August 29.",
+    link: "/en/posts/2026-08-21-agentic-guandan-opening-class/"
+  },
+  {
+    title: "NACUAA NorCal & Washington DC Chapters Formally Launch Four Major Clubs with Direct URI Paths",
+    date: "August 19, 2026",
+    rawDate: "2026-08-19",
+    category: "Announcement",
+    summary: "NACUAA NorCal & Washington DC Chapters jointly establish four major clubs: Guandan (/guandan), Hike & Outdoor (/run), Pickleball (/pickleball), and AI Music & Fun (/music).",
+    link: "/en/posts/2026-08-19-four-clubs-announcement/"
+  },
+  {
+    title: "[Free Event | Zoom + YouTube] Zero-Foundation Software Agents: Mid-August 2026 Progress & Deployment Demo",
+    date: "August 21, 2026",
+    rawDate: "2026-08-21",
+    category: "Lecture",
+    summary: "ZJU AI Agent / AI Agent Alliance Lecture Series: Mid-August 2026 progress on software agents, featuring live cloud deployment demos of OpenClaw, Hermes, IronClaw, and comparative practice on NanoClaw, ZeroClaw, KimiClaw, Claude Cowork.",
+    link: "/en/posts/2026-08-18-software-agents-august-2026-progress-and-deployment-demo/"
+  },
+  {
+    title: "[Free Event | Zoom + YouTube] My AI and Me ~ Entrepreneurship Journey Session 2 & 'When New Media Meets AI Agents' Fireside Chat",
+    date: "August 13, 2026",
+    rawDate: "2026-08-13",
+    category: "Lecture",
+    summary: "Following the first session of 'My AI and Me' and the 'New Media Meets AI Agents' series, we present an interactive fireside chat featuring practitioners in AI music, video creation, and AI agent workflows.",
+    link: "/en/posts/2026-08-13-my-ai-and-me-entrepreneurship-second-fireside-chat/"
+  },
+  {
+    title: "【Free Public Lecture | Zoom】Embodied Intelligence & Physical AI Lecture 3: Getting Started with StackChan + Loop Engineering to Graph Engineering",
+    date: "July 23, 2026",
+    rawDate: "2026-07-23",
+    category: "Lecture",
+    summary: "Lecture 3 focuses on hands-on practice using open-source desktop robot StackChan, helping beginners learn the engineering shift from Loop to Graph Engineering.",
+    link: "/en/posts/2026-07-23-embodied-intelligence-physical-ai-third-lecture/"
+  },
+  {
+    title: "【Competition Notice】1st North American Chinese AI Music Creative Competition 2026–2027 Officially Launches!",
+    date: "July 22, 2026",
+    rawDate: "2026-07-22",
+    category: "Competition",
+    summary: "Celebrating ZJU's 130th and ZJUAA NC's 15th anniversaries, this event is co-organized by NACUAA chapters and AI clubs. Registration is now open!",
+    link: "/en/posts/2026-07-22-first-north-american-chinese-ai-music-competition/"
+  },
+  {
+    title: "【Free Public Lecture | Zoom】Embodied Intelligence & Physical AI Lecture 2: Paradigm Evolution from VLA to World Models",
+    date: "July 10, 2026",
+    rawDate: "2026-07-10",
+    category: "Lecture",
+    summary: "Exploring why traditional VLA hits bottlenecks, what World Models change, and real-world industrial impact in 2026. Slides and video recordings released.",
+    link: "/en/posts/2026-07-10-embodied-intelligence-physical-ai-second-lecture/"
+  },
+  {
+    title: "【Free Public Lecture | Zoom】40-Year Tech Veteran's Guide: How AI Agents Help Content Creators Make Real Money",
+    date: "July 8, 2026",
+    rawDate: "2026-07-08",
+    category: "Lecture",
+    summary: "Join veteran speaker Peter Wu as he shares how content creators can leverage AI Agents to build sustainable business systems.",
+    link: "/en/posts/2026-07-08-ai-agents-entrepreneurship-club-lecture/"
+  }
+];
+---
+
+<BaseLayout lang="en" title="News & Events Announcements" description="Latest events, academic lectures, and official announcements from NACUAA DC." path="/en/posts/">
+  <div class="max-w-5xl mx-auto px-6 py-12 md:py-20">
+    <!-- Header Banner -->
+    <div class="text-center mb-16 space-y-4">
+      <div class="inline-flex items-center gap-x-2 px-3.5 py-1.5 rounded-full bg-blue-950/60 border border-blue-800/40 text-blue-400 text-xs font-semibold uppercase tracking-wider">
+        <i class="fa-solid fa-newspaper text-xs"></i>
+        <span>News & Announcements</span>
+      </div>
+      <h1 class="text-3xl md:text-5xl font-bold text-white tracking-tight heading-font">
+        Latest Events & Community News
+      </h1>
+      <p class="text-slate-400 text-base max-w-2xl mx-auto">
+        Stay updated with NACUAA DC's latest events, AI lectures, competition announcements, and official notices.
+      </p>
+    </div>
+
+    <!-- Category Tabs -->
+    <div class="flex flex-wrap items-center justify-center gap-2 mb-10 border-b border-slate-800 pb-4">
+      <button class="post-tab-btn active px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-blue-600 text-white" data-filter="all">
+        All Updates
+      </button>
+      <button class="post-tab-btn px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-slate-900 text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800" data-filter="event">
+        Events & Lectures
+      </button>
+      <button class="post-tab-btn px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-slate-900 text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800" data-filter="news">
+        News & Announcements
+      </button>
+      <a href="/en/news/" class="px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-slate-900/40 text-slate-400 hover:text-blue-400 hover:bg-slate-800 border border-slate-800/60 flex items-center gap-1.5">
+        <span>Go to News Center</span>
+        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+      </a>
+    </div>
+
+    <!-- Posts List -->
+    <div class="space-y-6" id="posts-container">
+      {posts.map(post => {
+        const isNews = post.category === "Announcement" || post.category === "Competition" || post.category.includes("Club");
+        return (
+          <article class="post-card bg-slate-900/60 border border-slate-800/80 hover:border-blue-500/40 rounded-3xl p-6 md:p-8 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-950/50 group" data-category={post.category}>
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div class="space-y-3 flex-1">
+                <div class="flex items-center gap-x-3 text-xs">
+                  <span class:list={[
+                    "px-3 py-1 rounded-full font-semibold border",
+                    isNews ? "bg-amber-500/10 text-amber-400 border-amber-500/20" : "bg-blue-600/10 text-blue-400 border-blue-500/20"
+                  ]}>
+                    {post.category}
+                  </span>
+                  <span class="text-slate-400 flex items-center gap-x-1">
+                    <i class="fa-regular fa-calendar text-[11px]"></i>
+                    <time datetime={post.rawDate}>{post.date}</time>
+                  </span>
+                </div>
+                <h2 class="text-xl md:text-2xl font-bold text-white group-hover:text-blue-400 transition-colors leading-snug">
+                  <a href={post.link}>{post.title}</a>
+                </h2>
+                <p class="text-slate-300 text-sm leading-relaxed">{post.summary}</p>
+              </div>
+              <a href={post.link} class="shrink-0 px-6 py-3 bg-slate-800 hover:bg-blue-600 text-slate-100 hover:text-white text-xs font-semibold rounded-2xl transition-all duration-200 text-center flex items-center justify-center gap-x-2 group-hover:bg-blue-600">
+                <span>Read Article</span>
+                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  </div>
+
+  <script>
+    const tabs = document.querySelectorAll('.post-tab-btn');
+    const articles = document.querySelectorAll('.post-card');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const filter = tab.getAttribute('data-filter');
+        tabs.forEach(t => {
+          t.classList.remove('bg-blue-600', 'text-white', 'active');
+          t.classList.add('bg-slate-900', 'text-slate-400');
+        });
+        tab.classList.remove('bg-slate-900', 'text-slate-400');
+        tab.classList.add('bg-blue-600', 'text-white', 'active');
+
+        articles.forEach(art => {
+          const cat = art.getAttribute('data-category') || '';
+          const isNews = cat === 'Announcement' || cat === 'Competition' || cat.includes('Club');
+          const isEvent = cat === 'Webinar' || cat === 'Lecture';
+          if (filter === 'all' || (filter === 'news' && isNews) || (filter === 'event' && isEvent)) {
+            (art as HTMLElement).style.display = 'block';
+          } else {
+            (art as HTMLElement).style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</BaseLayout>

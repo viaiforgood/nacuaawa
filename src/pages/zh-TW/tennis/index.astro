@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout lang="zh-TW" title="网球俱乐部 | 北美高校联盟華盛頓州分會（西雅圖分會） (NACUAA WA)" description="北美高校联盟華州西雅圖网球俱乐部（/tennis），汇聚旧金山湾区与硅谷网球爱好者。" path="/zh-TW/tennis/">
+  <div class="max-w-4xl mx-auto px-6 py-12 md:py-20 space-y-10">
+    <!-- Breadcrumb & Director -->
+    <div class="flex items-center justify-between flex-wrap gap-4">
+      <a href="/zh-TW/clubs/" class="inline-flex items-center gap-x-2 text-xs text-blue-400 hover:text-blue-300 transition-colors">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>返回九大俱樂部總覽</span>
+      </a>
+      <span class="px-3 py-1 rounded-full text-xs font-medium bg-blue-600/10 text-blue-400 border border-blue-500/20 flex items-center gap-x-1.5">
+        <i class="fa-regular fa-user text-xs"></i>
+        <span>分會會長：戚霄 (Ashley Qi)</span>
+      </span>
+    </div>
+
+    <!-- Hero Card -->
+    <div class="relative bg-gradient-to-br from-cyan-950/40 via-slate-900/80 to-slate-950 border border-cyan-800/40 rounded-3xl p-8 md:p-10 shadow-2xl backdrop-blur-md overflow-hidden">
+      <div class="absolute -right-10 -top-10 w-64 h-64 bg-cyan-600/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="flex items-start gap-x-5">
+        <div class="w-16 h-16 rounded-2xl bg-cyan-600/20 text-cyan-300 border border-cyan-500/30 flex items-center justify-center text-3xl shrink-0 shadow-lg">
+          🎾
+        </div>
+        <div class="space-y-2">
+          <div class="text-xs text-cyan-400 font-mono tracking-wider uppercase font-semibold">ALUMNI THEME CLUB #5</div>
+          <h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight heading-font">
+            网球俱乐部 <span class="text-cyan-300 text-2xl font-light block sm:inline font-sans">Tennis Club</span>
+          </h1>
+          <div class="flex flex-wrap items-center gap-3 pt-2 text-xs">
+            <span class="px-2.5 py-1 rounded-lg bg-slate-950/60 border border-slate-800 text-slate-300 font-mono">
+              URI: wa.nacuaa.ai/tennis
+            </span>
+            <span class="px-2.5 py-1 rounded-lg bg-cyan-950/60 border border-cyan-800/60 text-cyan-300 font-mono">
+              <i class="fa-brands fa-weixin mr-1"></i> 进群群名：网球俱乐部
+            </span>
+          </div>
+        </div>
+      </div>
+      <p class="text-slate-300 text-sm md:text-base leading-relaxed mt-6 border-t border-cyan-900/30 pt-6">
+        華州西雅圖网球俱乐部由北美高校联盟華盛頓州分會（西雅圖分會）统筹建立，汇聚旧金山湾区与硅谷热爱网球运动的高校校友与朋友，定期组织拉球练习、友谊比赛与校友双打联谊。
+      </p>
+    </div>
+
+    <!-- Highlights -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-slate-900/50 border border-slate-800/80 rounded-3xl p-6 hover:border-cyan-500/40 transition-all">
+        <div class="w-10 h-10 rounded-xl bg-cyan-600/10 text-cyan-400 flex items-center justify-center text-lg mb-4 border border-cyan-500/20">
+          <i class="fa-solid fa-table-tennis-paddle-ball"></i>
+        </div>
+        <h3 class="text-base font-bold text-white mb-2">NTRP 分级与拉球练习</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">依据NTRP水平分组，组织周末底线对拉、网前截击与发球训练。</p>
+      </div>
+
+      <div class="bg-slate-900/50 border border-slate-800/80 rounded-3xl p-6 hover:border-cyan-500/40 transition-all">
+        <div class="w-10 h-10 rounded-xl bg-cyan-600/10 text-cyan-400 flex items-center justify-center text-lg mb-4 border border-cyan-500/20">
+          <i class="fa-solid fa-users-rectangle"></i>
+        </div>
+        <h3 class="text-base font-bold text-white mb-2">双打默契联谊赛</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">定期举办高校校友双打邀请赛，切磋球技，增进友谊。</p>
+      </div>
+
+      <div class="bg-slate-900/50 border border-slate-800/80 rounded-3xl p-6 hover:border-cyan-500/40 transition-all">
+        <div class="w-10 h-10 rounded-xl bg-cyan-600/10 text-cyan-400 flex items-center justify-center text-lg mb-4 border border-cyan-500/20">
+          <i class="fa-solid fa-trophy"></i>
+        </div>
+        <h3 class="text-base font-bold text-white mb-2">湾区各大网球场约球</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">打通南湾、中半岛及东湾主要公开网球场地，便捷约球畅打。</p>
+      </div>
+    </div>
+
+    <!-- Leadership / Contact Box -->
+    <div class="bg-slate-900/80 border border-slate-800 rounded-3xl p-8 space-y-6">
+      <h3 class="text-lg font-bold text-white border-l-4 border-cyan-500 pl-3">📞 俱乐部负责人与入群联系</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-slate-200">
+        <div class="bg-slate-950/50 border border-slate-800 rounded-2xl p-4 space-y-1">
+          <div class="font-bold text-white text-sm">Wenhai Zheng</div>
+          <div class="text-slate-400">俱樂部總監 / 秘書長</div>
+          <div class="flex flex-col gap-y-0.5">
+          </div>
+        </div>
+        <div class="bg-slate-950/50 border border-slate-800 rounded-2xl p-4 space-y-1">
+          <div class="font-bold text-white text-sm">戚霄 (Ashley Qi)</div>
+          <div class="text-slate-400">華盛頓州分會會長</div>
+          <div class="flex flex-col gap-y-0.5">            <a href="mailto:ashley@nacuaa.ai" class="text-blue-400 hover:underline">ashley@nacuaa.ai</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

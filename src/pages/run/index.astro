@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout lang="zh-CN" title="追风健行 (/run) | NACUAA WA" path="/run/">
+  <div class="max-w-3xl mx-auto px-6 py-12 text-center space-y-4">
+    <h1 class="text-2xl font-bold text-white">🥾 追风健行 (/run)</h1>
+    <p class="text-slate-300 text-sm">正在为您跳转至主页：<a href="/hike/" class="text-blue-400 hover:underline">/hike/</a> ...</p>
+  </div>
+  <script style="display:none;">
+    window.location.replace('/hike/');
+  </script>
+</BaseLayout>
