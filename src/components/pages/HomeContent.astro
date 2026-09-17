@@ -22,24 +22,24 @@ const t = useTranslations(lang);
         </div>
         <div>
           <span class="text-xs text-blue-400 font-semibold uppercase tracking-wider block">
-            {lang === 'en' ? 'Announcement' : lang === 'zh-TW' ? '重磅公告' : '重磅公告'}
+            {lang === 'en' ? 'Major Announcement' : lang === 'zh-TW' ? '重磅喜訊' : '重磅喜讯'}
           </span>
           <span class="text-sm text-slate-200 font-medium block mt-0.5">
             {lang === 'en' 
-              ? 'Four NACUAA Chapters (NorCal, SV, NC, DC) Form Sister Chapter Alliance & Partner with ZJUAANC'
+              ? 'NACUAA Washington State (Seattle) Chapter Officially Established! Ashley Qi Appointed President'
               : lang === 'zh-TW'
-              ? '【重大新聞】北美高校聯盟四分會結為姊妹分會，並與浙江大學北卡羅來納校友會建立戰略合作'
-              : '【重大新闻】北美高校联盟四分会结为姊妹分会，并与浙江大学北卡罗来纳校友会建立战略合作'}
+              ? '🎉 北美高校聯盟華盛頓州分會（西雅圖分會）正式成立！戚霄（Ashley Qi）出任會長'
+              : '🎉 北美高校联盟华盛顿州分会（西雅图分会）正式成立！戚霄（Ashley Qi）出任会长'}
           </span>
         </div>
       </div>
       <a href={lang === 'en' 
-        ? '/en/posts/2026-09-12-four-chapters-sisterhood-and-zju-strategic-partnership/' 
+        ? '/en/posts/2026-09-17-nacuaa-washington-state-chapter-established/' 
         : lang === 'zh-TW'
-        ? '/zh-TW/posts/2026-09-12-four-chapters-sisterhood-and-zju-strategic-partnership/'
-        : '/posts/2026-09-12-four-chapters-sisterhood-and-zju-strategic-partnership/'} 
+        ? '/zh-TW/posts/2026-09-17-nacuaa-washington-state-chapter-established/'
+        : '/posts/2026-09-17-nacuaa-washington-state-chapter-established/'} 
          class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold rounded-xl shrink-0 transition-colors text-center">
-        {lang === 'en' ? 'Learn More' : '了解详情'}
+        {lang === 'en' ? 'Read Announcement' : lang === 'zh-TW' ? '查看公告' : '查看公告'}
       </a>
     </div>
 
