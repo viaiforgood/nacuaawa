@@ -70,13 +70,17 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
           </p>
 
           <div class="pt-2 flex flex-wrap gap-4">
-            <a href="https://luma.com/rj8qahrl" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-x-2 text-center px-6 py-3.5 bg-purple-600 hover:bg-purple-500 text-white font-bold text-sm rounded-xl transition-all shadow-xl hover:scale-[1.02]">
-              <i class="fa-solid fa-ticket text-sm"></i>
-              <span>立即免費報名 (Luma)</span>
+            <a href="https://youtu.be/r7dIa2bQhKY" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-x-2 text-center px-6 py-3.5 bg-red-600 hover:bg-red-500 text-white font-bold text-sm rounded-xl transition-all shadow-xl hover:scale-[1.02]">
+              <i class="fa-brands fa-youtube text-base"></i>
+              <span>觀看錄像回放 (YouTube)</span>
             </a>
-            <a href="https://zoom.us/j/91753381992?pwd=lUQspC4o3f1nEefmGdTV8ez0PKsbZO.1" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-x-2 text-center px-6 py-3.5 bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm rounded-xl transition-all shadow-xl hover:scale-[1.02]">
-              <i class="fa-solid fa-video text-sm"></i>
-              <span>直接進入 Zoom 會議室</span>
+            <a href="#materials" class="inline-flex items-center justify-center gap-x-2 text-center px-6 py-3.5 bg-purple-600 hover:bg-purple-500 text-white font-bold text-sm rounded-xl transition-all shadow-xl hover:scale-[1.02]">
+              <i class="fa-solid fa-file-pdf text-base"></i>
+              <span>課件資料下載</span>
+            </a>
+            <a href="https://luma.com/rj8qahrl" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-x-2 text-center px-5 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm rounded-xl transition-all border border-slate-700">
+              <i class="fa-solid fa-ticket text-sm"></i>
+              <span>Luma 頁面</span>
             </a>
           </div>
 
@@ -146,6 +150,66 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
           </p>
         </div>
 
+        <!-- Materials Section -->
+        <section id="materials" class="p-6 md:p-8 bg-slate-900/60 border border-slate-800 rounded-3xl space-y-6">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+            <h3 class="text-base font-bold text-white flex items-center gap-2">
+              <i class="fa-solid fa-file-pdf text-red-400"></i>
+              <span>講座課件與錄像回放（雙鏡像通道）</span>
+            </h3>
+            <span class="text-[11px] text-slate-400">PDF 格式 · 免費下載</span>
+          </div>
+
+          <div class="space-y-3">
+            <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div>
+                <h4 class="text-sm font-semibold text-white">第三講活動錄像回放 (YouTube)</h4>
+                <p class="text-xs text-slate-400">完整60分鐘線上分享：真實產品上的最小權限與決策模型 Jev 工具門禁</p>
+              </div>
+              <div class="flex items-center gap-2 shrink-0">
+                <a href="https://youtu.be/r7dIa2bQhKY" target="_blank" class="px-4 py-2 bg-red-600 hover:bg-red-500 text-white text-xs font-semibold rounded-lg transition-colors flex items-center gap-1.5 shadow-md">
+                  <i class="fa-brands fa-youtube"></i>
+                  <span>觀看回放</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div>
+                <h4 class="text-sm font-semibold text-white">第三講核心課件 1：《Least Privilege for AI Agents》</h4>
+                <p class="text-xs text-slate-400">AI 原生智能體安全與合規講義：真實產品上的最小權限設計</p>
+              </div>
+              <div class="flex items-center gap-2 shrink-0">
+                <a href="/media/2026-10-03-lecture/Least_Privilege_for_AI_Agents.pdf" target="_blank" class="px-3 py-1.5 bg-purple-600 hover:bg-purple-500 text-white text-xs font-medium rounded-lg transition-colors flex items-center gap-1.5">
+                  <i class="fa-solid fa-download"></i>
+                  <span>本站下載</span>
+                </a>
+                <a href="https://zjuaanc.org/media/2026-10-03-lecture/Least_Privilege_for_AI_Agents.pdf" target="_blank" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium rounded-lg transition-colors flex items-center gap-1.5 border border-slate-700">
+                  <i class="fa-solid fa-download"></i>
+                  <span>zjuaanc.org 鏡像</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div>
+                <h4 class="text-sm font-semibold text-white">第三講核心課件 2：《AI Agent Least Privilege》</h4>
+                <p class="text-xs text-slate-400">AI Agent Least Privilege: Decision Model Jev, Tool Gating & Permissions</p>
+              </div>
+              <div class="flex items-center gap-2 shrink-0">
+                <a href="/media/2026-10-03-lecture/AI_Agent_Least_Privilege.pdf" target="_blank" class="px-3 py-1.5 bg-purple-600 hover:bg-purple-500 text-white text-xs font-medium rounded-lg transition-colors flex items-center gap-1.5">
+                  <i class="fa-solid fa-download"></i>
+                  <span>本站下載</span>
+                </a>
+                <a href="https://zjuaanc.org/media/2026-10-03-lecture/AI_Agent_Least_Privilege.pdf" target="_blank" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium rounded-lg transition-colors flex items-center gap-1.5 border border-slate-700">
+                  <i class="fa-solid fa-download"></i>
+                  <span>zjuaanc.org 鏡像</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <!-- Upcoming Series Box -->
         <div class="p-6 bg-slate-900/60 border border-slate-800 rounded-2xl space-y-3">
           <h3 class="text-lg font-bold text-white border-l-4 border-indigo-500 pl-3">🗺️ 系列規劃</h3>
@@ -168,6 +232,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
             <span>📚 往期錄像回顧與歸檔</span>
           </h3>
           <ul class="space-y-2 text-sm text-slate-300">
+            <li>• <strong>第三講錄像回放 (YouTube)</strong>：<a href="https://youtu.be/r7dIa2bQhKY" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">https://youtu.be/r7dIa2bQhKY</a></li>
             <li>• <strong>第二講錄像回放 (YouTube)</strong>：<a href="https://youtu.be/JFtWYP4Q85o" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">https://youtu.be/JFtWYP4Q85o</a></li>
             <li>• <strong>第一講錄像回放 (YouTube)</strong>：<a href="https://youtu.be/VxOK8cStVfA" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">https://youtu.be/VxOK8cStVfA</a></li>
             <li>• <strong>YouTube 系列播放列表</strong>：<a href="https://www.youtube.com/playlist?list=PLG4UUYcE6oTs" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">https://www.youtube.com/playlist?list=PLG4UUYcE6oTs</a></li>
