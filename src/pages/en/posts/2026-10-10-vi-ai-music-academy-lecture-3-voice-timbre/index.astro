@@ -2,7 +2,7 @@
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout lang="en" title="VI AI Music Academy Lecture 3: Chinese Voice and Instrumental Timbre | NACUAA Washington State Chapter (NACUAA WA)" description="Free Community Event. Zoom. 60 min (with 5-min break). VI AI Music Academy Season 1 — Lecture 3. Whether the Chinese voice holds, and whether traditional Chinese instruments are actually audible. Not a contest-rules session." path="/en/posts/2026-10-10-vi-ai-music-academy-lecture-3-voice-timbre/">
+<BaseLayout lang="en" title="VI AI Music Academy Lecture 3: Chinese Voice and Instrumental Timbre (RSI, again) | NACUAA Washington State Chapter (NACUAA WA)" description="Free Community Event. Zoom. 60 min (with 5-min break). VI AI Music Academy Season 1 — Lecture 3. First half: Chinese voice and timbre. Second half: RSI again, limited to public reports since September 2026. Not a contest-rules session." path="/en/posts/2026-10-10-vi-ai-music-academy-lecture-3-voice-timbre/">
   <div class="max-w-3xl mx-auto px-6 py-12 md:py-20">
     <a href="/en/posts/" class="inline-flex items-center gap-x-2 text-sm text-purple-400 hover:text-purple-300 mb-8 transition-colors">
       <i class="fa-solid fa-arrow-left"></i>
@@ -12,12 +12,12 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
     <article class="space-y-8">
       <header class="border-b border-slate-900 pb-8 space-y-4">
         <div class="flex items-center gap-x-3 text-xs text-slate-500 mb-2">
-          <time datetime="2026-10-06">Oct 6, 2026</time>
+          <time datetime="2026-10-07">Oct 7, 2026</time>
           <span>·</span>
           <span class="px-2.5 py-0.5 rounded-full bg-purple-600/10 text-purple-400 border border-purple-500/20 font-semibold">Academy Lecture #3</span>
         </div>
         <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-white leading-tight">
-          VI AI Music Academy Lecture 3: Chinese Voice and Instrumental Timbre
+          VI AI Music Academy Lecture 3: Chinese Voice and Instrumental Timbre (RSI, again)
         </h1>
         <p class="text-base text-purple-400 font-medium">Forwarded by NACUAA Washington State Chapter.</p>
       </header>
@@ -78,12 +78,38 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 
         <div class="p-4 rounded-xl bg-purple-900/20 border border-purple-500/30 text-purple-200 space-y-1">
           <p class="font-semibold text-white">VI AI Music Academy Season 1 (5 Lectures). This is Lecture 3.</p>
-          <p class="text-sm">Lecture 1: what counts as a song you can still revise. Lecture 2: what makes a listener stay. This lecture: whether the Chinese voice holds, and whether traditional Chinese instruments are actually audible.</p>
+          <p class="text-sm">First half: Chinese voice and Chinese instrumental timbre. Second half: RSI again, limited to public reports since September 2026. Not a contest-rules session.</p>
         </div>
 
         <p class="text-amber-300/90 font-medium">
           Not a contest-rules session.
         </p>
+
+        <!-- Clock Schedule -->
+        <div class="space-y-3">
+          <h3 class="text-lg font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-clock text-purple-400"></i>
+            <span>Schedule Clock</span>
+          </h3>
+          <ul class="space-y-2 text-sm text-slate-300 pl-2">
+            <li class="flex items-start gap-2">
+              <span class="font-mono text-purple-400 font-semibold min-w-[75px]">5:30–5:55</span>
+              <span>Chinese voice and instrumental timbre. A/B comparison: audible vs. inaudible.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="font-mono text-slate-500 font-semibold min-w-[75px]">5:55–6:00</span>
+              <span class="text-slate-400">Break (5 minutes)</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="font-mono text-indigo-400 font-semibold min-w-[75px]">6:00–6:25</span>
+              <span>RSI update: latest progress and reports. No model training demo.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="font-mono text-purple-400 font-semibold min-w-[75px]">6:25–6:30</span>
+              <span>Q&A</span>
+            </li>
+          </ul>
+        </div>
 
         <!-- What We Listen For -->
         <div class="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-3 text-sm">
@@ -98,6 +124,32 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
           </ul>
         </div>
 
+        <!-- RSI Deep Dive -->
+        <div class="p-6 rounded-2xl bg-indigo-950/20 border border-indigo-500/30 space-y-4 text-sm">
+          <h4 class="font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-bolt text-indigo-400"></i>
+            <span>RSI, Again</span>
+          </h4>
+          <p class="text-slate-300 leading-relaxed">
+            Lecture 1 already drew the line: RSI refers to a system using its own outputs to improve subsequent steps (prompts, tools, code, eval, or recipes). Bounded and layered self-improvement has been reported; a system that designs its own successor model autonomously has not.
+          </p>
+          <div class="border-t border-indigo-900/50 pt-3 space-y-2 text-slate-300">
+            <p class="text-xs text-indigo-300 font-semibold">Public claims since September 2026 (all vendor/author self-reported, not third-party audits):</p>
+            <ul class="space-y-2 text-xs leading-relaxed list-disc list-inside pl-1 text-slate-300">
+              <li><strong>Anthropic</strong> (internal tally to August 2026): Claude led ~26% of AI R&D tasks, collaborated in >90%, none fully autonomous. Anthropic defines full RSI as a model autonomously creating its successor, and states this has not occurred.</li>
+              <li><strong>OpenAI</strong> (6 Sep 2026): claims reaching "automated research intern" milestone; targets "automated AI researcher" by March 2028. Chief Scientist discussed this timeline; automating training experiments is a separate track while humans set directions.</li>
+              <li><strong>Dario Amodei</strong> (12 Sep 2026, "We Must Pace the Frontier"): argues for pacing frontier capability advances to allow time for alignment and verification.</li>
+              <li><strong>Roadmap survey</strong> (arXiv:2609.11873, submitted Sep 10, revised Sep 22): categorizing RSI into execution, strategy, experience acquisition, environment adaptation, and recursive meta-improvement. This is a survey, not a live demo.</li>
+              <li><strong>Weights fixed</strong> (Dream-RSI, arXiv:2609.14858, Sep 14; Google, DeepMind, etc.): using past search records as simulators to modify search procedures without updating model weights. Public notes indicate code not yet released.</li>
+              <li><strong>Self-improving research agent</strong> (AIDE^2, arXiv:2609.26457, Sep 22): claiming 7 improvements across 8 days of autonomous run, author self-reported without independent replication.</li>
+              <li><strong>Anti-overfitting regularized RSI</strong> (RRSI, arXiv:2609.24972, Chinese report Oct 6): modifying prompts, control flow, tools, and memory while regularizing against task overfitting. Author-reported scores.</li>
+            </ul>
+          </div>
+          <p class="text-slate-400 text-xs border-t border-indigo-900/40 pt-2 italic">
+            This lecture covers only these boundaries. Three-round song iteration remains an applied example. No model training demo.
+          </p>
+        </div>
+
         <!-- Five Lectures Curriculum -->
         <div class="space-y-3">
           <h3 class="text-lg font-bold text-white flex items-center gap-2">
@@ -107,7 +159,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
           <ol class="space-y-2 text-sm text-slate-300 pl-2">
             <li class="flex items-start gap-2">
               <span class="font-mono text-slate-500 font-semibold">1</span>
-              <span><strong>Sep 12</strong>: From Idea to an Editable Track: Structure, Lyrics, Style Tokens, Negative Prompts <span class="text-slate-500 text-xs">(Ended)</span></span>
+              <span><strong>Sep 12</strong>: From Idea to an Editable Track, plus RSI State of the Art <span class="text-slate-500 text-xs">(Ended)</span></span>
             </li>
             <li class="flex items-start gap-2">
               <span class="font-mono text-slate-500 font-semibold">2</span>
@@ -115,7 +167,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
             </li>
             <li class="flex items-start gap-2 text-purple-300 font-semibold">
               <span class="font-mono text-purple-400">3</span>
-              <span><strong>Oct 10</strong>: Chinese Voice and Instrumental Timbre <span class="px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 text-xs border border-purple-500/30">This Lecture</span></span>
+              <span><strong>Oct 10</strong>: Chinese Voice and Instrumental Timbre (RSI, again) <span class="px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 text-xs border border-purple-500/30">This Lecture</span></span>
             </li>
             <li class="flex items-start gap-2">
               <span class="font-mono text-purple-400 font-semibold">4</span>
