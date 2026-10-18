@@ -74,27 +74,35 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
         <div class="p-6 md:p-8 bg-gradient-to-br from-purple-950/40 via-slate-900 to-blue-950/40 border border-purple-500/30 rounded-3xl space-y-5 shadow-2xl">
           <div class="flex items-center justify-between flex-wrap gap-2 border-b border-purple-900/30 pb-4">
             <div class="flex items-center gap-x-3">
-              <span class="px-3 py-1 rounded-full bg-purple-600/20 text-purple-400 border border-purple-500/30 text-xs font-bold flex items-center gap-1.5">
-                <i class="fa-solid fa-ticket animate-pulse"></i>
-                <span>官方報名入口</span>
+              <span class="px-3 py-1 rounded-full bg-red-600/20 text-red-400 border border-red-500/30 text-xs font-bold flex items-center gap-1.5">
+                <i class="fa-brands fa-youtube animate-pulse"></i>
+                <span>錄像回放與課件</span>
               </span>
-              <h2 class="text-xl md:text-2xl font-bold text-white">🎟️ 參會與報名通道 (RSVP & Zoom)</h2>
+              <h2 class="text-xl md:text-2xl font-bold text-white">🎥 錄像回放、課件下載與參會通道</h2>
             </div>
             <span class="text-xs text-emerald-400 font-semibold bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">公益免費</span>
           </div>
 
           <p class="text-sm text-slate-300">
-            <strong>參會形式</strong>：Zoom 線上會議。請先在 Luma 免費報名獲取審核與日曆提醒（需審核，通過後用本頁 Zoom 入會，請勿使用成立大會報名鏈接）。
+            <strong>活動說明</strong>：本場講座已於 10月17日圓滿舉行！現已開放完整 Zoom 錄像回放、系列官方播放清單與兩套核心課件 PDF 下載。
           </p>
 
           <div class="pt-2 flex flex-wrap gap-4">
-            <a href="https://zoom.us/j/94234356878?pwd=eBgwdoIGyTsosztJvtPTCm1JiG855A.1" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-x-2 text-center px-6 py-3.5 bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm rounded-xl transition-all shadow-xl hover:scale-[1.02]">
-              <i class="fa-solid fa-video text-base"></i>
-              <span>Zoom 直達參會</span>
+            <a href="https://youtu.be/l9fPphT2DTI" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-x-2 text-center px-6 py-3.5 bg-red-600 hover:bg-red-500 text-white font-bold text-sm rounded-xl transition-all shadow-xl hover:scale-[1.02]">
+              <i class="fa-brands fa-youtube text-base"></i>
+              <span>觀看錄像回放 (YouTube)</span>
             </a>
-            <a href="https://luma.com/7s246f9p" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-x-2 text-center px-6 py-3.5 bg-purple-600 hover:bg-purple-500 text-white font-bold text-sm rounded-xl transition-all shadow-xl hover:scale-[1.02]">
+            <a href="https://www.youtube.com/playlist?list=PLNweIjAM_4WR_AmJBgFumDhvA0L80Oqsh" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-x-2 text-center px-5 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm rounded-xl transition-all border border-slate-700">
+              <i class="fa-solid fa-list-ul text-sm text-red-400"></i>
+              <span>系列官方播放清單</span>
+            </a>
+            <a href="#materials" class="inline-flex items-center justify-center gap-x-2 text-center px-6 py-3.5 bg-purple-600 hover:bg-purple-500 text-white font-bold text-sm rounded-xl transition-all shadow-xl hover:scale-[1.02]">
+              <i class="fa-solid fa-file-pdf text-base"></i>
+              <span>課件資料下載</span>
+            </a>
+            <a href="https://luma.com/7s246f9p" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-x-2 text-center px-5 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm rounded-xl transition-all border border-slate-700">
               <i class="fa-solid fa-ticket text-sm"></i>
-              <span>Luma 專屬報名 (7s246f9p)</span>
+              <span>Luma 頁面</span>
             </a>
           </div>
 
@@ -102,14 +110,55 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
           <div class="mt-4 pt-4 border-t border-purple-500/20 space-y-2 text-sm text-slate-200">
             <div class="font-semibold text-purple-300 flex items-center gap-2">
               <i class="fa-solid fa-shield-halved text-purple-400"></i>
-              <span>本講專屬會議號（請勿混淆）</span>
+              <span>本講錄像與會議信息</span>
             </div>
             <div class="space-y-1.5 font-mono text-xs sm:text-sm bg-slate-950/60 p-4 rounded-xl border border-slate-800">
+              <div><strong>錄像回放：</strong><a href="https://youtu.be/l9fPphT2DTI" target="_blank" rel="noopener noreferrer" class="text-red-400 hover:underline">https://youtu.be/l9fPphT2DTI</a></div>
+              <div><strong>系列合集：</strong><a href="https://www.youtube.com/playlist?list=PLNweIjAM_4WR_AmJBgFumDhvA0L80Oqsh" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">https://www.youtube.com/playlist?list=PLNweIjAM_4WR_AmJBgFumDhvA0L80Oqsh</a></div>
               <div><strong>報名鏈接：</strong><a href="https://luma.com/7s246f9p" target="_blank" rel="noopener noreferrer" class="text-purple-400 hover:underline">https://luma.com/7s246f9p</a></div>
-              <div><strong>Zoom 直達：</strong><a href="https://zoom.us/j/94234356878?pwd=eBgwdoIGyTsosztJvtPTCm1JiG855A.1" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline break-all">https://zoom.us/j/94234356878?pwd=eBgwdoIGyTsosztJvtPTCm1JiG855A.1</a></div>
-              <div><strong>會議號：</strong><span class="text-white font-bold bg-slate-800 px-2 py-0.5 rounded">942 3435 6878</span></div>
-              <div><strong>密碼：</strong><span class="text-emerald-400 font-bold bg-slate-800 px-2 py-0.5 rounded">18970521</span></div>
-              <div class="text-xs text-amber-400 pt-1">⚠️ 提示：請勿使用舊金山分會成立大會會議號 960 6241 6902。</div>
+              <div><strong>原會議號：</strong><span class="text-white font-bold bg-slate-800 px-2 py-0.5 rounded">942 3435 6878</span>（密碼：18970521）</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Courseware Download Section -->
+        <div id="materials" class="p-6 md:p-8 bg-slate-900/70 border border-slate-800 rounded-3xl space-y-4 shadow-xl">
+          <div class="flex items-center gap-3 border-b border-slate-800 pb-3">
+            <i class="fa-solid fa-file-pdf text-red-400 text-xl"></i>
+            <h3 class="text-xl font-bold text-white">📚 第四講核心課件下載 (Courseware Materials)</h3>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div class="p-4 bg-slate-950/60 border border-slate-800 rounded-2xl flex flex-col justify-between space-y-3">
+              <div>
+                <span class="text-xs text-amber-400 font-bold px-2 py-0.5 rounded bg-amber-400/10 border border-amber-400/20">課件 1</span>
+                <h4 class="text-base font-bold text-slate-100 mt-2">Global AI Agent Compliance</h4>
+                <p class="text-xs text-slate-400 mt-1">中美歐合規框架深度橫向對照與監管義務分析</p>
+              </div>
+              <div class="flex items-center gap-2 pt-2">
+                <a href="/media/2026-10-17-lecture/Global_AI_Agent_Compliance.pdf" target="_blank" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold rounded-lg transition-colors flex items-center gap-1.5 shadow-md">
+                  <i class="fa-solid fa-download"></i>
+                  <span>本站下載</span>
+                </a>
+                <a href="https://zju.fyi/media/2026-10-17-lecture/Global_AI_Agent_Compliance.pdf" target="_blank" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-lg transition-colors border border-slate-700">
+                  <span>zju.fyi 鏡像</span>
+                </a>
+              </div>
+            </div>
+            <div class="p-4 bg-slate-950/60 border border-slate-800 rounded-2xl flex flex-col justify-between space-y-3">
+              <div>
+                <span class="text-xs text-emerald-400 font-bold px-2 py-0.5 rounded bg-emerald-400/10 border border-emerald-400/20">課件 2</span>
+                <h4 class="text-base font-bold text-slate-100 mt-2">Global AI Agent Security and Compliance</h4>
+                <p class="text-xs text-slate-400 mt-1">智能體架構權限控制邊界、事件通報與技術防禦</p>
+              </div>
+              <div class="flex items-center gap-2 pt-2">
+                <a href="/media/2026-10-17-lecture/Global_AI_Agent_Security_and_Compliance.pdf" target="_blank" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold rounded-lg transition-colors flex items-center gap-1.5 shadow-md">
+                  <i class="fa-solid fa-download"></i>
+                  <span>本站下載</span>
+                </a>
+                <a href="https://zju.fyi/media/2026-10-17-lecture/Global_AI_Agent_Security_and_Compliance.pdf" target="_blank" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-lg transition-colors border border-slate-700">
+                  <span>zju.fyi 鏡像</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -198,6 +247,8 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
             <span>🔗 關聯鏈接與成立大會</span>
           </h3>
           <ul class="space-y-2 text-sm text-slate-300">
+            <li>• <strong>第四講錄像回放 (YouTube)</strong>：<a href="https://youtu.be/l9fPphT2DTI" target="_blank" rel="noopener noreferrer" class="text-red-400 hover:underline font-semibold">https://youtu.be/l9fPphT2DTI</a></li>
+            <li>• <strong>系列官方播放清單 (YouTube Playlist)</strong>：<a href="https://www.youtube.com/playlist?list=PLNweIjAM_4WR_AmJBgFumDhvA0L80Oqsh" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">https://www.youtube.com/playlist?list=PLNweIjAM_4WR_AmJBgFumDhvA0L80Oqsh</a></li>
             <li>• <strong>第三講回顧與課件</strong>：<a href="https://zjuaanc.org/posts/2026-10-03-ai-native-agent-security-compliance-lecture-3/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">https://zjuaanc.org/posts/2026-10-03-ai-native-agent-security-compliance-lecture-3/</a></li>
             <li>• <strong>舊金山分會成立大會（晚 6:00 開始，另行報名）</strong>：<a href="https://luma.com/fuakh3da" target="_blank" rel="noopener noreferrer" class="text-purple-400 hover:underline">https://luma.com/fuakh3da</a></li>
             <li>• <strong>舊金山分會成立大會頁面介紹</strong>：<a href="https://norcal.nacuaa.ai/posts/2026-10-17-nacuaa-san-francisco-chapter-founding-ceremony/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">https://norcal.nacuaa.ai/posts/2026-10-17-nacuaa-san-francisco-chapter-founding-ceremony/</a></li>

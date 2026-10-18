@@ -74,27 +74,35 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
         <div class="p-6 md:p-8 bg-gradient-to-br from-purple-950/40 via-slate-900 to-blue-950/40 border border-purple-500/30 rounded-3xl space-y-5 shadow-2xl">
           <div class="flex items-center justify-between flex-wrap gap-2 border-b border-purple-900/30 pb-4">
             <div class="flex items-center gap-x-3">
-              <span class="px-3 py-1 rounded-full bg-purple-600/20 text-purple-400 border border-purple-500/30 text-xs font-bold flex items-center gap-1.5">
-                <i class="fa-solid fa-ticket animate-pulse"></i>
-                <span>Official Registration</span>
+              <span class="px-3 py-1 rounded-full bg-red-600/20 text-red-400 border border-red-500/30 text-xs font-bold flex items-center gap-1.5">
+                <i class="fa-brands fa-youtube animate-pulse"></i>
+                <span>Recording & Slides</span>
               </span>
-              <h2 class="text-xl md:text-2xl font-bold text-white">🎟️ Registration & Zoom Access (RSVP & Zoom)</h2>
+              <h2 class="text-xl md:text-2xl font-bold text-white">🎥 Recording, Materials & RSVP</h2>
             </div>
             <span class="text-xs text-emerald-400 font-semibold bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">Free Admission</span>
           </div>
 
           <p class="text-sm text-slate-300">
-            <strong>Event Format</strong>: Online via Zoom. Please register on Luma to obtain approval and calendar invites (Approval required; once approved, use the Zoom details below. Do NOT use the founding ceremony Luma link).
+            <strong>Session Notice</strong>: This masterclass concluded successfully on October 17! Full Zoom recording, official YouTube playlist, and courseware PDFs are now publicly accessible.
           </p>
 
           <div class="pt-2 flex flex-wrap gap-4">
-            <a href="https://zoom.us/j/94234356878?pwd=eBgwdoIGyTsosztJvtPTCm1JiG855A.1" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-x-2 text-center px-6 py-3.5 bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm rounded-xl transition-all shadow-xl hover:scale-[1.02]">
-              <i class="fa-solid fa-video text-base"></i>
-              <span>Direct Zoom Access</span>
+            <a href="https://youtu.be/l9fPphT2DTI" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-x-2 text-center px-6 py-3.5 bg-red-600 hover:bg-red-500 text-white font-bold text-sm rounded-xl transition-all shadow-xl hover:scale-[1.02]">
+              <i class="fa-brands fa-youtube text-base"></i>
+              <span>Watch Recording (YouTube)</span>
             </a>
-            <a href="https://luma.com/7s246f9p" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-x-2 text-center px-6 py-3.5 bg-purple-600 hover:bg-purple-500 text-white font-bold text-sm rounded-xl transition-all shadow-xl hover:scale-[1.02]">
+            <a href="https://www.youtube.com/playlist?list=PLNweIjAM_4WR_AmJBgFumDhvA0L80Oqsh" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-x-2 text-center px-5 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm rounded-xl transition-all border border-slate-700">
+              <i class="fa-solid fa-list-ul text-sm text-red-400"></i>
+              <span>Official Series Playlist</span>
+            </a>
+            <a href="#materials" class="inline-flex items-center justify-center gap-x-2 text-center px-6 py-3.5 bg-purple-600 hover:bg-purple-500 text-white font-bold text-sm rounded-xl transition-all shadow-xl hover:scale-[1.02]">
+              <i class="fa-solid fa-file-pdf text-base"></i>
+              <span>Download Slides</span>
+            </a>
+            <a href="https://luma.com/7s246f9p" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-x-2 text-center px-5 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm rounded-xl transition-all border border-slate-700">
               <i class="fa-solid fa-ticket text-sm"></i>
-              <span>Luma Dedicated RSVP (7s246f9p)</span>
+              <span>Luma Page</span>
             </a>
           </div>
 
@@ -102,14 +110,55 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
           <div class="mt-4 pt-4 border-t border-purple-500/20 space-y-2 text-sm text-slate-200">
             <div class="font-semibold text-purple-300 flex items-center gap-2">
               <i class="fa-solid fa-shield-halved text-purple-400"></i>
-              <span>Lecture 4 Dedicated Zoom Details</span>
+              <span>Recording & Session Archive Info</span>
             </div>
             <div class="space-y-1.5 font-mono text-xs sm:text-sm bg-slate-950/60 p-4 rounded-xl border border-slate-800">
-              <div><strong>Registration:</strong> <a href="https://luma.com/7s246f9p" target="_blank" rel="noopener noreferrer" class="text-purple-400 hover:underline">https://luma.com/7s246f9p</a></div>
-              <div><strong>Direct Zoom:</strong> <a href="https://zoom.us/j/94234356878?pwd=eBgwdoIGyTsosztJvtPTCm1JiG855A.1" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline break-all">https://zoom.us/j/94234356878?pwd=eBgwdoIGyTsosztJvtPTCm1JiG855A.1</a></div>
-              <div><strong>Meeting ID:</strong> <span class="text-white font-bold bg-slate-800 px-2 py-0.5 rounded">942 3435 6878</span></div>
-              <div><strong>Passcode:</strong> <span class="text-emerald-400 font-bold bg-slate-800 px-2 py-0.5 rounded">18970521</span></div>
-              <div class="text-xs text-amber-400 pt-1">⚠️ Note: Do NOT use the founding ceremony Zoom ID 960 6241 6902.</div>
+              <div><strong>YouTube Recording:</strong> <a href="https://youtu.be/l9fPphT2DTI" target="_blank" rel="noopener noreferrer" class="text-red-400 hover:underline">https://youtu.be/l9fPphT2DTI</a></div>
+              <div><strong>Series Playlist:</strong> <a href="https://www.youtube.com/playlist?list=PLNweIjAM_4WR_AmJBgFumDhvA0L80Oqsh" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">https://www.youtube.com/playlist?list=PLNweIjAM_4WR_AmJBgFumDhvA0L80Oqsh</a></div>
+              <div><strong>Luma Archive:</strong> <a href="https://luma.com/7s246f9p" target="_blank" rel="noopener noreferrer" class="text-purple-400 hover:underline">https://luma.com/7s246f9p</a></div>
+              <div><strong>Original Zoom ID:</strong> <span class="text-white font-bold bg-slate-800 px-2 py-0.5 rounded">942 3435 6878</span> (Passcode: 18970521)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Courseware Download Section -->
+        <div id="materials" class="p-6 md:p-8 bg-slate-900/70 border border-slate-800 rounded-3xl space-y-4 shadow-xl">
+          <div class="flex items-center gap-3 border-b border-slate-800 pb-3">
+            <i class="fa-solid fa-file-pdf text-red-400 text-xl"></i>
+            <h3 class="text-xl font-bold text-white">📚 Lecture 4 Courseware Materials</h3>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div class="p-4 bg-slate-950/60 border border-slate-800 rounded-2xl flex flex-col justify-between space-y-3">
+              <div>
+                <span class="text-xs text-amber-400 font-bold px-2 py-0.5 rounded bg-amber-400/10 border border-amber-400/20">Slide Deck 1</span>
+                <h4 class="text-base font-bold text-slate-100 mt-2">Global AI Agent Compliance</h4>
+                <p class="text-xs text-slate-400 mt-1">Cross-jurisdictional compliance comparison across US, EU, and China</p>
+              </div>
+              <div class="flex items-center gap-2 pt-2">
+                <a href="/media/2026-10-17-lecture/Global_AI_Agent_Compliance.pdf" target="_blank" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold rounded-lg transition-colors flex items-center gap-1.5 shadow-md">
+                  <i class="fa-solid fa-download"></i>
+                  <span>Direct Download</span>
+                </a>
+                <a href="https://zju.fyi/media/2026-10-17-lecture/Global_AI_Agent_Compliance.pdf" target="_blank" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-lg transition-colors border border-slate-700">
+                  <span>zju.fyi Mirror</span>
+                </a>
+              </div>
+            </div>
+            <div class="p-4 bg-slate-950/60 border border-slate-800 rounded-2xl flex flex-col justify-between space-y-3">
+              <div>
+                <span class="text-xs text-emerald-400 font-bold px-2 py-0.5 rounded bg-emerald-400/10 border border-emerald-400/20">Slide Deck 2</span>
+                <h4 class="text-base font-bold text-slate-100 mt-2">Global AI Agent Security and Compliance</h4>
+                <p class="text-xs text-slate-400 mt-1">Agentic boundary enforcement, runtime reporting & architectural safeguards</p>
+              </div>
+              <div class="flex items-center gap-2 pt-2">
+                <a href="/media/2026-10-17-lecture/Global_AI_Agent_Security_and_Compliance.pdf" target="_blank" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold rounded-lg transition-colors flex items-center gap-1.5 shadow-md">
+                  <i class="fa-solid fa-download"></i>
+                  <span>Direct Download</span>
+                </a>
+                <a href="https://zju.fyi/media/2026-10-17-lecture/Global_AI_Agent_Security_and_Compliance.pdf" target="_blank" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-lg transition-colors border border-slate-700">
+                  <span>zju.fyi Mirror</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -198,6 +247,8 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
             <span>🔗 Related Links & Founding Ceremony</span>
           </h3>
           <ul class="space-y-2 text-sm text-slate-300">
+            <li>• <strong>Lecture 4 Recording (YouTube)</strong>: <a href="https://youtu.be/l9fPphT2DTI" target="_blank" rel="noopener noreferrer" class="text-red-400 hover:underline font-semibold">https://youtu.be/l9fPphT2DTI</a></li>
+            <li>• <strong>Official Series Playlist (YouTube)</strong>: <a href="https://www.youtube.com/playlist?list=PLNweIjAM_4WR_AmJBgFumDhvA0L80Oqsh" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">https://www.youtube.com/playlist?list=PLNweIjAM_4WR_AmJBgFumDhvA0L80Oqsh</a></li>
             <li>• <strong>Lecture 3 Review & Slides</strong>: <a href="https://zjuaanc.org/posts/2026-10-03-ai-native-agent-security-compliance-lecture-3/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">https://zjuaanc.org/posts/2026-10-03-ai-native-agent-security-compliance-lecture-3/</a></li>
             <li>• <strong>SF Chapter Founding Ceremony (Starts 6:00 PM, Separate RSVP)</strong>: <a href="https://luma.com/fuakh3da" target="_blank" rel="noopener noreferrer" class="text-purple-400 hover:underline">https://luma.com/fuakh3da</a></li>
             <li>• <strong>SF Chapter Founding Ceremony Overview</strong>: <a href="https://norcal.nacuaa.ai/posts/2026-10-17-nacuaa-san-francisco-chapter-founding-ceremony/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">https://norcal.nacuaa.ai/posts/2026-10-17-nacuaa-san-francisco-chapter-founding-ceremony/</a></li>
