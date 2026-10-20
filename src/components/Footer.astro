@@ -61,20 +61,65 @@ const t = useTranslations(lang);
       </div>
     </div>
 
-    <!-- Sister Chapters & Collaborative Organizations -->
-    <div class="border-t border-slate-900 pt-6 space-y-2">
-      <div class="text-xs font-semibold text-slate-300 uppercase tracking-wider">
-        {lang === 'en' ? 'Sister Chapters & Collaborative Organizations' : lang === 'zh-TW' ? '姊妹分會與協作組織' : '姊妹分会与协作组织'}
+    <!-- Chapters & Regional Ecosystem -->
+    <div class="border-t border-slate-900 pt-6 space-y-4">
+      <!-- NorCal Chapter & Sub-Chapters -->
+      <div class="space-y-2">
+        <div class="text-[11px] font-semibold text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
+          <i class="fa-solid fa-sitemap text-blue-400 text-xs"></i>
+          <span>
+            {lang === 'en' 
+              ? 'Northern California Chapter & Sub-Chapters (Dual-Hub Structure)' 
+              : lang === 'zh-TW' 
+              ? '北加州分會及下轄分會（大區統領 · 雙核驅動）' 
+              : '北加州分会及下辖分会（大区统领 · 双核驱动）'}
+          </span>
+        </div>
+        <div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-slate-400">
+          <a href="https://norcal.nacuaa.ai" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transition-colors font-medium text-slate-300">
+            {lang === 'en' ? 'NorCal Regional Chapter (HQ)' : lang === 'zh-TW' ? '北美高校聯盟北加州分會（大區主管）' : '北美高校联盟北加州分会（大区主管）'}
+          </a>
+          <span class="text-slate-700">|</span>
+          <a href="https://sv.nacuaa.ai" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transition-colors">
+            {lang === 'en' ? 'Silicon Valley Chapter' : lang === 'zh-TW' ? '硅谷分會（矽谷）' : '硅谷分会（南湾/半岛）'}
+          </a>
+          <span class="text-slate-700">·</span>
+          <a href="https://sf.nacuaa.ai" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transition-colors">
+            {lang === 'en' ? 'San Francisco Chapter' : lang === 'zh-TW' ? '舊金山分會（市區）' : '旧金山分会（核心市区）'}
+          </a>
+        </div>
       </div>
-      <div class="flex flex-wrap gap-x-6 gap-y-2 text-xs text-slate-400">
-        <a href="https://wa.nacuaa.ai" class="text-white font-medium hover:text-blue-400 transition-colors">北美高校联盟华盛顿州分会（西雅图）</a>
-        <a href="https://sv.nacuaa.ai" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">北美高校联盟硅谷分会</a>
-        <a href="https://sf.nacuaa.ai" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">北美高校联盟旧金山分会</a>
-        <a href="https://dc.nacuaa.ai" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">北美高校联盟华盛顿DC分会</a>
-        <a href="https://nc.nacuaa.ai" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">北美高校联盟北卡分会</a>
-        <a href="https://sc.nacuaa.ai" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">北美高校联盟南卡分会</a>
-        <a href="https://norcal.nacuaa.ai" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">北美高校联盟北加州分会</a>
-        <a href="https://nacuaa.ai" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">北美高校联盟总会</a>
+
+      <!-- Cross-Regional Sister Chapters & HQ -->
+      <div class="space-y-2">
+        <div class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+          <i class="fa-solid fa-earth-americas text-purple-400 text-xs"></i>
+          <span>
+            {lang === 'en' 
+              ? 'Cross-Regional Sister Chapters & Alliance HQ' 
+              : lang === 'zh-TW' 
+              ? '全美跨區姊妹分會與總會' 
+              : '全美跨区姊妹分会与总会'}
+          </span>
+        </div>
+        <div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-slate-400">
+          <a href="https://wa.nacuaa.ai" class="text-white font-medium hover:text-blue-400 transition-colors flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+            <span>{lang === 'en' ? 'Washington State Chapter (Seattle)' : lang === 'zh-TW' ? '華盛頓州分會（西雅圖）' : '华盛顿州分会（西雅图）'}</span>
+          </a>
+          <a href="https://nacuaa.ai" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors text-blue-400 font-medium">
+            {lang === 'en' ? 'NACUAA HQ' : lang === 'zh-TW' ? '北美高校聯盟總會' : '北美高校联盟总会'}
+          </a>
+          <a href="https://dc.nacuaa.ai" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+            {lang === 'en' ? 'Greater Washington DC Chapter' : lang === 'zh-TW' ? '華盛頓DC大華府分會' : '华盛顿DC大华府分会'}
+          </a>
+          <a href="https://nc.nacuaa.ai" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+            {lang === 'en' ? 'North Carolina Chapter' : lang === 'zh-TW' ? '北卡分會' : '北卡分会'}
+          </a>
+          <a href="https://sc.nacuaa.ai" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+            {lang === 'en' ? 'Southern California Chapter' : lang === 'zh-TW' ? '南加分會' : '南加分会'}
+          </a>
+        </div>
       </div>
     </div>
 
