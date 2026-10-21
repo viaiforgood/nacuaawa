@@ -55,13 +55,21 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
           <div class="p-3 rounded-xl bg-blue-950/40 border border-blue-800/60 text-xs text-slate-300 flex items-start gap-2">
             <i class="fa-solid fa-video text-blue-400 mt-0.5"></i>
             <div>
-              <span><strong>Location:</strong> Online Zoom Webinar (Meeting ID & Passcode to be announced on this page)</span>
+              <span><strong>Location:</strong> Online Zoom Webinar — <strong class="text-white">ID: 912 4742 8225, Passcode: 18970521</strong> (Approval required via Luma)</span>
             </div>
           </div>
         </div>
 
         <div class="pt-2 flex flex-wrap gap-4">
-          <a href="https://music.weiai.ai" target="_blank" rel="noopener noreferrer" class="px-5 py-3 bg-purple-600 hover:bg-purple-500 text-white font-semibold text-sm rounded-xl transition-all shadow-lg flex items-center gap-2">
+          <a href="https://luma.com/up5v4lac" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-purple-600 hover:bg-purple-500 text-white font-semibold text-sm rounded-xl transition-all shadow-lg flex items-center gap-2">
+            <i class="fa-solid fa-ticket"></i>
+            <span>Register Now (Luma)</span>
+          </a>
+          <a href="https://zoom.us/j/91247428225?pwd=MfvD5Xi7kXlaOzZYSO1y9Scy9xZ7b6.1" target="_blank" rel="noopener noreferrer" class="px-5 py-3 bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm rounded-xl transition-all shadow-lg flex items-center gap-2">
+            <i class="fa-solid fa-video"></i>
+            <span>Join Zoom Meeting</span>
+          </a>
+          <a href="https://music.weiai.ai" target="_blank" rel="noopener noreferrer" class="px-5 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm rounded-xl transition-all border border-slate-700 flex items-center gap-2">
             <i class="fa-solid fa-graduation-cap"></i>
             <span>VI AI Music Academy Official Site</span>
           </a>
@@ -89,6 +97,32 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
         <p class="text-amber-300/90 font-medium">
           We do not cover contest submission rules.
         </p>
+
+        <!-- Registration & Zoom Box -->
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="p-5 rounded-2xl bg-purple-950/20 border border-purple-500/30 space-y-2 text-sm">
+            <h4 class="font-bold text-white flex items-center gap-2">
+              <i class="fa-solid fa-ticket text-purple-400"></i>
+              <span>Registration (RSVP)</span>
+            </h4>
+            <p class="text-slate-300 text-xs">Approval required. Upon approval, join using the Zoom link on this page:</p>
+            <a href="https://luma.com/up5v4lac" target="_blank" rel="noopener noreferrer" class="inline-block text-purple-400 hover:underline font-mono text-xs break-all">
+              https://luma.com/up5v4lac
+            </a>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-blue-950/20 border border-blue-500/30 space-y-2 text-sm">
+            <h4 class="font-bold text-white flex items-center gap-2">
+              <i class="fa-solid fa-video text-blue-400"></i>
+              <span>Zoom Meeting Details</span>
+            </h4>
+            <div class="text-xs text-slate-300 space-y-1">
+              <p>• <strong>Meeting ID</strong>: <span class="font-mono text-white font-semibold">912 4742 8225</span></p>
+              <p>• <strong>Passcode</strong>: <span class="font-mono text-white font-semibold">18970521</span></p>
+              <p>• <strong>Direct Link</strong>: <a href="https://zoom.us/j/91247428225?pwd=MfvD5Xi7kXlaOzZYSO1y9Scy9xZ7b6.1" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">Click to Join Zoom</a></p>
+            </div>
+          </div>
+        </div>
 
         <!-- What We Listen For -->
         <div class="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-3 text-sm">

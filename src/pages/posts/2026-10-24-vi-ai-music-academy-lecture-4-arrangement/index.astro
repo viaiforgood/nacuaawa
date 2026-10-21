@@ -55,13 +55,21 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
           <div class="p-3 rounded-xl bg-blue-950/40 border border-blue-800/60 text-xs text-slate-300 flex items-start gap-2">
             <i class="fa-solid fa-video text-blue-400 mt-0.5"></i>
             <div>
-              <span><strong>地点：</strong>Zoom 线上会议（会议号与密码即将公布，请关注本页更新）</span>
+              <span><strong>地点：</strong>Zoom 线上会议 — <strong class="text-white">会议号：912 4742 8225，密码：18970521</strong>（需经 Luma 审核通过后参会）</span>
             </div>
           </div>
         </div>
 
         <div class="pt-2 flex flex-wrap gap-4">
-          <a href="https://music.weiai.ai" target="_blank" rel="noopener noreferrer" class="px-5 py-3 bg-purple-600 hover:bg-purple-500 text-white font-semibold text-sm rounded-xl transition-all shadow-lg flex items-center gap-2">
+          <a href="https://luma.com/up5v4lac" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-purple-600 hover:bg-purple-500 text-white font-semibold text-sm rounded-xl transition-all shadow-lg flex items-center gap-2">
+            <i class="fa-solid fa-ticket"></i>
+            <span>立即报名 (Luma)</span>
+          </a>
+          <a href="https://zoom.us/j/91247428225?pwd=MfvD5Xi7kXlaOzZYSO1y9Scy9xZ7b6.1" target="_blank" rel="noopener noreferrer" class="px-5 py-3 bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm rounded-xl transition-all shadow-lg flex items-center gap-2">
+            <i class="fa-solid fa-video"></i>
+            <span>进入 Zoom 会议</span>
+          </a>
+          <a href="https://music.weiai.ai" target="_blank" rel="noopener noreferrer" class="px-5 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm rounded-xl transition-all border border-slate-700 flex items-center gap-2">
             <i class="fa-solid fa-graduation-cap"></i>
             <span>唯爱AI音乐学苑官网</span>
           </a>
@@ -89,6 +97,32 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
         <p class="text-amber-300/90 font-medium">
           不讲大赛交稿规则。
         </p>
+
+        <!-- Registration & Zoom Box -->
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="p-5 rounded-2xl bg-purple-950/20 border border-purple-500/30 space-y-2 text-sm">
+            <h4 class="font-bold text-white flex items-center gap-2">
+              <i class="fa-solid fa-ticket text-purple-400"></i>
+              <span>活动报名</span>
+            </h4>
+            <p class="text-slate-300 text-xs">需经审核，审核通过后使用本页 Zoom 入会：</p>
+            <a href="https://luma.com/up5v4lac" target="_blank" rel="noopener noreferrer" class="inline-block text-purple-400 hover:underline font-mono text-xs break-all">
+              https://luma.com/up5v4lac
+            </a>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-blue-950/20 border border-blue-500/30 space-y-2 text-sm">
+            <h4 class="font-bold text-white flex items-center gap-2">
+              <i class="fa-solid fa-video text-blue-400"></i>
+              <span>Zoom 会议信息</span>
+            </h4>
+            <div class="text-xs text-slate-300 space-y-1">
+              <p>• <strong>会议号</strong>：<span class="font-mono text-white font-semibold">912 4742 8225</span></p>
+              <p>• <strong>密码</strong>：<span class="font-mono text-white font-semibold">18970521</span></p>
+              <p>• <strong>直达链接</strong>：<a href="https://zoom.us/j/91247428225?pwd=MfvD5Xi7kXlaOzZYSO1y9Scy9xZ7b6.1" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">点击直接入会</a></p>
+            </div>
+          </div>
+        </div>
 
         <!-- What We Listen For -->
         <div class="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-3 text-sm">
