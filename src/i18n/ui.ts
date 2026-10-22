@@ -84,7 +84,7 @@ export const ui = {
     'footer.link.conduct': '社区守则',
     'footer.supported_by': '支持单位：',
     'footer.supported_by.name': 'VI AI for Good Foundation',
-    'footer.supported_by.desc': '唯爱AI公益基金会'
+    'footer.supported_by.desc': '唯爱智能公益基金会'
   },
   'en': {
     'site.title': 'NACUAA WA',
@@ -252,7 +252,7 @@ export const ui = {
     'footer.link.conduct': '社區守則',
     'footer.supported_by': '支持單位：',
     'footer.supported_by.name': 'VI AI for Good Foundation',
-    'footer.supported_by.desc': '唯愛AI公益基金會'
+    'footer.supported_by.desc': '唯愛智能公益基金會'
   }
 } as const;
 
