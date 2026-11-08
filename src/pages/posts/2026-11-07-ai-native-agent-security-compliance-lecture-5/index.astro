@@ -4,8 +4,8 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 <BaseLayout 
   lang="zh-CN" 
-  title="【公益免费｜Zoom】AI原生智能体安全与合规收官讲 — 从设计到上线：最小可运行集" 
-  description="系列收官。60分钟。2026年11月7日（周六）美西 5:30–6:30 PM / 美东 8:30–9:30 PM / 北京时间次日 9:30–10:30 AM。本讲把前四讲留下的东西拼成一个能上线的最小集。只讲可核验的设计，不讲攻击方法。" 
+  title="【录像回放与课件】AI原生智能体安全与合规收官讲 — 从设计到上线：最小可运行集" 
+  description="系列收官讲已圆满举行！现已开放完整 YouTube 录像回放、系列官方播放列表与全部 6 套核心课件 PDF 下载。本讲把前四讲留下的东西拼成一个能上线的最小集（权限卡 + Harness + 人在回路，及授权/执行/通报三条必有记录）。只讲可核验的设计，不讲攻击方法。" 
   path="/posts/2026-11-07-ai-native-agent-security-compliance-lecture-5/"
 >
   <div class="max-w-3xl mx-auto px-6 py-12 md:py-20">
@@ -17,11 +17,11 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
     <article class="space-y-8">
       <header class="border-b border-slate-900 pb-8 space-y-4">
         <div class="flex items-center gap-x-3 text-xs text-slate-500 mb-2 flex-wrap gap-y-1">
-          <time datetime="2026-11-06">2026年11月6日</time>
+          <time datetime="2026-11-07">2026年11月7日</time>
           <span>·</span>
-          <span class="text-amber-400 font-semibold">讲座时间：11月7日（周六）美西 5:30–6:30 PM</span>
+          <span class="text-emerald-400 font-semibold">圆满收官 · 录像回放与6套课件已上线</span>
           <span>·</span>
-          <span class="px-2.5 py-0.5 rounded-full bg-blue-600/10 text-blue-400 border border-blue-500/20 font-semibold">活动讲座 · 收官讲</span>
+          <span class="px-2.5 py-0.5 rounded-full bg-red-600/10 text-red-400 border border-red-500/20 font-semibold">录像回放 · 收官讲</span>
         </div>
         <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-white leading-tight">
           AI原生智能体安全与合规收官讲<br />
@@ -37,11 +37,184 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
       </div>
 
       <div class="text-slate-300 space-y-6 leading-relaxed text-base">
+        <!-- Official Recording, Playlist & Slides Box -->
+        <div class="p-6 md:p-8 bg-gradient-to-br from-red-950/40 via-slate-900 to-blue-950/40 border border-red-500/30 rounded-3xl space-y-5 shadow-2xl">
+          <div class="flex items-center justify-between flex-wrap gap-2 border-b border-red-900/30 pb-4">
+            <div class="flex items-center gap-x-3">
+              <span class="px-3 py-1 rounded-full bg-red-600/20 text-red-400 border border-red-500/30 text-xs font-bold flex items-center gap-1.5">
+                <i class="fa-brands fa-youtube animate-pulse"></i>
+                <span>录像回放与课件</span>
+              </span>
+              <h2 class="text-xl md:text-2xl font-bold text-white">🎥 录像回放、系列合集与收官课件下载</h2>
+            </div>
+            <span class="text-xs text-emerald-400 font-semibold bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">公益免费开源</span>
+          </div>
+
+          <p class="text-sm text-slate-300">
+            <strong>活动说明</strong>：本场收官讲座已于 2026年11月7日圆满举行！现已开放完整 YouTube 录像回放、系列官方播放列表与全部 <strong>6 套收官核心课件 PDF</strong> 下载。
+          </p>
+
+          <!-- Embedded YouTube Video -->
+          <div class="aspect-video w-full rounded-2xl overflow-hidden border border-slate-800 shadow-2xl bg-black">
+            <iframe
+              class="w-full h-full"
+              src="https://www.youtube.com/embed/7rsa1di_dSI"
+              title="AI原生智能体安全与合规收官讲 — 从设计到上线：最小可运行集"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <div class="pt-2 flex flex-wrap gap-4">
+            <a href="https://youtu.be/7rsa1di_dSI" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-x-2 text-center px-6 py-3.5 bg-red-600 hover:bg-red-500 text-white font-bold text-sm rounded-xl transition-all shadow-xl hover:scale-[1.02]">
+              <i class="fa-brands fa-youtube text-base"></i>
+              <span>观看录像回放 (YouTube)</span>
+            </a>
+            <a href="https://www.youtube.com/playlist?list=PLG4UUYcE6oTs" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-x-2 text-center px-5 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm rounded-xl transition-all border border-slate-700">
+              <i class="fa-solid fa-list-ul text-sm text-red-400"></i>
+              <span>系列官方播放列表 (Playlist)</span>
+            </a>
+            <a href="#materials" class="inline-flex items-center justify-center gap-x-2 text-center px-6 py-3.5 bg-purple-600 hover:bg-purple-500 text-white font-bold text-sm rounded-xl transition-all shadow-xl hover:scale-[1.02]">
+              <i class="fa-solid fa-file-pdf text-base"></i>
+              <span>下载全部 6 套课件 PDF</span>
+            </a>
+          </div>
+
+          <div class="mt-4 pt-4 border-t border-red-500/20 space-y-2 text-sm text-slate-200">
+            <div class="space-y-1.5 font-mono text-xs sm:text-sm bg-slate-950/60 p-4 rounded-xl border border-slate-800">
+              <div><strong>收官讲录像回放：</strong><a href="https://youtu.be/7rsa1di_dSI" target="_blank" rel="noopener noreferrer" class="text-red-400 hover:underline break-all">https://youtu.be/7rsa1di_dSI</a></div>
+              <div><strong>系列播放列表：</strong><a href="https://www.youtube.com/playlist?list=PLG4UUYcE6oTs" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline break-all">https://www.youtube.com/playlist?list=PLG4UUYcE6oTs</a></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Courseware Download Section (6 PDFs) -->
+        <div id="materials" class="p-6 md:p-8 bg-slate-900/70 border border-slate-800 rounded-3xl space-y-4 shadow-xl">
+          <div class="flex items-center justify-between flex-wrap gap-2 border-b border-slate-800 pb-3">
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-file-pdf text-red-400 text-xl"></i>
+              <h3 class="text-xl font-bold text-white">📚 第五讲（收官讲）核心课件下载 (6 PDFs)</h3>
+            </div>
+            <span class="text-xs text-slate-400">点击可直接在线预览或下载保存</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <!-- PDF 1 -->
+            <div class="p-4 bg-slate-950/60 border border-slate-800 rounded-2xl flex flex-col justify-between space-y-3">
+              <div>
+                <span class="text-xs text-amber-400 font-bold px-2 py-0.5 rounded bg-amber-400/10 border border-amber-400/20">课件 1 · 架构检查站</span>
+                <h4 class="text-base font-bold text-slate-100 mt-2">AI-Native Agent Security &amp; Compliance (Lecture 5)</h4>
+                <p class="text-xs text-slate-400 mt-1">从设计到生产：最小可运行集（22页核心架构检查站讲义）</p>
+              </div>
+              <div class="flex items-center gap-2 pt-2 flex-wrap">
+                <a href="/media/2026-11-07-lecture/AI-Native_Agent_Security.pdf" target="_blank" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold rounded-lg transition-colors flex items-center gap-1.5 shadow-md">
+                  <i class="fa-solid fa-download"></i>
+                  <span>本站下载</span>
+                </a>
+                <a href="https://zju.fyi/media/2026-11-07-lecture/AI-Native_Agent_Security.pdf" target="_blank" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-lg transition-colors border border-slate-700">
+                  <span>zju.fyi 镜像</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- PDF 2 -->
+            <div class="p-4 bg-slate-950/60 border border-slate-800 rounded-2xl flex flex-col justify-between space-y-3">
+              <div>
+                <span class="text-xs text-emerald-400 font-bold px-2 py-0.5 rounded bg-emerald-400/10 border border-emerald-400/20">课件 2 · Launch Protocol</span>
+                <h4 class="text-base font-bold text-slate-100 mt-2">Minimal Viable Agent Security (MVS)</h4>
+                <p class="text-xs text-slate-400 mt-1">从设计到生产：智能体安全的最小可运行集（25页完整双语启动规程）</p>
+              </div>
+              <div class="flex items-center gap-2 pt-2 flex-wrap">
+                <a href="/media/2026-11-07-lecture/Minimal_Viable_Agent_Security.pdf" target="_blank" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold rounded-lg transition-colors flex items-center gap-1.5 shadow-md">
+                  <i class="fa-solid fa-download"></i>
+                  <span>本站下载</span>
+                </a>
+                <a href="https://zju.fyi/media/2026-11-07-lecture/Minimal_Viable_Agent_Security.pdf" target="_blank" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-lg transition-colors border border-slate-700">
+                  <span>zju.fyi 镜像</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- PDF 3 -->
+            <div class="p-4 bg-slate-950/60 border border-slate-800 rounded-2xl flex flex-col justify-between space-y-3">
+              <div>
+                <span class="text-xs text-blue-400 font-bold px-2 py-0.5 rounded bg-blue-400/10 border border-blue-400/20">课件 3 · 可核验架构</span>
+                <h4 class="text-base font-bold text-slate-100 mt-2">AI Agent Production Security Blueprint</h4>
+                <p class="text-xs text-slate-400 mt-1">终局：从设计到生产的最小可运行集（可核验的架构设计，拒绝理论狂欢 · 15页）</p>
+              </div>
+              <div class="flex items-center gap-2 pt-2 flex-wrap">
+                <a href="/media/2026-11-07-lecture/AI_Agent_Production_Security_Blueprint.pdf" target="_blank" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold rounded-lg transition-colors flex items-center gap-1.5 shadow-md">
+                  <i class="fa-solid fa-download"></i>
+                  <span>本站下载</span>
+                </a>
+                <a href="https://zju.fyi/media/2026-11-07-lecture/AI_Agent_Production_Security_Blueprint.pdf" target="_blank" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-lg transition-colors border border-slate-700">
+                  <span>zju.fyi 镜像</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- PDF 4 -->
+            <div class="p-4 bg-slate-950/60 border border-slate-800 rounded-2xl flex flex-col justify-between space-y-3">
+              <div>
+                <span class="text-xs text-purple-400 font-bold px-2 py-0.5 rounded bg-purple-400/10 border border-purple-400/20">课件 4 · 工程部署版</span>
+                <h4 class="text-base font-bold text-slate-100 mt-2">AI Agent Production Security Blueprint (Engineering)</h4>
+                <p class="text-xs text-slate-400 mt-1">智能体生产环境部署：最小可行集（从沙盒到生产环境的工程蓝图 · 18页）</p>
+              </div>
+              <div class="flex items-center gap-2 pt-2 flex-wrap">
+                <a href="/media/2026-11-07-lecture/AI_Agent_Production_Security_Blueprint_2.pdf" target="_blank" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold rounded-lg transition-colors flex items-center gap-1.5 shadow-md">
+                  <i class="fa-solid fa-download"></i>
+                  <span>本站下载</span>
+                </a>
+                <a href="https://zju.fyi/media/2026-11-07-lecture/AI_Agent_Production_Security_Blueprint_2.pdf" target="_blank" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-lg transition-colors border border-slate-700">
+                  <span>zju.fyi 镜像</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- PDF 5 -->
+            <div class="p-4 bg-slate-950/60 border border-slate-800 rounded-2xl flex flex-col justify-between space-y-3">
+              <div>
+                <span class="text-xs text-cyan-400 font-bold px-2 py-0.5 rounded bg-cyan-400/10 border border-cyan-400/20">课件 5 · 生产级架构</span>
+                <h4 class="text-base font-bold text-slate-100 mt-2">AI智能体生产级安全架构</h4>
+                <p class="text-xs text-slate-400 mt-1">AI原生智能体安全与合规·最终回：从设计到生产可上线的最小可运行集（18页）</p>
+              </div>
+              <div class="flex items-center gap-2 pt-2 flex-wrap">
+                <a href="/media/2026-11-07-lecture/AI智能体生产级安全架构.pdf" target="_blank" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold rounded-lg transition-colors flex items-center gap-1.5 shadow-md">
+                  <i class="fa-solid fa-download"></i>
+                  <span>本站下载</span>
+                </a>
+                <a href="https://zju.fyi/media/2026-11-07-lecture/AI智能体生产级安全架构.pdf" target="_blank" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-lg transition-colors border border-slate-700">
+                  <span>zju.fyi 镜像</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- PDF 6 -->
+            <div class="p-4 bg-slate-950/60 border border-slate-800 rounded-2xl flex flex-col justify-between space-y-3">
+              <div>
+                <span class="text-xs text-rose-400 font-bold px-2 py-0.5 rounded bg-rose-400/10 border border-rose-400/20">课件 6 · 代码级约束蓝图</span>
+                <h4 class="text-base font-bold text-slate-100 mt-2">AI智能体生产级安全蓝图</h4>
+                <p class="text-xs text-slate-400 mt-1">从设计到生产：AI智能体安全上线的最小可行集（凝练前四讲代码级架构约束 · 14页）</p>
+              </div>
+              <div class="flex items-center gap-2 pt-2 flex-wrap">
+                <a href="/media/2026-11-07-lecture/AI智能体生产级安全蓝图.pdf" target="_blank" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold rounded-lg transition-colors flex items-center gap-1.5 shadow-md">
+                  <i class="fa-solid fa-download"></i>
+                  <span>本站下载</span>
+                </a>
+                <a href="https://zju.fyi/media/2026-11-07-lecture/AI智能体生产级安全蓝图.pdf" target="_blank" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-lg transition-colors border border-slate-700">
+                  <span>zju.fyi 镜像</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Time & Location Box -->
         <div class="p-6 bg-slate-900/60 border border-slate-800 rounded-2xl space-y-3">
           <h3 class="text-lg font-bold text-white border-l-4 border-blue-500 pl-3">📅 时间与地点</h3>
           <p class="text-sm text-slate-200 font-semibold">
-            2026年11月7日（周六） · 地点：Zoom
+            2026年11月7日（周六） · 地点：Zoom（已圆满结束）
           </p>
           <ul class="space-y-1.5 text-sm text-slate-300 font-mono">
             <li>• 美西：<strong>5:30–6:30 PM</strong></li>
@@ -67,28 +240,6 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
             <li>• 上线前必须有的三条记录：谁授权、谁执行、出事后谁报</li>
             <li>• 现场：给一个具体场景，当场写出最小配置</li>
           </ul>
-        </div>
-
-        <!-- Zoom Box -->
-        <div class="p-6 md:p-8 bg-gradient-to-br from-blue-950/50 via-slate-900 to-indigo-950/50 border border-blue-500/30 rounded-3xl space-y-4 shadow-2xl">
-          <div class="flex items-center justify-between flex-wrap gap-2 border-b border-blue-900/30 pb-4">
-            <h2 class="text-xl md:text-2xl font-bold text-white">💻 Zoom 参会通道</h2>
-            <span class="text-xs text-emerald-400 font-semibold bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">活动免费</span>
-          </div>
-
-          <div class="pt-2">
-            <a href="https://zoom.us/j/93065409701?pwd=7ZFTEsfQJxvexdE7a11NiwMbbDJaI2.1" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-x-2 text-center px-6 py-3.5 bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm rounded-xl transition-all shadow-xl hover:scale-[1.02]">
-              <i class="fa-solid fa-video text-base"></i>
-              <span>点击加入 Zoom 会议</span>
-            </a>
-          </div>
-
-          <div class="space-y-1.5 font-mono text-xs sm:text-sm bg-slate-950/60 p-4 rounded-xl border border-slate-800 text-slate-200">
-            <div><strong>Zoom 链接：</strong><a href="https://zoom.us/j/93065409701?pwd=7ZFTEsfQJxvexdE7a11NiwMbbDJaI2.1" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline break-all">https://zoom.us/j/93065409701?pwd=7ZFTEsfQJxvexdE7a11NiwMbbDJaI2.1</a></div>
-            <div><strong>会议号：</strong><span class="text-white font-bold bg-slate-800 px-2 py-0.5 rounded">930 6540 9701</span></div>
-            <div><strong>密码：</strong><span class="text-amber-300 font-bold bg-slate-800 px-2 py-0.5 rounded">18970521</span></div>
-            <div class="pt-2 text-slate-300 font-sans">活动免费。Zoom 链接报名后可见。微信：加 <code class="text-emerald-400 font-mono">zjuaanc</code>，备注「<strong>智能体安全</strong>」。</div>
-          </div>
         </div>
 
         <hr class="border-slate-800 my-8" />
