@@ -16,7 +16,7 @@ const t = useTranslations(lang);
     <div class="flex items-center justify-between h-16">
       <!-- Logo -->
       <a href={getLocalizedPath('/', lang)} class="flex items-center gap-x-3">
-        <img src="/images/logo.png" alt="NACUAA Logo" class="w-9 h-9 object-contain" />
+        <img src="/images/logo.png?v=6" alt="NACUAA Logo" class="w-9 h-9 rounded-full object-cover" />
         <div class="flex flex-col">
           <span class="font-semibold text-base md:text-lg tracking-tight text-white leading-tight">
             {lang === 'en' ? 'NACUAA' : lang === 'zh-TW' ? '北美高校聯盟（北高聯）' : '北美高校联盟（北高联）'}
@@ -94,7 +94,7 @@ const t = useTranslations(lang);
 <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 z-[60] flex flex-col p-6 hidden">
   <div class="flex justify-between items-center mb-8">
     <div class="flex items-center gap-x-3">
-      <img src="/images/logo.png" alt="NACUAA Logo" class="w-9 h-9 object-contain" />
+      <img src="/images/logo.png?v=6" alt="NACUAA Logo" class="w-9 h-9 rounded-full object-cover" />
       <div class="flex flex-col">
         <span class="font-semibold text-white text-base leading-tight">
           {lang === 'en' ? 'NACUAA' : lang === 'zh-TW' ? '北美高校聯盟（北高聯）' : '北美高校联盟（北高联）'}
