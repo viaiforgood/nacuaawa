@@ -364,6 +364,50 @@ const t = useTranslations(lang);
     </div>
 
     <div class="grid md:grid-cols-2 gap-6">
+      <!-- Notice: Post-Midterm 2027 US Macro Outlook x Personal Agent Lecture (Nov 14, 2026) -->
+      <div class="bg-gradient-to-br from-blue-950/50 via-slate-900 to-indigo-950/40 border border-blue-500/40 hover:border-blue-400/60 rounded-3xl p-7 flex flex-col justify-between transition-all group shadow-xl shadow-blue-950/20">
+        <div>
+          <div class="flex items-center gap-x-3 text-xs text-slate-400 mb-3 flex-wrap gap-y-1">
+            <span class="px-2.5 py-0.5 rounded-full bg-blue-600/20 text-blue-300 border border-blue-500/30 font-semibold">
+              {lang === 'en' ? 'Online Lecture' : lang === 'zh-TW' ? '線上講座' : '线上讲座'}
+            </span>
+            <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-semibold">
+              {lang === 'en' ? 'Free · Zoom' : lang === 'zh-TW' ? '公益免費' : '公益免费'}
+            </span>
+            <time datetime="2026-11-14">{lang === 'en' ? 'November 14, 2026' : '2026年11月14日'}</time>
+          </div>
+          <h3 class="font-bold text-lg text-white group-hover:text-blue-300 transition-colors leading-snug mb-3">
+            <a href={lang === 'en' 
+              ? '/en/posts/2026-11-14-post-midterm-macro-outlook-personal-agent-lecture/' 
+              : lang === 'zh-TW'
+              ? '/zh-TW/posts/2026-11-14-post-midterm-macro-outlook-personal-agent-lecture/'
+              : '/posts/2026-11-14-post-midterm-macro-outlook-personal-agent-lecture/'}>
+              {lang === 'en' 
+                ? '[Online Lecture] After the Midterms: 2027 US Macroeconomic Outlook × Personal Agent in Action'
+                : lang === 'zh-TW'
+                ? '【線上講座通知】中期選舉之後：2027 美國宏觀經濟展望 × 個人智能體實戰'
+                : '【线上讲座通知】中期选举之后：2027 美国宏观经济展望 × 个人智能体实战'}
+            </a>
+          </h3>
+          <p class="text-slate-400 text-xs leading-relaxed line-clamp-3 mb-6">
+            {lang === 'en'
+              ? 'Sat Nov 14 (5:30–6:30 PM PST | 8:30–9:30 PM EST). Tracy Li on 2027 US macroeconomic outlook after the midterms; Michael HUO on Personal Agents (Meta Muse, ChatGPT Dot, Claude Duet, Gemini, Grok Bot, OpenClaw, Hermes) & StackChan Physical AI demo.'
+              : lang === 'zh-TW'
+              ? '加州下午 5:30–6:30｜東部晚上 8:30–9:30｜北京週日早晨 7:30–8:30。李泉博士解析中期選舉後 2027 美國宏觀經濟展望；霍明旭對比主流個人智能體與 OpenClaw/Hermes 並演示 StackChan 桌面機器人。'
+              : '加州下午 5:30–6:30｜东部晚上 8:30–9:30｜北京周日早晨 7:30–8:30。李泉博士解析中期选举后 2027 美国宏观经济展望；霍明旭对比主流个人智能体与 OpenClaw/Hermes 并演示 StackChan 桌面机器人。'}
+          </p>
+        </div>
+        <a href={lang === 'en' 
+          ? '/en/posts/2026-11-14-post-midterm-macro-outlook-personal-agent-lecture/' 
+          : lang === 'zh-TW'
+          ? '/zh-TW/posts/2026-11-14-post-midterm-macro-outlook-personal-agent-lecture/'
+          : '/posts/2026-11-14-post-midterm-macro-outlook-personal-agent-lecture/'}
+           class="inline-flex items-center gap-x-2 text-xs font-semibold text-blue-400 hover:text-blue-300">
+          <span>{lang === 'en' ? 'View Details & Join Zoom' : lang === 'zh-TW' ? '查看詳情與報名入會' : '查看详情与报名入会'}</span>
+          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        </a>
+      </div>
+
       <!-- Notice 1: WA Chapter Established (Sep 17, 2026) -->
       <div class="bg-slate-900/50 border border-blue-500/40 hover:border-blue-400/60 rounded-3xl p-7 flex flex-col justify-between transition-all group bg-gradient-to-br from-blue-950/20 to-slate-900/50">
         <div>
