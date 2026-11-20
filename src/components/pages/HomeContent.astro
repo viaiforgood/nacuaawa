@@ -364,6 +364,50 @@ const t = useTranslations(lang);
     </div>
 
     <div class="grid md:grid-cols-2 gap-6">
+      <!-- Notice: Agent Paradigm Evolution & Mathematical Foundations of World Models (Nov 21, 2026) -->
+      <div class="bg-gradient-to-br from-blue-950/50 via-slate-900 to-indigo-950/40 border border-blue-500/40 hover:border-blue-400/60 rounded-3xl p-7 flex flex-col justify-between transition-all group shadow-xl shadow-blue-950/20">
+        <div>
+          <div class="flex items-center gap-x-3 text-xs text-slate-400 mb-3 flex-wrap gap-y-1">
+            <span class="px-2.5 py-0.5 rounded-full bg-blue-600/20 text-blue-300 border border-blue-500/30 font-semibold">
+              {lang === 'en' ? 'Online Lecture' : lang === 'zh-TW' ? '線上講座' : '线上讲座'}
+            </span>
+            <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-semibold">
+              {lang === 'en' ? 'Free · Zoom' : lang === 'zh-TW' ? '公益免費' : '公益免费'}
+            </span>
+            <time datetime="2026-11-21">{lang === 'en' ? 'November 21, 2026' : '2026年11月21日'}</time>
+          </div>
+          <h3 class="font-bold text-lg text-white group-hover:text-blue-300 transition-colors leading-snug mb-3">
+            <a href={lang === 'en' 
+              ? '/en/posts/2026-11-21-agent-paradigm-evolution-world-models-math-lecture/' 
+              : lang === 'zh-TW'
+              ? '/zh-TW/posts/2026-11-21-agent-paradigm-evolution-world-models-math-lecture/'
+              : '/posts/2026-11-21-agent-paradigm-evolution-world-models-math-lecture/'}>
+              {lang === 'en' 
+                ? '[Online Lecture] Agent Paradigm Evolution and the Mathematical Foundations of World Models'
+                : lang === 'zh-TW'
+                ? '【線上講座通知】智能體範式演進與世界模型的數學基礎'
+                : '【线上讲座通知】智能体范式演进与世界模型的数学基础'}
+            </a>
+          </h3>
+          <p class="text-slate-400 text-xs leading-relaxed line-clamp-3 mb-6">
+            {lang === 'en'
+              ? 'Sat Nov 21 (5:30–6:30 PM PST | 8:30–9:30 PM EST | Sun 9:30–10:30 AM Beijing). Michael HUO on Agent Paradigm Evolution, Embodied & Physical AI (Cosmos 3, Gemini Robotics 2.5, π-series, EmbodiRSI); Lijia Zhang on continuum PDE mathematics of I-JEPA World Models.'
+              : lang === 'zh-TW'
+              ? '11月21日（週六）加州 5:30–6:30 PM｜東部 8:30–9:30 PM｜北京週日 9:30–10:30 AM。霍明旭解析智能體範式與物理AI實現機理；張立稼結合 I-JEPA 連續場論文詳解世界模型的數學基礎。'
+              : '11月21日（周六）加州 5:30–6:30 PM｜东部 8:30–9:30 PM｜北京周日 9:30–10:30 AM。霍明旭解析智能体范式与物理AI实现机理；张立稼结合 I-JEPA 连续场论文详解世界模型的数学基础。'}
+          </p>
+        </div>
+        <a href={lang === 'en' 
+          ? '/en/posts/2026-11-21-agent-paradigm-evolution-world-models-math-lecture/' 
+          : lang === 'zh-TW'
+          ? '/zh-TW/posts/2026-11-21-agent-paradigm-evolution-world-models-math-lecture/'
+          : '/posts/2026-11-21-agent-paradigm-evolution-world-models-math-lecture/'}
+           class="inline-flex items-center gap-x-2 text-xs font-semibold text-blue-400 hover:text-blue-300">
+          <span>{lang === 'en' ? 'View Details & Join Zoom' : lang === 'zh-TW' ? '查看詳情與報名入會' : '查看详情与报名入会'}</span>
+          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        </a>
+      </div>
+
       <!-- Notice: Post-Midterm 2027 US Macro Outlook x Personal Agent Lecture (Nov 14, 2026) -->
       <div class="bg-gradient-to-br from-blue-950/50 via-slate-900 to-indigo-950/40 border border-blue-500/40 hover:border-blue-400/60 rounded-3xl p-7 flex flex-col justify-between transition-all group shadow-xl shadow-blue-950/20">
         <div>
