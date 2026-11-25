@@ -364,6 +364,56 @@ const t = useTranslations(lang);
     </div>
 
     <div class="grid md:grid-cols-2 gap-6">
+      <!-- Notice: NACUAA Inaugural AI Education, Research & Career Development Forum (Dec 5, 2026) -->
+      <div class="bg-gradient-to-br from-amber-950/45 via-slate-900 to-blue-950/45 border border-amber-500/45 hover:border-amber-400/70 rounded-3xl p-7 flex flex-col justify-between transition-all group shadow-xl shadow-amber-950/20">
+        <div>
+          <div class="flex items-center gap-x-3 text-xs text-slate-400 mb-3 flex-wrap gap-y-1">
+            <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/35 font-semibold">
+              {lang === 'en' ? 'Inaugural Forum · Dec 5' : lang === 'zh-TW' ? '首屆年度論壇 · 12月5日' : '首届年度论坛 · 12月5日'}
+            </span>
+            <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-semibold">
+              {lang === 'en' ? 'Room MR02 + Zoom · Sponsorships Open' : lang === 'zh-TW' ? '現場 + Zoom · 誠邀贊助' : '现场 + Zoom · 诚邀赞助'}
+            </span>
+            <time datetime="2026-12-05">{lang === 'en' ? 'December 5, 2026' : '2026年12月5日'}</time>
+          </div>
+          <h3 class="font-bold text-lg text-white group-hover:text-amber-300 transition-colors leading-snug mb-3">
+            <a href={lang === 'en' 
+              ? '/en/posts/2026-12-05-nacuaa-inaugural-ai-education-research-career-forum/' 
+              : lang === 'zh-TW'
+              ? '/zh-TW/posts/2026-12-05-nacuaa-inaugural-ai-education-research-career-forum/'
+              : '/posts/2026-12-05-nacuaa-inaugural-ai-education-research-career-forum/'}>
+              {lang === 'en' 
+                ? 'NACUAA Inaugural AI Education, Research & Career Development Forum (北美高校联盟首届 AI 教育科研与职业发展论坛)'
+                : lang === 'zh-TW'
+                ? '北美高校聯盟首屆 AI 教育科研與職業發展論壇｜格物致知 · 知行致遠'
+                : '北美高校联盟首届 AI 教育科研与职业发展论坛｜格物致知 · 知行致远'}
+            </a>
+          </h3>
+          <p class="text-slate-300 text-xs leading-relaxed line-clamp-3 mb-6">
+            {lang === 'en'
+              ? 'Sat Dec 5, 2026 (13:00–17:00 PT | 16:00–20:00 ET | Sun 05:00–09:00 CST) at Spaces Oyster Point (Room MR02), South San Francisco + Zoom (ID: 928 6632 9724, Passcode: 18970521). Hosted by NACUAA NorCal Chapter, co-organized by SF Chapter & AI Venture Club. Sponsorships invited (tax-deductible receipt available).'
+              : lang === 'zh-TW'
+              ? '12月5日（週六）13:00–17:00 PT｜16:00–20:00 ET｜次日 05:00–09:00 CST，南舊金山 Spaces Oyster Point (Room MR02) 現場 + Zoom 同步。北加州分會主辦，舊金山分會與 AI 創業公益俱樂部承辦，誠邀報名與贊助支持（可提供免稅收據）。'
+              : '12月5日（周六）13:00–17:00 PT｜16:00–20:00 ET｜次日 05:00–09:00 CST，南旧金山 Spaces Oyster Point (Room MR02) 现场 + Zoom 同步。北加州分会主办，旧金山分会与 AI 创业公益俱乐部承办，诚邀报名与赞助支持（可提供免税收据）。'}
+          </p>
+        </div>
+        <div class="flex flex-wrap items-center gap-4">
+          <a href={lang === 'en' 
+            ? '/en/posts/2026-12-05-nacuaa-inaugural-ai-education-research-career-forum/' 
+            : lang === 'zh-TW'
+            ? '/zh-TW/posts/2026-12-05-nacuaa-inaugural-ai-education-research-career-forum/'
+            : '/posts/2026-12-05-nacuaa-inaugural-ai-education-research-career-forum/'}
+             class="inline-flex items-center gap-x-2 text-xs font-semibold text-amber-300 hover:text-amber-200">
+            <span>{lang === 'en' ? 'Forum Details & Sponsorship' : lang === 'zh-TW' ? '查看論壇詳情與贊助方案' : '查看论坛详情与赞助方案'}</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+          <a href="https://luma.com/72p758yx" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-x-1.5 text-xs font-semibold text-emerald-400 hover:text-emerald-300">
+            <i class="fa-solid fa-ticket text-[10px]"></i>
+            <span>{lang === 'en' ? 'RSVP on Luma' : 'Luma 报名'}</span>
+          </a>
+        </div>
+      </div>
+
       <!-- Notice: Agent Paradigm Evolution & Mathematical Foundations of World Models (Nov 21, 2026) -->
       <div class="bg-gradient-to-br from-red-950/35 via-slate-900 to-blue-950/40 border border-red-500/40 hover:border-red-400/60 rounded-3xl p-7 flex flex-col justify-between transition-all group shadow-xl shadow-red-950/20">
         <div>
